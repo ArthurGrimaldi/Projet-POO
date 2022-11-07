@@ -18,7 +18,7 @@ class Utilisateur:
         self._id = uuid.uuid1()
         self._nom = nom
         self._date_naissance = date_naissance
-        self._statut = "Utilisateur Commun"
+        self._statut = "Standard"
         self._date_enregistrement = datetime.now()
 
 
