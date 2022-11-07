@@ -1,5 +1,6 @@
 import uuid
 
+
 class Reservation:
     """
     ### Purpose
@@ -20,10 +21,23 @@ class Reservation:
     def jour(self):
         return self._jour
 
+    @jour.setter
+    def jour(self, new_jour):
+        self._jour = new_jour
+        return
+
     @property
     def heure(self):
         return self._heure
-    
+
+    @heure.setter
+    def heure(self, new_heure):
+        self._heure = new_heure
+
     @property
     def occupe(self):
         return self._occupe
+
+    @occupe.setter
+    def occupe(self, new_occupe):
+        self._occupe = new_occupe

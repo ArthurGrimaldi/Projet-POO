@@ -1,5 +1,6 @@
 import uuid
 
+
 class RecommenderSystem():
     def __init__(self):
         self._id = uuid.uuid4()
