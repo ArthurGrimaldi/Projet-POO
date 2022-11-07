@@ -21,9 +21,38 @@ class Utilisateur:
         self._statut = "Standard"
         self._date_enregistrement = datetime.now()
 
+    @property
+    def id(self):
+        return self._id
+
+    @property
+    def nom(self):
+        return self._nom
+
+    @property
+    def date_naissance(self):
+        return self._date_naissance
+
+    @property
+    def statut(self):
+        return self._statut
+
+    @property
+    def statut(self):
+        return self._date_enregistrement
+
 
 class Utilisateur_Admin(Utilisateur):
 
     def __init__(self, nom: str, date_naissance: date):
+        """
+        ### Purpose
+        Hérite de toutes les propriétés d'Utilisateur.\n
+        Change le statut de Standard à Admin.
+
+        Args:
+            nom (str): Nom du nouvel administrateur.
+            date_naissance (date): Date de naissance du nouvel administrateur.
+        """
         super().__init__(nom, date_naissance)
         self.statut = "Admin"
