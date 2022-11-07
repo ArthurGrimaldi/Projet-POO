@@ -10,11 +10,8 @@ class Utilisateur :
     """
     
     def __init__(self, nom : str, date_naissance : date) -> None:
-        ID = self.uuid.uuid1()
-        nom = self.nom
-        date_naissance = self.date_naissance
-        statut = "Utilisateur Commun"
-        date_enregistrement = self.datetime.now()
-    
-    
-    
+        self.id = uuid.uuid1()
+        self.nom = nom
+        self.date_naissance = date_naissance
+        self.statut = "Utilisateur Commun"
+        self.date_enregistrement = datetime.now()
