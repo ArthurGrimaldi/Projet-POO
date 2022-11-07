@@ -4,7 +4,7 @@ from datetime import date, datetime
 
 class Utilisateur:
 
-    def __init__(self, nom: str, date_naissance: date) -> None:
+    def __init__(self, nom: str, date_naissance: date):
         """
         ### Purpose
         Créer un Utilisateur commun (différent d'un Utilisateur_Admin).\n
@@ -24,6 +24,6 @@ class Utilisateur:
 
 class Utilisateur_Admin(Utilisateur):
 
-    def __init__(self, nom: str, date_naissance: date) -> None:
+    def __init__(self, nom: str, date_naissance: date):
         super().__init__(nom, date_naissance)
         self.statut = "Admin"
