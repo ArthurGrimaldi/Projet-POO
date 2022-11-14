@@ -21,6 +21,8 @@ class Utilisateur:
         self._statut = "Standard"
         self._date_enregistrement = datetime.now()
 
+        self._book_list = []
+
     @property
     def id(self):
         return self._id
@@ -42,7 +44,7 @@ class Utilisateur:
         return self._date_enregistrement
 
 
-class Utilisateur_Admin(Utilisateur):
+class Admin(Utilisateur):
 
     def __init__(self, nom: str, date_naissance: date):
         """
