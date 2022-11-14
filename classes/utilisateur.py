@@ -20,6 +20,8 @@ class Utilisateur:
         self._date_naissance = date_naissance
         self._statut = "Standard"
         self._date_enregistrement = datetime.now()
+        
+        self._emprunt = False
 
         self._liste_livres = []
 
@@ -42,6 +44,18 @@ class Utilisateur:
     @property
     def statut(self):
         return self._date_enregistrement
+    
+    def emprunter(self):
+        if self.emprunt == True:
+            return "Vous ne pouvez plus emprunter de livres aujourd'hui. Revenez Demain !"
+        if len(self._liste_livres) == 5 :
+            return "Vous avez déjà emprunté 5 livres. Retournez en un afin de pouvoir en emprunter un autre !"
+        livre = {
+            "Titre" : str(input("Insérer le titre du livre :")),
+            "Auteur" : str(input("Insérer l'auteur du livre :"))
+        }
+    # Ajouter rechercher() pour utiliser livre et resortir l'ID du livre   
+
 
 
 class Admin(Utilisateur):
