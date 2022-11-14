@@ -1,5 +1,6 @@
 import uuid
 from datetime import date, datetime
+import yaml
 
 
 class Utilisateur:
@@ -7,7 +8,7 @@ class Utilisateur:
     def __init__(self, nom: str, date_naissance: date):
         """
         ### Purpose
-        Créer un Utilisateur commun (différent d'un Utilisateur_Admin).\n
+        Créer un Utilisateur commun (différent d'un Admin).\n
         Nécessite d'input un nom et une date de naissance (format date).\n
         ID génère automatiquement des ID uniques en fonction de la datetime actuelle (import uuid)
 
@@ -30,18 +31,51 @@ class Utilisateur:
     @property
     def nom(self):
         return self._nom
+    
+    @nom.setter
+    def nom(self, new_nom):
+        self._nom = new_nom
+        return self._nom
 
     @property
     def date_naissance(self):
+        return self._date_naissance
+    
+    @date_naissance.setter
+    def date_naissance(self, new_date_naissance):
+        self._date_naissance = new_date_naissance
         return self._date_naissance
 
     @property
     def statut(self):
         return self._statut
+    
+    @statut.setter
+    def statut(self, new_statut):
+        self._statut = new_statut
+        return self._statut
 
     @property
-    def statut(self):
+    def date_enregistrement(self):
         return self._date_enregistrement
+    
+    def inscription(self, username, mail, pwd):
+        with open('config.yaml') as f:
+            config = yaml.safe_load(f)
+            
+            config['credentials']['usernames'].update({
+                username: {
+                    'email': mail, 
+                    'username': username, 
+                    # 'pwd': stauth.Hasher(pwd).generate()
+                    'password': pwd
+                    }
+            })
+
+        with open('config.yaml', 'w') as f:
+            yaml.dump(config, f)
+        
+        return
 
 
 class Admin(Utilisateur):
