@@ -1,5 +1,6 @@
 import uuid
 from datetime import datetime
+from utilisateur import Utilisateur
 
 class Livre:
     def __init__(self, titre: str, auteurs, edition: str, genre, note: list):
@@ -8,11 +9,16 @@ class Livre:
         self._auteurs = auteurs
         self._edition = edition
         self._genre = genre
-        self._note = note
+        self._note = []
         self._date_enregistrement = datetime.now().strftime('%d/%m/%Y:%H:%M:%S')
         
-        #self._historique = {}
-        #self.statut = True
+        self._historique = {
+            "user" : Utilisateur._id,
+            "date emprunt" : datetime,
+            "date retour" : datetime
+        }
+        
+        self._statut = True
 
     @property
     def id(self):

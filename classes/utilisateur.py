@@ -1,6 +1,5 @@
 import uuid
 from datetime import date, datetime
-import yaml
 
 
 class Utilisateur:
@@ -21,8 +20,13 @@ class Utilisateur:
         self._date_naissance = date_naissance
         self._statut = "Standard"
         self._date_enregistrement = datetime.now()
+        
+        self._emprunt_jour = False
 
-        self._liste_livres = []
+        self._liste_livres = {
+            "ID" : Livre._id,
+            "date emprunt" : datetime
+        }
 
     @property
     def id(self):
@@ -58,24 +62,6 @@ class Utilisateur:
     @property
     def date_enregistrement(self):
         return self._date_enregistrement
-    
-    def inscription(self, username, mail, pwd):
-        with open('config.yaml') as f:
-            config = yaml.safe_load(f)
-            
-            config['credentials']['usernames'].update({
-                username: {
-                    'email': mail, 
-                    'username': username, 
-                    # 'pwd': stauth.Hasher(pwd).generate()
-                    'password': pwd
-                    }
-            })
-
-        with open('config.yaml', 'w') as f:
-            yaml.dump(config, f)
-        
-        return
 
 
 class Admin(Utilisateur):
