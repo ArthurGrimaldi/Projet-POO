@@ -10,6 +10,9 @@ class Livre:
         self._genre = genre
         self._note = note
         self._date_enregistrement = datetime.now().strftime('%d/%m/%Y:%H:%M:%S')
+        
+        #self._historique = {}
+        #self.statut = True
 
     @property
     def id(self):

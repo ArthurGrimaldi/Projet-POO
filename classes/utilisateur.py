@@ -21,7 +21,7 @@ class Utilisateur:
         self._statut = "Standard"
         self._date_enregistrement = datetime.now()
 
-        self._book_list = []
+        self._liste_livres = []
 
     @property
     def id(self):
