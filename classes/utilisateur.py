@@ -24,10 +24,7 @@ class Utilisateur:
         
         self._emprunt_jour = False
 
-        self._liste_livres = {
-            "ID" : Livre._id,
-            "date emprunt" : datetime
-        }
+        self._liste_livres = []
 
     @property
     def id(self):
@@ -67,7 +64,7 @@ class Utilisateur:
             - Changer self.emprunt_jour à True pour User
             - Changer self._statut à False pour Livre (False = emprunté)
         """
-        if self.emprunt == True:
+        if self._emprunt_jour == True:
             return "Vous ne pouvez plus emprunter de livres aujourd'hui. Revenez Demain !"
         if len(self._liste_livres) == 5 :
             return "Vous avez déjà emprunté 5 livres. Retournez en un afin de pouvoir en emprunter un autre !"
@@ -101,11 +98,13 @@ class Utilisateur:
             - Changer self._statut du Livre à True,
             - Ajouter à la liste _historique du livre l'ID de l'User, la date d'emprunt et la date de retour du livre.
         """
+        if livre._id not in self._liste_livres:
+            raise ValueError("Ce livre ne fait pas partie des livres empruntés.")
         while True:
             try:
                 note = int(input("Entrer une note pour le livre :"))
                 if note < 0 or note > 5:
-                    raise ValueError 
+                    raise ValueError
                 break
             except ValueError:
                 return "La note doit être un chiffre rond."
