@@ -1,5 +1,6 @@
 import uuid
 from datetime import date, datetime
+from livre import Livre
 
 
 class Utilisateur:
@@ -21,9 +22,12 @@ class Utilisateur:
         self._statut = "Standard"
         self._date_enregistrement = datetime.now()
         
-        self._emprunt = False
+        self._emprunt_jour = False
 
-        self._liste_livres = []
+        self._liste_livres = {
+            "ID" : Livre._id,
+            "date emprunt" : datetime
+        }
 
     @property
     def id(self):
@@ -54,7 +58,27 @@ class Utilisateur:
             "Titre" : str(input("Insérer le titre du livre :")),
             "Auteur" : str(input("Insérer l'auteur du livre :"))
         }
-    # Ajouter rechercher() pour utiliser livre et resortir l'ID du livre   
+    # Ajouter rechercher() pour utiliser livre et resortir l'ID du livre
+    # Ajouter une variable contenant la date d'emprunt
+    
+    def retourner(self, livre = Livre):
+        while True:
+            try:
+                note = int(input("Entrer une note pour le livre :"))
+                if note < 0 or note > 5:
+                    raise ValueError 
+                break
+            except ValueError:
+                return "La note doit être un chiffre rond."
+        
+        livre._note.append(note)
+        self._liste_livres = self._liste_livres.remove(livre._id)
+        livre.statut = True
+        livre._historique = livre._historique.update({
+            "user": self._id,
+            "date emprunt": self._liste_livres("date emprunt"),
+            "date retour": datetime.now()
+        })
 
 
 
