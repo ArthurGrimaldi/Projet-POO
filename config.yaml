@@ -1,0 +1,10 @@
+credentials:
+  usernames:
+    agrimaldi:
+      email: arthur.grimaldi.edu@groupe-gema.com
+      password: "123"
+      username: agrimaldi
+    pfaguet:
+      email: paul.faguet.edu@groupe-gema.com
+      password: "123"
+      username: pfaguet

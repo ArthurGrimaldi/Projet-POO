@@ -1,6 +1,7 @@
 import uuid
 from datetime import date, datetime
 from livre import Livre
+import yaml
 
 
 class Utilisateur:
@@ -8,7 +9,7 @@ class Utilisateur:
     def __init__(self, nom: str, date_naissance: date):
         """
         ### Purpose
-        Créer un Utilisateur commun (différent d'un Utilisateur_Admin).\n
+        Créer un Utilisateur commun (différent d'un Admin).\n
         Nécessite d'input un nom et une date de naissance (format date).\n
         ID génère automatiquement des ID uniques en fonction de la datetime actuelle (import uuid)
 
@@ -33,36 +34,44 @@ class Utilisateur:
     @property
     def nom(self):
         return self._nom
+    
+    @nom.setter
+    def nom(self, new_nom):
+        self._nom = new_nom
+        return self._nom
 
     @property
     def date_naissance(self):
+        return self._date_naissance
+    
+    @date_naissance.setter
+    def date_naissance(self, new_date_naissance):
+        self._date_naissance = new_date_naissance
         return self._date_naissance
 
     @property
     def statut(self):
         return self._statut
+    
+    @statut.setter
+    def statut(self, new_statut):
+        self._statut = new_statut
+        return self._statut
 
     @property
-    def statut(self):
+    def date_enregistrement(self):
         return self._date_enregistrement
-    
-    def emprunter(self):
-        """
-        ### Purpose :
-        Méthode définie afin d'emprunter un livre.\n
-        Demande en input un titre et un auteur afin de ressortir l'ID du livre à emprunter.\n
-        Check :
-            - si le User a déjà fait un emprunt aujourd'hui 
-            - s'il a déjà 5 livres empruntés (Si oui ValueError).\n
 
+    def retourner(self):
+        """
         ### Returns:
-            _type_: _description_
+             _type_: _description_
             
-        ### Final :
-        Si toutes les conditions d'emprunt sont remplies, la méthode va :\n
-            - Ajouter l'ID du livre à la liste de livres empruntés par le User,
-            - Changer self.emprunt_jour à True pour User
-            - Changer self._statut à False pour Livre (False = emprunté)
+         ### Final :
+         Si toutes les conditions d'emprunt sont remplies, la méthode va :\n
+             - Ajouter l'ID du livre à la liste de livres empruntés par le User,
+             - Changer self.emprunt_jour à True pour User
+             - Changer self._statut à False pour Livre (False = emprunté)
         """
         if self._emprunt_jour == True:
             return "Vous ne pouvez plus emprunter de livres aujourd'hui. Revenez Demain !"
@@ -75,16 +84,9 @@ class Utilisateur:
     # Ajouter rechercher() pour utiliser livre et resortir l'ID du livre
     # Ajouter une variable contenant la date d'emprunt
     
-    def retourner(self, livre = Livre):
-        """
-        ### Purpose :
-        Méthode définie afin de retourner un livre.\n
-        Demande en entrée un livre présent dans la base.\n
-        Check :
-            - Si le livre a bien été emprunté par le User,
-            - Si la note en input est un int,
-            - Si la note en input est entre 0 et 5.
 
+    def emprunter(self, livre = Livre):
+        """
         Args:
             livre (Livre, optional): Objet Livre. Defaults to Livre.
 
@@ -117,7 +119,6 @@ class Utilisateur:
             "date emprunt": self._liste_livres("date emprunt"),
             "date retour": datetime.now()
         })
-
 
 
 class Admin(Utilisateur):

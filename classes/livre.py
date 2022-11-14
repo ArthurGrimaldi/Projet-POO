@@ -12,11 +12,7 @@ class Livre:
         self._note = []
         self._date_enregistrement = datetime.now().strftime('%d/%m/%Y:%H:%M:%S')
         
-        self._historique = {
-            "user" : Utilisateur._id,
-            "date emprunt" : datetime,
-            "date retour" : datetime
-        }
+        self._historique = []
         
         self._statut = True
 
