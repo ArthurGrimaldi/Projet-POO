@@ -1,10 +1,14 @@
 credentials:
   usernames:
+    aaaa:
+      email: aaa
+      name: aaaa
+      password: aaa
     agrimaldi:
       email: arthur.grimaldi.edu@groupe-gema.com
-      password: "123"
+      password: '123'
       username: agrimaldi
     pfaguet:
       email: paul.faguet.edu@groupe-gema.com
-      password: "123"
+      password: '123'
       username: pfaguet
