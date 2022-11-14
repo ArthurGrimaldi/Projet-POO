@@ -1,5 +1,6 @@
 import uuid
 from datetime import date, datetime
+import yaml
 
 
 class Utilisateur:
@@ -23,10 +24,7 @@ class Utilisateur:
         
         self._emprunt_jour = False
 
-        self._liste_livres = {
-            "ID" : Livre._id,
-            "date emprunt" : datetime
-        }
+        self._liste_livres = []
 
     @property
     def id(self):
@@ -63,6 +61,22 @@ class Utilisateur:
     def date_enregistrement(self):
         return self._date_enregistrement
 
+    def inscription(self, username, mail, pwd):
+        with open("config.yaml") as file:
+            config = yaml.safe_load(file)
+
+            config['credentials']['usernames'].update({
+                username: {
+                    "email": mail,
+                    "name": username,
+                    "password" : pwd
+                }
+            })
+
+        with open("config.yaml", 'w') as file:
+            yaml.dump(config, file)
+
+        return 
 
 class Admin(Utilisateur):
 
