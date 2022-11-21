@@ -1,6 +1,8 @@
 import uuid
 from datetime import date, datetime
 import yaml
+import pandas as pd
+import os
 
 class Utilisateur:
 
@@ -59,8 +61,17 @@ class Utilisateur:
     @property
     def date_enregistrement(self):
         return self._date_enregistrement
+    
+    def rechercher(self, recherche : str):
+        livres = pd.read_csv(os.getcwd() + "/books.csv", sep=",")
+        liste = []
+        for i in livres:
+            if recherche in livres[0:i]:
+                liste.append(i)
+        
+        return liste
 
-    def retourner(self):
+    def emprunter(self):
         """
         ### Returns:
              _type_: _description_
@@ -83,7 +94,7 @@ class Utilisateur:
     # Ajouter une variable contenant la date d'emprunt
     
 
-    def emprunter(self, livre):
+    def retourner(self, livre):
         """
         Args:
             livre (Livre, optional): Objet Livre.
