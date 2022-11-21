@@ -1,13 +1,9 @@
 import streamlit as st
 import streamlit_authenticator as sa
 
-# import os
-# os.path.append(r'/Users/paulfaguet/Desktop/bastos')
 from classes.utilisateur import Utilisateur
 
-
-
-st.write("S'enregistrer")
+st.header("S'ENREGISTRER")
 
 colu1, colu2 = st.columns([3, 1])
 with colu1:
@@ -32,7 +28,8 @@ with footer2 :
     valider = st.button("VALIDER")
 if valider:
     user = Utilisateur(username, date_naissance)
-    user.inscription(username, mail, pwd)
+    hashed_password = sa.Hasher(['123', '456']).generate()
+    user.inscription(username, mail, hashed_password)
 
     st.success(f"Bienvenue {username.upper()}, votre compte a été créé")
 

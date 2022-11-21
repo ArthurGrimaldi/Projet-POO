@@ -3,6 +3,8 @@ from datetime import date, datetime
 import yaml
 import pandas as pd
 import os
+import streamlit_authenticator as stauth
+
 
 class Utilisateur:
 
@@ -137,7 +139,7 @@ class Utilisateur:
                 username: {
                     "email": mail,
                     "name": username,
-                    "password" : pwd
+                    "password" : stauth.Hasher(pwd).generate()
                 }
             })
 
