@@ -134,12 +134,12 @@ class Utilisateur:
     def inscription(self, username, mail, pwd):
         with open("config.yaml") as file:
             config = yaml.safe_load(file)
-
+            
             config['credentials']['usernames'].update({
                 username: {
                     "email": mail,
                     "name": username,
-                    "password" : stauth.Hasher(pwd).generate()
+                    "password" : pwd
                 }
             })
 

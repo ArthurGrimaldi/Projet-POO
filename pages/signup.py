@@ -28,8 +28,7 @@ with footer2 :
     valider = st.button("VALIDER")
 if valider:
     user = Utilisateur(username, date_naissance)
-    hashed_password = sa.Hasher(['123', '456']).generate()
-    user.inscription(username, mail, hashed_password)
+    user.inscription(username, mail, sa.Hasher([pwd]).generate()[0])
 
     st.success(f"Bienvenue {username.upper()}, votre compte a été créé")
 

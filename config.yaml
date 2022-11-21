@@ -1,17 +1,21 @@
-credentials:
-  usernames:
-    jsmith:
-      email: jsmith@gmail.com
-      name: John Smith
-      password: "$2b$12$qn8BCmHDK1wB/YU9sZ3cWOG8uRQaBW44PVEBU.2mxTIrndKlVwxO." # To be replaced with hashed password
-    rbriggs:
-      email: rbriggs@gmail.com
-      name: Rebecca Briggs
-      password: "$2b$12$so.A1ZCofCALAon.kmxm1eryRCTtIFHy0bViSxhqsENuxnKrAUxgO" # To be replaced with hashed password
 cookie:
   expiry_days: 30
   key: some_signature_key
   name: some_cookie_name
+credentials:
+  usernames:
+    fagz:
+      email: aaa
+      name: fagz
+      password: $2b$12$wl0FNavzZm7ygNU5ohKTMeNm6KnfVNmUbHfp.k3ch0Pc5GqoS3ji6
+    jsmith:
+      email: jsmith@gmail.com
+      name: John Smith
+      password: $2b$12$qn8BCmHDK1wB/YU9sZ3cWOG8uRQaBW44PVEBU.2mxTIrndKlVwxO.
+    rbriggs:
+      email: rbriggs@gmail.com
+      name: Rebecca Briggs
+      password: $2b$12$so.A1ZCofCALAon.kmxm1eryRCTtIFHy0bViSxhqsENuxnKrAUxgO
 preauthorized:
   emails:
     - melsby@gmail.com
