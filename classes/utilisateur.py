@@ -1,8 +1,6 @@
 import uuid
 from datetime import date, datetime
-from livre import Livre
 import yaml
-
 
 class Utilisateur:
 
@@ -85,10 +83,10 @@ class Utilisateur:
     # Ajouter une variable contenant la date d'emprunt
     
 
-    def emprunter(self, livre = Livre):
+    def emprunter(self, livre):
         """
         Args:
-            livre (Livre, optional): Objet Livre. Defaults to Livre.
+            livre (Livre, optional): Objet Livre.
 
         Returns:
             _type_: _description_
@@ -138,6 +136,7 @@ class Utilisateur:
         return 
 
 
+
 class Admin(Utilisateur):
 
     def __init__(self, nom: str, date_naissance: date):
@@ -152,3 +151,6 @@ class Admin(Utilisateur):
         """
         super().__init__(nom, date_naissance)
         self.statut = "Admin"
+
+
+
