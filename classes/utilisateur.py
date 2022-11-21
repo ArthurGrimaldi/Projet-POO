@@ -120,6 +120,23 @@ class Utilisateur:
             "date retour": datetime.now()
         })
 
+    def inscription(self, username, mail, pwd):
+        with open("config.yaml") as file:
+            config = yaml.safe_load(file)
+
+            config['credentials']['usernames'].update({
+                username: {
+                    "email": mail,
+                    "name": username,
+                    "password" : pwd
+                }
+            })
+
+        with open("config.yaml", 'w') as file:
+            yaml.dump(config, file)
+
+        return 
+
 
 class Admin(Utilisateur):
 
