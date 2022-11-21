@@ -1,9 +1,8 @@
 import uuid
 from datetime import datetime
-from utilisateur import Utilisateur
 
 class Livre:
-    def __init__(self, titre: str, auteurs, edition: str, genre, note: list):
+    def __init__(self, titre: str, auteurs, edition: str, genre):
         self._id = uuid.uuid4()
         self._titre = titre
         self._auteurs = auteurs
