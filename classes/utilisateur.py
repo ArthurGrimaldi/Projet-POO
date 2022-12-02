@@ -65,10 +65,11 @@ class Utilisateur:
         return self._date_enregistrement
     
     def rechercher(self, recherche : str):
+        recherche = 'Christmas'
         livres = pd.read_csv(os.getcwd() + "/books.csv", sep=",")
         liste = []
-        for i in livres:
-            if recherche in livres[0:i]:
+        for i in livres.itertuples():
+            if recherche.lower() in i.Title.lower():
                 liste.append(i)
         
         return liste
@@ -79,14 +80,14 @@ class Utilisateur:
              _type_: _description_
             
          ### Final :
-         Si toutes les conditions d'emprunt sont remplies, la méthode va :\n
+         Si toutes les conditions d'emprunt sont remplies, la méthode va :
              - Ajouter l'ID du livre à la liste de livres empruntés par le User,
              - Changer self.emprunt_jour à True pour User
              - Changer self._statut à False pour Livre (False = emprunté)
         """
         if self._emprunt_jour == True:
             return "Vous ne pouvez plus emprunter de livres aujourd'hui. Revenez Demain !"
-        if len(self._liste_livres) == 5 :
+        if len(self._liste_livres) >= 5 :
             return "Vous avez déjà emprunté 5 livres. Retournez en un afin de pouvoir en emprunter un autre !"
         livre = {
             "Titre" : str(input("Insérer le titre du livre :")),
@@ -142,7 +143,7 @@ class Utilisateur:
                     "password" : pwd
                 }
             })
-
+            config['preauthorized']['emails'].append(username)
         with open("config.yaml", 'w') as file:
             yaml.dump(config, file)
 
@@ -167,3 +168,5 @@ class Admin(Utilisateur):
 
 
 
+test = Utilisateur("test", date(2000, 1, 1))
+test.rechercher("christmas")
