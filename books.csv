@@ -79,10 +79,10 @@ Radiowaril Bhashane & Shrutika,"Deshpande, P L",nonfiction,213,Mauj,True
 Gun Gayin Awadi,"Deshpande, P L",nonfiction,212,Mauj,True
 Aghal Paghal,"Deshpande, P L",nonfiction,212,Mauj,True
 Maqta-e-Ghalib,"Garg, Sanjay",fiction,221,Mauj,True
-Beyond Degrees,,nonfiction,222,HarperCollins,True
+Beyond Degrees,None,nonfiction,222,HarperCollins,True
 Manasa,"Kale, V P",nonfiction,213,Mauj,True
 India from Midnight to Milennium,"Tharoor, Shashi",history,198,Penguin,True
-"World's Greatest Trials, The",,history,210,,True
+"World's Greatest Trials, The",None,history,210,None,True
 "Great Indian Novel, The","Tharoor, Shashi",fiction,198,Penguin,True
 O Jerusalem!,"Lapierre, Dominique",history,217,vikas,True
 "City of Joy, The","Lapierre, Dominique",fiction,177,vikas,True
@@ -91,7 +91,7 @@ Freedom at Midnight,"Lapierre, Dominique",history,167,vikas,True
 On Education,"Russell, Bertrand",philosophy,203,Routledge,True
 Free Will,"Harris, Sam",philosophy,203,FreePress,True
 Bookless in Baghdad,"Tharoor, Shashi",nonfiction,206,Penguin,True
-"Case of the Lame Canary, The","Gardner, Earle Stanley",fiction,179,,True
+"Case of the Lame Canary, The","Gardner, Earle Stanley",fiction,179,None,True
 "Theory of Everything, The","Hawking, Stephen",science,217,Jaico,True
 New Markets & Other Essays,"Drucker, Peter",economics,176,Penguin,True
 Electric Universe,"Bodanis, David",science,201,Penguin,True
@@ -102,111 +102,111 @@ Doctor in the Nude,"Gordon, Richard",fiction,179,Penguin,True
 Down and Out in Paris & London,"Orwell, George",nonfiction,179,Penguin,True
 Identity & Violence,"Sen, Amartya",philosophy,219,Penguin,True
 Beyond the Three Seas,"Dalrymple, William",history,197,Random House,True
-"World's Greatest Short Stories, The",,fiction,217,Jaico,True
-Talking Straight,"Iacoca, Lee",nonfiction,175,,True
+"World's Greatest Short Stories, The",None,fiction,217,Jaico,True
+Talking Straight,"Iacoca, Lee",nonfiction,175,None,True
 "Maugham's Collected Short Stories, Vol 3","Maugham, William S",fiction,171,Vintage,True
-"Phantom of Manhattan, The","Forsyth, Frederick",fiction,180,,True
+"Phantom of Manhattan, The","Forsyth, Frederick",fiction,180,None,True
 Ashenden of The British Agent,"Maugham, William S",fiction,160,Vintage,True
 Zen & The Art of Motorcycle Maintenance,"Pirsig, Robert",philosophy,172,Vintage,True
 "Great War for Civilization, The","Fisk, Robert",history,197,HarperCollins,True
 We the Living,"Rand, Ayn",fiction,178,Penguin,True
 "Artist and the Mathematician, The","Aczel, Amir",science,186,HighStakes,True
 History of Western Philosophy,"Russell, Bertrand",philosophy,213,Routledge,True
-Selected Short Stories,,fiction,215,Jaico,True
+Selected Short Stories,None,fiction,215,Jaico,True
 Rationality & Freedom,"Sen, Amartya",economics,213,Springer,True
 Clash of Civilizations and Remaking of the World Order,"Huntington, Samuel",history,228,Simon&Schuster,True
 Uncommon Wisdom,"Capra, Fritjof",nonfiction,197,Fontana,True
 One,"Bach, Richard",nonfiction,172,Dell,True
-Karl Marx Biography,,nonfiction,162,,True
+Karl Marx Biography,None,nonfiction,162,None,True
 To Sir With Love,Braithwaite,fiction,197,Penguin,True
-Half A Life,"Naipaul, V S",fiction,196,,True
-"Discovery of India, The","Nehru, Jawaharlal",history,230,,True
-Apulki,"Deshpande, P L",nonfiction,211,,True
-Unpopular Essays,"Russell, Bertrand",philosophy,198,,True
-"Deceiver, The","Forsyth, Frederick",fiction,178,,True
-Veil: Secret Wars of the CIA,"Woodward, Bob",history,171,,True
-Char Shabda,"Deshpande, P L",nonfiction,214,,True
-Rosy is My Relative,"Durrell, Gerald",fiction,176,,True
-"Moon and Sixpence, The","Maugham, William S",fiction,180,,True
-Political Philosophers,,philosophy,162,,True
-"Short History of the World, A","Wells, H G",history,197,,True
-"Trembling of a Leaf, The","Maugham, William S",fiction,205,,True
-Doctor on the Brain,"Gordon, Richard",fiction,204,,True
-Simpsons & Their Mathematical Secrets,"Singh, Simon",science,233,,True
-Pattern Classification,"Duda, Hart",data_science,241,,True
-From Beirut to Jerusalem,"Friedman, Thomas",history,202,,True
-"Code Book, The","Singh, Simon",science,197,,True
-"Age of the Warrior, The","Fisk, Robert",history,197,,True
-Final Crisis,,comic,257,,True
-"Killing Joke, The",,comic,283,,True
-Flashpoint,,comic,265,,True
-Batman Earth One,,comic,265,,True
-Crisis on Infinite Earths,,comic,258,,True
-"Numbers Behind Numb3rs, The","Devlin, Keith",science,202,,True
-Superman Earth One - 1,,comic,259,,True
-Superman Earth One - 2,,comic,258,,True
-Justice League: Throne of Atlantis,,comic,258,,True
-Justice League: The Villain's Journey,,comic,258,,True
-"Death of Superman, The",,comic,258,,True
-History of the DC Universe,,comic,258,,True
-Batman: The Long Halloween,,comic,258,,True
-"Life in Letters, A","Steinbeck, John",nonfiction,196,,True
-"Information, The","Gleick, James",science,233,,True
-"Journal of Economics, vol 106 No 3",,economics,235,,True
-Elements of Information Theory,"Thomas, Joy",data_science,229,,True
-Power Electronics - Rashid,"Rashid, Muhammad",computer_science,235,,True
-Power Electronics - Mohan,"Mohan, Ned",computer_science,237,,True
-Neural Networks,"Haykin, Simon",data_science,240,,True
-"Grapes of Wrath, The","Steinbeck, John",fiction,196,,True
-Vyakti ani Valli,"Deshpande, P L",nonfiction,211,,True
-Statistical Learning Theory,"Vapnik, Vladimir",data_science,228,,True
-Empire of the Mughal - The Tainted Throne,"Rutherford, Alex",history,180,,True
-Empire of the Mughal - Brothers at War,"Rutherford, Alex",history,180,,True
-Empire of the Mughal - Ruler of the World,"Rutherford, Alex",history,180,,True
-Empire of the Mughal - The Serpent's Tooth,"Rutherford, Alex",history,180,,True
-Empire of the Mughal - Raiders from the North,"Rutherford, Alex",history,180,,True
-Mossad,"Baz-Zohar, Michael",history,236,,True
-Jim Corbett Omnibus,"Corbett, Jim",nonfiction,223,,True
-20000 Leagues Under the Sea,"Verne, Jules",fiction,190,,True
-Batatyachi Chal,Deshpande P L,fiction,200,,True
-Hafasavnuk,Deshpande P L,fiction,211,,True
-Urlasurla,Deshpande P L,fiction,211,,True
-Pointers in C,"Kanetkar, Yashwant",computer_science,213,,True
-"Cathedral and the Bazaar, The","Raymond, Eric",computer_science,217,,True
-Design with OpAmps,"Franco, Sergio",computer_science,240,,True
-Think Complexity,"Downey, Allen",data_science,230,,True
-"Devil's Advocate, The","West, Morris",fiction,178,,True
-Ayn Rand Answers,"Rand, Ayn",philosophy,203,,True
-Philosophy: Who Needs It,"Rand, Ayn",philosophy,171,,True
-"World's Great Thinkers, The",,philosophy,189,,True
-Data Analysis with Open Source Tools,"Janert, Phillip",data_science,230,,True
-Broca's Brain,"Sagan, Carl",science,174,,True
-Men of Mathematics,"Bell, E T",mathematics,217,,True
-Oxford book of Modern Science Writing,"Dawkins, Richard",science,240,,True
-"Justice, Judiciary and Democracy","Ranjan, Sudhanshu",philosophy,224,,True
-"Arthashastra, The",Kautiyla,philosophy,214,,True
-We the People,Palkhivala,philosophy,216,,True
-We the Nation,Palkhivala,philosophy,216,,True
-"Courtroom Genius, The",Sorabjee,nonfiction,217,,True
-Dongri to Dubai,"Zaidi, Hussain",nonfiction,216,,True
-"History of England, Foundation","Ackroyd, Peter",history,197,,True
-City of Djinns,"Dalrymple, William",history,198,,True
-India's Legal System,Nariman,nonfiction,177,,True
-More Tears to Cry,"Sassoon, Jean",fiction,235,,True
-"Ropemaker, The","Dickinson, Peter",fiction,196,,True
-Angels & Demons,"Brown, Dan",fiction,170,,True
-"Judge, The",,fiction,170,,True
-"Attorney, The",,fiction,170,,True
-"Prince, The",Machiavelli,philosophy,173,,True
-Eyeless in Gaza,"Huxley, Aldous",fiction,180,,True
-Tales of Beedle the Bard,"Rowling, J K",fiction,184,,True
-Girl with the Dragon Tattoo,"Larsson, Steig",fiction,179,,True
-Girl who kicked the Hornet's Nest,"Larsson, Steig",fiction,179,,True
-Girl who played with Fire,"Larsson, Steig",fiction,179,,True
-Batman Handbook,,comic,270,,True
-Murphy's Law,,nonfiction,178,,True
-Structure and Randomness,"Tao, Terence",mathematics,252,,True
-Image Processing with MATLAB,"Eddins, Steve",signal_processing,241,,True
-Animal Farm,"Orwell, George",fiction,180,,True
-"Idiot, The","Dostoevsky, Fyodor",fiction,197,,True
-"Christmas Carol, A","Dickens, Charles",fiction,196,,True
+Half A Life,"Naipaul, V S",fiction,196,None,True
+"Discovery of India, The","Nehru, Jawaharlal",history,230,None,True
+Apulki,"Deshpande, P L",nonfiction,211,None,True
+Unpopular Essays,"Russell, Bertrand",philosophy,198,None,True
+"Deceiver, The","Forsyth, Frederick",fiction,178,None,True
+Veil: Secret Wars of the CIA,"Woodward, Bob",history,171,None,True
+Char Shabda,"Deshpande, P L",nonfiction,214,None,True
+Rosy is My Relative,"Durrell, Gerald",fiction,176,None,True
+"Moon and Sixpence, The","Maugham, William S",fiction,180,None,True
+Political Philosophers,None,philosophy,162,None,True
+"Short History of the World, A","Wells, H G",history,197,None,True
+"Trembling of a Leaf, The","Maugham, William S",fiction,205,None,True
+Doctor on the Brain,"Gordon, Richard",fiction,204,None,True
+Simpsons & Their Mathematical Secrets,"Singh, Simon",science,233,None,True
+Pattern Classification,"Duda, Hart",data_science,241,None,True
+From Beirut to Jerusalem,"Friedman, Thomas",history,202,None,True
+"Code Book, The","Singh, Simon",science,197,None,True
+"Age of the Warrior, The","Fisk, Robert",history,197,None,True
+Final Crisis,None,comic,257,None,True
+"Killing Joke, The",None,comic,283,None,True
+Flashpoint,None,comic,265,None,True
+Batman Earth One,None,comic,265,None,True
+Crisis on Infinite Earths,None,comic,258,None,True
+"Numbers Behind Numb3rs, The","Devlin, Keith",science,202,None,True
+Superman Earth One - 1,None,comic,259,None,True
+Superman Earth One - 2,None,comic,258,None,True
+Justice League: Throne of Atlantis,None,comic,258,None,True
+Justice League: The Villain's Journey,None,comic,258,None,True
+"Death of Superman, The",None,comic,258,None,True
+History of the DC Universe,None,comic,258,None,True
+Batman: The Long Halloween,None,comic,258,None,True
+"Life in Letters, A","Steinbeck, John",nonfiction,196,None,True
+"Information, The","Gleick, James",science,233,None,True
+"Journal of Economics, vol 106 No 3",None,economics,235,None,True
+Elements of Information Theory,"Thomas, Joy",data_science,229,None,True
+Power Electronics - Rashid,"Rashid, Muhammad",computer_science,235,None,True
+Power Electronics - Mohan,"Mohan, Ned",computer_science,237,None,True
+Neural Networks,"Haykin, Simon",data_science,240,None,True
+"Grapes of Wrath, The","Steinbeck, John",fiction,196,None,True
+Vyakti ani Valli,"Deshpande, P L",nonfiction,211,None,True
+Statistical Learning Theory,"Vapnik, Vladimir",data_science,228,None,True
+Empire of the Mughal - The Tainted Throne,"Rutherford, Alex",history,180,None,True
+Empire of the Mughal - Brothers at War,"Rutherford, Alex",history,180,None,True
+Empire of the Mughal - Ruler of the World,"Rutherford, Alex",history,180,None,True
+Empire of the Mughal - The Serpent's Tooth,"Rutherford, Alex",history,180,None,True
+Empire of the Mughal - Raiders from the North,"Rutherford, Alex",history,180,None,True
+Mossad,"Baz-Zohar, Michael",history,236,None,True
+Jim Corbett Omnibus,"Corbett, Jim",nonfiction,223,None,True
+20000 Leagues Under the Sea,"Verne, Jules",fiction,190,None,True
+Batatyachi Chal,Deshpande P L,fiction,200,None,True
+Hafasavnuk,Deshpande P L,fiction,211,None,True
+Urlasurla,Deshpande P L,fiction,211,None,True
+Pointers in C,"Kanetkar, Yashwant",computer_science,213,None,True
+"Cathedral and the Bazaar, The","Raymond, Eric",computer_science,217,None,True
+Design with OpAmps,"Franco, Sergio",computer_science,240,None,True
+Think Complexity,"Downey, Allen",data_science,230,None,True
+"Devil's Advocate, The","West, Morris",fiction,178,None,True
+Ayn Rand Answers,"Rand, Ayn",philosophy,203,None,True
+Philosophy: Who Needs It,"Rand, Ayn",philosophy,171,None,True
+"World's Great Thinkers, The",None,philosophy,189,None,True
+Data Analysis with Open Source Tools,"Janert, Phillip",data_science,230,None,True
+Broca's Brain,"Sagan, Carl",science,174,None,True
+Men of Mathematics,"Bell, E T",mathematics,217,None,True
+Oxford book of Modern Science Writing,"Dawkins, Richard",science,240,None,True
+"Justice, Judiciary and Democracy","Ranjan, Sudhanshu",philosophy,224,None,True
+"Arthashastra, The",Kautiyla,philosophy,214,None,True
+We the People,Palkhivala,philosophy,216,None,True
+We the Nation,Palkhivala,philosophy,216,None,True
+"Courtroom Genius, The",Sorabjee,nonfiction,217,None,True
+Dongri to Dubai,"Zaidi, Hussain",nonfiction,216,None,True
+"History of England, Foundation","Ackroyd, Peter",history,197,None,True
+City of Djinns,"Dalrymple, William",history,198,None,True
+India's Legal System,Nariman,nonfiction,177,None,True
+More Tears to Cry,"Sassoon, Jean",fiction,235,None,True
+"Ropemaker, The","Dickinson, Peter",fiction,196,None,True
+Angels & Demons,"Brown, Dan",fiction,170,None,True
+"Judge, The",None,fiction,170,None,True
+"Attorney, The",None,fiction,170,None,True
+"Prince, The",Machiavelli,philosophy,173,None,True
+Eyeless in Gaza,"Huxley, Aldous",fiction,180,None,True
+Tales of Beedle the Bard,"Rowling, J K",fiction,184,None,True
+Girl with the Dragon Tattoo,"Larsson, Steig",fiction,179,None,True
+Girl who kicked the Hornet's Nest,"Larsson, Steig",fiction,179,None,True
+Girl who played with Fire,"Larsson, Steig",fiction,179,None,True
+Batman Handbook,None,comic,270,None,True
+Murphy's Law,None,nonfiction,178,None,True
+Structure and Randomness,"Tao, Terence",mathematics,252,None,True
+Image Processing with MATLAB,"Eddins, Steve",signal_processing,241,None,True
+Animal Farm,"Orwell, George",fiction,180,None,True
+"Idiot, The","Dostoevsky, Fyodor",fiction,197,None,True
+"Christmas Carol, A","Dickens, Charles",fiction,196,None,True

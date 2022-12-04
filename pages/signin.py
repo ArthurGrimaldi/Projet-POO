@@ -73,21 +73,21 @@ if authentication_status:
     st.markdown("## Rechercher un livre")
     characteristic = st.selectbox(
         label="Rechercher par...",
-        options=['Titre', 'Auteur', 'Genre', 'Éditeur', 'Disponibilité']
+        options=['Titre', 'Auteur', 'Genre', 'Éditeur']
     )
-    if characteristic == 'Disponibilité':
-        dispo = st.selectbox(
-            label="Rechercher un livre selon sa disponibilité",
-            options=['Disponible', 'Non disponible']
-        )
-        if dispo == 'Disponible':
-            value = True
-        else:
-            value = False
-    else:
-        value = st.text_input(
-            label=f'Rechercher un livre selon son {characteristic.lower()}'
-        )
+    # if characteristic == 'Disponibilité':
+    #     dispo = st.selectbox(
+    #         label="Rechercher un livre selon sa disponibilité",
+    #         options=['Disponible', 'Non disponible']
+    #     )
+    #     if dispo == 'Disponible':
+    #         value = True
+    #     else:
+    #         value = False
+    # else:
+    value = st.text_input(
+        label=f'Rechercher un livre selon son {characteristic.lower()}'
+    )
     
     if st.button('Rechercher'):
         st.write(user.rechercher(value, characteristic))

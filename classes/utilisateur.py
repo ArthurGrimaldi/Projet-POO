@@ -77,18 +77,18 @@ class Utilisateur_Nouveau:
             type_recherche = 'Genre'
         elif type_recherche == "Éditeur":
             type_recherche = 'Publisher'
-        elif type_recherche == "Disponibilité":
-            type_recherche = 'Available'
 
-        livres = pd.read_csv("books_test.csv", sep=",")
+
+        livres = pd.read_csv("books.csv", sep=",")
         liste = pd.DataFrame(columns=livres.columns)
         for livre in livres.iterrows():
             if valeur_recherche.lower() in livre[1][type_recherche].lower():
                 liste = pd.concat([liste, livre[1].to_frame().T], ignore_index=True)
-                return liste
-            else:
-                return "Aucun livre ne correspond à votre recherche."
-
+        if liste.empty:
+            print("Aucun livre ne correspond à votre recherche.")
+        else:     
+            return liste
+            
     def emprunter(self, livre : str):
         """
         ### Returns:
@@ -102,9 +102,10 @@ class Utilisateur_Nouveau:
         """
         if self._emprunt_jour == True:
             return "Vous ne pouvez plus emprunter de livres aujourd'hui. Revenez Demain !"
+
         if len(self._liste_livres) >= 5 :
             return "Vous avez déjà emprunté 5 livres. Retournez en un afin de pouvoir en emprunter un autre !"
-        
+
         if self.rechercher(livre).len == 0:
             return "Le livre recherché n'est pas disponible dnas cette bibliothèque."
         elif self.rechercher(livre).len > 1:
