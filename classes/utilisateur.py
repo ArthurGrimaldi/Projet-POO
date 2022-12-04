@@ -65,6 +65,24 @@ class Utilisateur_Nouveau:
     def date_enregistrement(self):
         return self._date_enregistrement
     
+    @property
+    def emprunt_jour(self):
+        return self._emprunt_jour
+    
+    @property
+    def liste_livres(self):
+        return self._liste_livres
+    
+    def __str__(self):
+        return f"""
+    Nom : {self.nom}
+    Date de naissance : {self.date_naissance}
+    Statut : {self.statut}
+    Date d'enregistrement : {self.date_enregistrement}
+    Emprunt du jour : {self.emprunt_jour} (Si "False", aucun livre n'a été emprunté aujourd'hui)
+    Liste des livres empruntés : {self.liste_livres}
+    """
+    
     def rechercher(self, recherche : str):
         livres = pd.read_csv(os.getcwd() + "/books.csv", sep=",")
         liste = []
