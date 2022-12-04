@@ -89,7 +89,7 @@ class Utilisateur_Nouveau:
         else:     
             return liste
             
-    def emprunter(self, livre : str):
+    def emprunter(self, livre : str, type_recherche : str):
         """
         ### Returns:
              _type_: _description_
@@ -106,9 +106,11 @@ class Utilisateur_Nouveau:
         if len(self._liste_livres) >= 5 :
             return "Vous avez déjà emprunté 5 livres. Retournez en un afin de pouvoir en emprunter un autre !"
 
-        if self.rechercher(livre).len == 0:
+        recherche = self.rechercher(valeur_recherche= livre, type_recherche= type_recherche)
+        
+        if recherche == 0:
             return "Le livre recherché n'est pas disponible dnas cette bibliothèque."
-        elif self.rechercher(livre).len > 1:
+        elif max(recherche.index) > 1:
             print(f"Votre recherche retourne plusieurs livres :\n {self.rechercher(livre)}\n Veuillez préciser votre recherche.")
         else:
             livre1 = self.rechercher(livre)
