@@ -17,7 +17,6 @@ class Utilisateur_Nouveau:
         Créer un Utilisateur commun (différent d'un Admin).\n
         Nécessite d'input un nom et une date de naissance (format date).\n
         ID génère automatiquement des ID uniques en fonction de la datetime actuelle (import uuid)
-
         ### Args
             nom (str): Nom de l'utilisateur
             date_naissance (date): Date de naissance de l'utilisateur au format date
@@ -123,7 +122,6 @@ class Utilisateur_Nouveau:
         """
         Args:
             livre (Livre, optional): Objet Livre.
-
         Returns:
             _type_: _description_
             
@@ -162,7 +160,6 @@ class Utilisateur_Nouveau:
             pwd (str): Mot de passe
         
         Returns:
-
         ### Final :
         Configuration du fichier yaml pour l'authentification et mise à jour de la base
         de données des utilisateurs.
@@ -213,7 +210,6 @@ class Admin(Utilisateur_Nouveau):
         ### Purpose
         Hérite de toutes les propriétés d'Utilisateur.\n
         Change le statut de Standard à Admin.
-
         Args:
             nom (str): Nom du nouvel administrateur.
             date_naissance (date): Date de naissance du nouvel administrateur.
@@ -232,4 +228,3 @@ class Utilisateur_Existant(Utilisateur_Nouveau):
         self._date_enregistrement = date_enregistrement
         self._emprunt_jour = emprunt_jour
         self._liste_livres = liste_livres
-
