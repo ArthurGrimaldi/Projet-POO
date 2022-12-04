@@ -7,7 +7,7 @@ import streamlit_authenticator as stauth
 from classes.livre import Livre
 
 
-class Utilisateur:
+class Utilisateur_Nouveau:
 
     def __init__(self, nom: str, date_naissance: date):
         """
@@ -154,9 +154,26 @@ class Utilisateur:
 
         return 
 
+    def _addUserToCSV(self):
+        """
+        ### Objectif
+        Ajoute le nouvel utilisateur à la base de données des utilisateurs.
+        """
+        users = pd.read_csv('users.csv', sep=',')
+        users = users.append({
+            'id': self._id, 
+            'nom': self._nom, 
+            'date_naissance': self._date_naissance, 
+            'statut': self._statut, 
+            'date_enregistrement': self._date_enregistrement, 
+            'emprunt_jour': self._emprunt_jour, 
+            'liste_livres': self._liste_livres
+        }, ignore_index=True)
+        users.to_csv('users.csv', index=False)
+        return
 
 
-class Admin(Utilisateur):
+class Admin(Utilisateur_Nouveau):
 
     def __init__(self, nom: str, date_naissance: date):
         """
@@ -172,4 +189,13 @@ class Admin(Utilisateur):
         self.statut = "Admin"
 
 
-
+class Utilisateur_Existant(Utilisateur_Nouveau):
+    
+    def __init__(self, id : str, nom : str, date_naissance : date, statut : str, date_enregistrement : date, emprunt_jour : bool, liste_livres : list):
+        self._id = id
+        self._nom = nom
+        self._date_naissance = date_naissance
+        self._statut = statut
+        self._date_enregistrement = date_enregistrement
+        self._emprunt_jour = emprunt_jour
+        self._liste_livres = liste_livres
