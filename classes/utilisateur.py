@@ -67,45 +67,8 @@ class Utilisateur_Nouveau:
     def date_enregistrement(self):
         return self._date_enregistrement
     
-<<<<<<< HEAD
-    @property
-    def emprunt_jour(self):
-        return self._emprunt_jour
-    
-    @property
-    def liste_livres(self):
-        return self._liste_livres
-    
-    def __str__(self):
-        return f"""
-    Nom : {self.nom}
-    Date de naissance : {self.date_naissance}
-    Statut : {self.statut}
-    Date d'enregistrement : {self.date_enregistrement}
-    Emprunt du jour : {self.emprunt_jour} (Si "False", aucun livre n'a été emprunté aujourd'hui)
-    Liste des livres empruntés : {self.liste_livres}
-    """
-    
-    def rechercher(self, recherche : str):
-        livres = pd.read_csv(os.getcwd() + "/books.csv", sep=",")
-        liste = []
-        for i in livres.itertuples():
-            if recherche.lower() in i.Title.lower():
-                liste.append(i)
-        
-        return liste
-||||||| 094c4dd
-    def rechercher(self, recherche : str):
-        livres = pd.read_csv(os.getcwd() + "/books.csv", sep=",")
-        liste = []
-        for i in livres.itertuples():
-            if recherche.lower() in i.Title.lower():
-                liste.append(i)
-        
-        return liste
-=======
     def rechercher(self, valeur_recherche: str, type_recherche: str):
-
+    
         if type_recherche == "Titre":
             type_recherche = 'Title'
         elif type_recherche == "Auteur":
@@ -121,10 +84,6 @@ class Utilisateur_Nouveau:
         for livre in livres.iterrows():
             if valeur_recherche.lower() in livre[1][type_recherche].lower():
                 liste = pd.concat([liste, livre[1].to_frame().T], ignore_index=True)
-                return liste
-            else:
-                return "Aucun livre ne correspond à votre recherche."
->>>>>>> e2c8876e9843f6288ef1a6ae0587158a233a5d2f
 
         if liste.empty:
             print("Aucun livre ne correspond à votre recherche.")
