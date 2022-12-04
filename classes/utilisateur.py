@@ -4,6 +4,7 @@ import yaml
 import pandas as pd
 import os
 import streamlit_authenticator as stauth
+from classes.livre import Livre
 
 
 class Utilisateur:
@@ -65,7 +66,6 @@ class Utilisateur:
         return self._date_enregistrement
     
     def rechercher(self, recherche : str):
-        recherche = 'Christmas'
         livres = pd.read_csv(os.getcwd() + "/books.csv", sep=",")
         liste = []
         for i in livres.itertuples():
@@ -74,7 +74,7 @@ class Utilisateur:
         
         return liste
 
-    def emprunter(self):
+    def emprunter(self, livre : str):
         """
         ### Returns:
              _type_: _description_
@@ -89,10 +89,15 @@ class Utilisateur:
             return "Vous ne pouvez plus emprunter de livres aujourd'hui. Revenez Demain !"
         if len(self._liste_livres) >= 5 :
             return "Vous avez déjà emprunté 5 livres. Retournez en un afin de pouvoir en emprunter un autre !"
-        livre = {
-            "Titre" : str(input("Insérer le titre du livre :")),
-            "Auteur" : str(input("Insérer l'auteur du livre :"))
-        }
+        
+        if self.rechercher(livre).len == 0:
+            return "Le livre recherché n'est pas disponible dnas cette bibliothèque."
+        elif self.rechercher(livre).len > 1:
+            print(f"Votre recherche retourne plusieurs livres :\n {self.rechercher(livre)}\n Veuillez préciser votre recherche.")
+        else:
+            livre1 = self.rechercher(livre)
+            instan_livre = Livre(titre= livre1.Title)
+            
     # Ajouter rechercher() pour utiliser livre et resortir l'ID du livre
     # Ajouter une variable contenant la date d'emprunt
     
