@@ -1,3 +1,8 @@
 id,nom,date_naissance,statut,date_enregistrement,emprunt_jour,liste_livres
 1,John,01/01/2000,admin,01/01/2021,3,"1,2,3"
+<<<<<<< HEAD
+ffb963ba-73d9-11ed-bfd6-367dda0ca6b9,Pipou,1999-01-27,Standard,2022-12-04 14:46:05.379113,False,[]
+||||||| 094c4dd
+=======
 3e5d526a-73db-11ed-81f7-3a010ad1daf8,pfaguz,2022-12-04,Standard,2022-12-04 14:54:59.968892,0,[]
+>>>>>>> e2c8876e9843f6288ef1a6ae0587158a233a5d2f
