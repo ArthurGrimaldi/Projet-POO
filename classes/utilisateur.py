@@ -143,7 +143,7 @@ class Utilisateur:
                     "password" : pwd
                 }
             })
-            config['preauthorized']['emails'].append(username)
+            config['preauthorized']['emails'].append(mail)
         with open("config.yaml", 'w') as file:
             yaml.dump(config, file)
 
@@ -168,5 +168,3 @@ class Admin(Utilisateur):
 
 
 
-test = Utilisateur("test", date(2000, 1, 1))
-test.rechercher("christmas")
