@@ -5,6 +5,8 @@ import pandas as pd
 import os
 import streamlit_authenticator as stauth
 from classes.livre import Livre
+import numpy as np
+
 
 
 class Utilisateur_Nouveau:
@@ -65,14 +67,27 @@ class Utilisateur_Nouveau:
     def date_enregistrement(self):
         return self._date_enregistrement
     
-    def rechercher(self, recherche : str):
-        livres = pd.read_csv(os.getcwd() + "/books.csv", sep=",")
-        liste = []
-        for i in livres.itertuples():
-            if recherche.lower() in i.Title.lower():
-                liste.append(i)
-        
-        return liste
+    def rechercher(self, valeur_recherche: str, type_recherche: str):
+
+        if type_recherche == "Titre":
+            type_recherche = 'Title'
+        elif type_recherche == "Auteur":
+            type_recherche = 'Author'
+        elif type_recherche == "Genre":
+            type_recherche = 'Genre'
+        elif type_recherche == "Éditeur":
+            type_recherche = 'Publisher'
+        elif type_recherche == "Disponibilité":
+            type_recherche = 'Available'
+
+        livres = pd.read_csv("books_test.csv", sep=",")
+        liste = pd.DataFrame(columns=livres.columns)
+        for livre in livres.iterrows():
+            if valeur_recherche.lower() in livre[1][type_recherche].lower():
+                liste = pd.concat([liste, livre[1].to_frame().T], ignore_index=True)
+                return liste
+            else:
+                return "Aucun livre ne correspond à votre recherche."
 
     def emprunter(self, livre : str):
         """
@@ -169,7 +184,7 @@ class Utilisateur_Nouveau:
         self._addUserToCSV()
 
         return 
-        
+
     def _addUserToCSV(self):
         """
         ### Objectif
@@ -215,3 +230,4 @@ class Utilisateur_Existant(Utilisateur_Nouveau):
         self._date_enregistrement = date_enregistrement
         self._emprunt_jour = emprunt_jour
         self._liste_livres = liste_livres
+
