@@ -3,7 +3,7 @@ import streamlit_authenticator as sa
 
 # import os
 # os.path.append(r'/Users/paulfaguet/Desktop/bastos')
-from classes.utilisateur import Utilisateur
+from classes.utilisateur import Utilisateur_Nouveau
 
 
 
@@ -31,7 +31,7 @@ footer1, footer2 = st.columns([6, 1])
 with footer2 :
     valider = st.button("VALIDER")
 if valider:
-    user = Utilisateur(username, date_naissance)
+    user = Utilisateur_Nouveau(username, date_naissance)
     user.inscription(username, mail, pwd)
 
     st.success(f"Bienvenue {username.upper()}, votre compte a été créé")

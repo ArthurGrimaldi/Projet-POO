@@ -8,6 +8,10 @@ credentials:
       email: jsmith@gmail.com
       name: John Smith
       password: $2b$12$qn8BCmHDK1wB/YU9sZ3cWOG8uRQaBW44PVEBU.2mxTIrndKlVwxO.
+    pfaguz:
+      email: pfaguz
+      name: pfaguz
+      password: $2b$12$oJ1nUFmy5M7r0.mpIy.zaONMIFQMlB7jFb8cy/lqsGl/QT1bPMjf2
     pfagz:
       email: pfagz@gmail.com
       name: pfagz
@@ -20,3 +24,4 @@ preauthorized:
   emails:
   - melsby@gmail.com
   - pfagz
+  - pfaguz
