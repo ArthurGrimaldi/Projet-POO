@@ -1,0 +1,2 @@
+id,nom,date_naissance,statut,date_enregistrement,emprunt_jour,liste_livres
+1,John,01/01/2000,admin,01/01/2021,3,"1,2,3"

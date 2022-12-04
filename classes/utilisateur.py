@@ -133,6 +133,19 @@ class Utilisateur:
         })
 
     def inscription(self, username, mail, pwd):
+        """
+        Args:
+            username (str): Nom d'utilisateur
+            mail (str): Adresse mail
+            pwd (str): Mot de passe
+        
+        Returns:
+
+        ### Final :
+        Configuration du fichier yaml pour l'authentification et mise à jour de la base
+        de données des utilisateurs.
+        """
+        # update the yaml file with the new user
         with open("config.yaml") as file:
             config = yaml.safe_load(file)
             
@@ -147,8 +160,10 @@ class Utilisateur:
         with open("config.yaml", 'w') as file:
             yaml.dump(config, file)
 
-        return 
+        # update the users.csv database with the new user
+        self._addUserToCSV()
 
+        return 
 
 
 class Admin(Utilisateur):

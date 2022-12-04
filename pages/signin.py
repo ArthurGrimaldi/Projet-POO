@@ -1,8 +1,9 @@
 import streamlit as st 
 import streamlit_authenticator as stauth
 import yaml
+import pandas as pd
 
-from classes.utilisateur import Utilisateur
+from classes.utilisateur import Utilisateur, Utilisateur_Existant
 
 # st.header("SE CONNECTER")
 
@@ -27,9 +28,20 @@ authenticator = stauth.Authenticate(
 
 name, authentication_status, username = authenticator.login('Login', 'main')
 
+
 if authentication_status:
 
-  
+    users_csv = pd.read_csv('users.csv', sep=',')
+    user_info = users_csv[users_csv['nom'] == name]
+    user = Utilisateur_Existant(
+        user_info['id'].values[0], 
+        user_info['nom'].values[0], 
+        user_info['date_naissance'].values[0], 
+        user_info['statut'].values[0], 
+        user_info['date_enregistrement'].values[0],
+        user_info['emprunt_jour'].values[0],
+        user_info['liste_livres'].values[0]
+    )
 
     with st.sidebar:
         authenticator.logout('Se déconnecter', 'main')
@@ -52,7 +64,8 @@ if authentication_status:
     col1, col2, col3 = st.columns(3)
 
 
-    search_button = False
+    st.markdown("# MES LIVRES")
+    st.markdown(user.liste_livres)
 
 
 
@@ -72,7 +85,7 @@ if authentication_status:
     st.text_input(
         label=f'Rechercher un livre selon son {characteristic.lower()}' if characteristic != 'Disponibilité' else 'Rechercher un livre selon sa disponibilité'
     )
-    st.button('Rechercher', on_click=search_book(search_button))
+    st.button('Rechercher')
     
 
 
