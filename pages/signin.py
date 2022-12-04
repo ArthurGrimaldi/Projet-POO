@@ -39,10 +39,10 @@ if authentication_status:
         st.markdown("---")
 
         st.markdown("## Modifier son profil")
-        st.button('Modifier son mot de passe')
-        st.button('Modifier son adresse mail')
-        st.button('Modifier son nom d\'utilisateur')
-        st.button('Modifier sa date de naissance')
+        st.button('Modifier son mot de passe', key='change_password')
+        st.button('Modifier son adresse mail', key='change_mail')
+        st.button('Modifier son nom d\'utilisateur', key='change_username')
+        st.button('Modifier sa date de naissance', key='change_birthdate')
 
 
     st.title(f'Welcome *{name}*')
@@ -64,7 +64,28 @@ if authentication_status:
 
     st.markdown("## Emprunter un livre")
     st.markdown('<div style="height: 50px;"></div>', unsafe_allow_html=True)
-
+    characteristic = st.selectbox(
+        label="Rechercher par...",
+        options=['Titre', 'Auteur', 'Genre', 'Éditeur'],
+        key='characteristic_emprunt'
+    )
+    value = st.text_input(
+        label=f'Rechercher un livre selon son {characteristic.lower()}',
+        key='value_emprunt'
+    )
+    results = user.rechercher(value, characteristic)
+    results = results[results['Available'] == True]
+    if st.button('Rechercher', key='search_emprunt'):
+        if len(results) == 0:
+            st.write(results)
+            st.error("Aucun résultat ne correspond à votre recherche.")
+        elif len(results) > 1:
+            st.write(results)
+            st.success(f"votre recherche correspond à {len(results)} livres. Veuillez préciser votre recherche.")
+        else: 
+            st.write(results)
+            if st.button('Emprunter ce livre', key='emprunter_livre'):
+                user.emprunter(value, characteristic)
 
     st.markdown("## Retourner un livre")
     st.markdown('<div style="height: 50px;"></div>', unsafe_allow_html=True)
@@ -89,7 +110,7 @@ if authentication_status:
         label=f'Rechercher un livre selon son {characteristic.lower()}'
     )
     
-    if st.button('Rechercher'):
+    if st.button('Rechercher', key='search_book'):
         st.write(user.rechercher(value, characteristic))
         
     

@@ -67,6 +67,12 @@ class Utilisateur_Nouveau:
     def date_enregistrement(self):
         return self._date_enregistrement
     
+    def _modifyListBooksInUsersCSV(self):
+        users = pd.read_csv('users.csv', sep=',')
+        users.loc[users[users['id'] == self._id].index, 'liste_livres'] = self._liste_livres
+        users.to_csv('users.csv', index=False)
+        return 
+
     def rechercher(self, valeur_recherche: str, type_recherche: str):
     
         if type_recherche == "Titre":
@@ -90,7 +96,7 @@ class Utilisateur_Nouveau:
         else:     
             return liste
             
-    def emprunter(self, livre : str):
+    def emprunter(self, valeur_recherche: str, type_recherche: str):
         """
         ### Returns:
              _type_: _description_
@@ -107,15 +113,15 @@ class Utilisateur_Nouveau:
         if len(self._liste_livres) >= 5 :
             return "Vous avez déjà emprunté 5 livres. Retournez en un afin de pouvoir en emprunter un autre !"
 
-        if self.rechercher(livre).len == 0:
-            return "Le livre recherché n'est pas disponible dnas cette bibliothèque."
-        elif self.rechercher(livre).len > 1:
-            print(f"Votre recherche retourne plusieurs livres :\n {self.rechercher(livre)}\n Veuillez préciser votre recherche.")
-        else:
-            livre1 = self.rechercher(livre)
-            instan_livre = Livre(titre= livre1.Title)
-            
-    # Ajouter rechercher() pour utiliser livre et resortir l'ID du livre
+        resultat = self.rechercher(valeur_recherche, type_recherche)
+        # if len(resultat) == 0:
+        #     return "Le livre recherché n'est pas disponible dnas cette bibliothèque."
+        # elif len(resultat) > 1:
+        #     print(f"Votre recherche retourne plusieurs livres :\n {resultat}\n Veuillez préciser votre recherche.")
+        # else:
+        self._liste_livres.append(resultat['ID'].values[0])
+        self._modifyUsersCSV('liste_livres', self._liste_livres)
+        return 
     # Ajouter une variable contenant la date d'emprunt
     
 
@@ -232,4 +238,6 @@ class Utilisateur_Existant(Utilisateur_Nouveau):
         self._date_enregistrement = date_enregistrement
         self._emprunt_jour = emprunt_jour
         self._liste_livres = liste_livres
+
+
 
