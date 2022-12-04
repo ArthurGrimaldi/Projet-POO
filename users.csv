@@ -1,4 +1,4 @@
 id,nom,date_naissance,statut,date_enregistrement,emprunt_jour,liste_livres
-1,John,01/01/2000,admin,01/01/2021,3,"1,2,3"
-ffb963ba-73d9-11ed-bfd6-367dda0ca6b9,Pipou,1999-01-27,Standard,2022-12-04 14:46:05.379113,False,""
-65bcca28-73e7-11ed-83f1-3a010ad1daf8,fagzz,2022-12-04,Standard,2022-12-04 16:21:59.986453,False,
+1,John,01/01/2000,admin,01/01/2021,False,"1,2,3"
+ffb963ba-73d9-11ed-bfd6-367dda0ca6b9,Pipou,1999-01-27,Standard,2022-12-04 14:46:05.379113,False,
+65bcca28-73e7-11ed-83f1-3a010ad1daf8,fagzz,2022-12-04,Standard,2022-12-04 16:21:59.986453,False,"['10', '20', '30']"
