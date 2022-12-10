@@ -4,6 +4,10 @@ cookie:
   name: some_cookie_name
 credentials:
   usernames:
+    fagzz:
+      email: fagzz
+      name: fagzz
+      password: $2b$12$Fi.PLplVp.MPqBuvDqBPlutKaf2D7Z6PU9Dc3ajks4V6M8tkAYsai
     jsmith:
       email: jsmith@gmail.com
       name: John Smith
@@ -25,3 +29,4 @@ preauthorized:
   - melsby@gmail.com
   - pfagz
   - pfaguz
+  - fagzz

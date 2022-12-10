@@ -66,6 +66,12 @@ class Utilisateur_Nouveau:
     def date_enregistrement(self):
         return self._date_enregistrement
     
+    def _modifyListBooksInUsersCSV(self):
+        users = pd.read_csv('users.csv', sep=',')
+        users.loc[users[users['id'] == self._id].index, 'liste_livres'] = self._liste_livres
+        users.to_csv('users.csv', index=False)
+        return 
+
     def rechercher(self, valeur_recherche: str, type_recherche: str):
     
         if type_recherche == "Titre":
@@ -83,42 +89,31 @@ class Utilisateur_Nouveau:
         for livre in livres.iterrows():
             if valeur_recherche.lower() in livre[1][type_recherche].lower():
                 liste = pd.concat([liste, livre[1].to_frame().T], ignore_index=True)
-
-        if liste.empty:
-            print("Aucun livre ne correspond à votre recherche.")
-        else:     
-            return liste
+ 
+        return liste
             
-    def emprunter(self, livre : str, type_recherche : str):
-        """
-        ### Returns:
-             _type_: _description_
-            
-         ### Final :
-         Si toutes les conditions d'emprunt sont remplies, la méthode va :
-             - Ajouter l'ID du livre à la liste de livres empruntés par le User,
-             - Changer self.emprunt_jour à True pour User
-             - Changer self._statut à False pour Livre (False = emprunté)
-        """
-        if self._emprunt_jour == True:
-            return "Vous ne pouvez plus emprunter de livres aujourd'hui. Revenez Demain !"
-
-        if len(self._liste_livres) >= 5 :
-            return "Vous avez déjà emprunté 5 livres. Retournez en un afin de pouvoir en emprunter un autre !"
-
-        recherche = self.rechercher(valeur_recherche= livre, type_recherche= type_recherche)
+    def emprunter(self, livre_id: str):
+        print('ok 1')
+        # modifie le statut du livre emprunté
+        books = pd.read_csv('books.csv', sep=',')
+        books.loc[books['ID'] == int(livre_id), 'Available'] = False
+        print("ok 2")
+        books.to_csv('books.csv', index=False)
+        print("ok 3")
+        self._liste_livres.append(int(livre_id))
+        print("ok 4")
+        users = pd.read_csv('users.csv', sep=',')
+        print("ok 5")
+        row = users.loc[users['id'] == self._id]
+        print("ok 6")
+        row['liste_livres'].values[0] = self._liste_livres
+        print("ok 7")
+        users.loc[users['id'] == self._id] = row
+        print("ok 8")
+        users.to_csv('users.csv', index=False)
         
-        if recherche == 0:
-            return "Le livre recherché n'est pas disponible dnas cette bibliothèque."
-        elif max(recherche.index) > 1:
-            print(f"Votre recherche retourne plusieurs livres :\n {self.rechercher(livre)}\n Veuillez préciser votre recherche.")
-        else:
-            livre1 = self.rechercher(livre)
-            instan_livre = Livre(titre= livre1.Title)
-            
-    # Ajouter rechercher() pour utiliser livre et resortir l'ID du livre
-    # Ajouter une variable contenant la date d'emprunt
-    
+        return 
+        # Ajouter une variable contenant la date d'emprunt
 
     def retourner(self, livre):
         """
@@ -154,6 +149,24 @@ class Utilisateur_Nouveau:
             "date retour": datetime.now()
         })
 
+    def _addUserToCSV(self):
+            """
+            ### Objectif
+            Ajoute le nouvel utilisateur à la base de données des utilisateurs.
+            """
+            users = pd.read_csv('users.csv', sep=',')
+            users = users.append({
+                'id': self._id, 
+                'nom': self._nom, 
+                'date_naissance': self._date_naissance, 
+                'statut': self._statut, 
+                'date_enregistrement': self._date_enregistrement, 
+                'emprunt_jour': self._emprunt_jour, 
+                'liste_livres': self._liste_livres
+            }, ignore_index=True)
+            users.to_csv('users.csv', index=False)
+            return
+
     def inscription(self, username, mail, pwd):
         """
         Args:
@@ -186,23 +199,7 @@ class Utilisateur_Nouveau:
 
         return 
 
-    def _addUserToCSV(self):
-        """
-        ### Objectif
-        Ajoute le nouvel utilisateur à la base de données des utilisateurs.
-        """
-        users = pd.read_csv('users.csv', sep=',')
-        users = users.append({
-            'id': self._id, 
-            'nom': self._nom, 
-            'date_naissance': self._date_naissance, 
-            'statut': self._statut, 
-            'date_enregistrement': self._date_enregistrement, 
-            'emprunt_jour': self._emprunt_jour, 
-            'liste_livres': self._liste_livres
-        }, ignore_index=True)
-        users.to_csv('users.csv', index=False)
-        return
+    
 
 
 class Admin(Utilisateur_Nouveau):
@@ -230,3 +227,9 @@ class Utilisateur_Existant(Utilisateur_Nouveau):
         self._date_enregistrement = date_enregistrement
         self._emprunt_jour = emprunt_jour
         self._liste_livres = liste_livres
+
+
+
+user = Utilisateur_Existant("65bcca28-73e7-11ed-83f1-3a010ad1daf8","fagzz","2022-12-04","Standard","2022-12-04 16:21:59.986453",False,"10,20".split(','))
+user._liste_livres#.pop(2)
+user.emprunter("30")
