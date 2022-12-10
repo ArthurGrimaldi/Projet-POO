@@ -30,7 +30,7 @@ class Utilisateur_Nouveau:
         
         self._emprunt_jour = False
 
-        self._liste_livres = []
+        self._liste_livres = ""
 
     @property
     def id(self):

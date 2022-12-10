@@ -3,3 +3,4 @@ id,nom,date_naissance,statut,date_enregistrement,emprunt_jour,liste_livres
 ffb963ba-73d9-11ed-bfd6-367dda0ca6b9,Pipou,1999-01-27,Standard,2022-12-04 14:46:05.379113,False,
 65bcca28-73e7-11ed-83f1-3a010ad1daf8,fagzz,2022-12-04,Standard,2022-12-04 16:21:59.986453,False,30
 c5cb22bc-7891-11ed-916c-3a010ad1daf8,grimzz,2022-12-10,Standard,2022-12-10 14:51:40.236897,False,
+f6e16c04-78ae-11ed-9e51-3a010ad1daf9,faguzer,2022-12-10,Standard,2022-12-10 18:20:37.996450,False,

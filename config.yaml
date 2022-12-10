@@ -4,6 +4,10 @@ cookie:
   name: some_cookie_name
 credentials:
   usernames:
+    faguzer:
+      email: faguzer
+      name: faguzer
+      password: $2b$12$UkA8XRHp2o.uAbDjG9CR.O6b2/m0nb.TZRiAn0AQCuAnt4I9rH1Na
     fagzz:
       email: fagzz
       name: fagzz
@@ -35,3 +39,5 @@ preauthorized:
   - pfaguz
   - fagzz
   - grimzz
+  - faguzer@gmail.com
+  - faguzer
