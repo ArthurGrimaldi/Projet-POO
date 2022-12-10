@@ -251,10 +251,24 @@ class Admin(Utilisateur_Nouveau):
         super().__init__(nom, date_naissance)
         self.statut = "Admin"
         
+    # def ajouter_livres_a_librairie()
+    def ajouter_livres_a_librairie(self, titre : str, auteur : str, edition : str, genre : str, pages : int):
+        livre_ajout = Livre(
+            titre= titre,
+            auteurs= auteur,
+            edition= edition,
+            genre= genre,
+            pages= pages
+        )
+        librairie = pd.read_json('books.json')
+        new_librairie = librairie.concat(livre_ajout)
+        
+    # def retirer_livres_a_librairie()
+        
     def notifier_utilisateur_temps_emprunt(self, user : Utilisateur_Existant, titre : str):
-        livre = user._liste_livres[titre]
+        livre = user._liste_livres[user._liste_livres["titre" == titre]]
+        date_emprunt_livre = livre["date"]
         date = datetime.now()
-        # Prendre la date du livre dans la liste
-        # date - date d'emprunt
-        # return le résultat
-
+        temps_emprunt = date - date_emprunt_livre
+        
+        return temps_emprunt
