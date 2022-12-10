@@ -18,7 +18,8 @@ authenticator = stauth.Authenticate(
     config['preauthorized']
 )
 
-name, authentication_status, username = authenticator.login('Login', 'main')
+name, authentication_status, username = authenticator.login('Se connecter', 'main')
+# authenticator.logout('Se déconnecter', 'main')
 
 if authentication_status:
     users_csv = pd.read_csv('users.csv', sep=',')
@@ -77,21 +78,25 @@ if authentication_status:
             )
             value = st.text_input(
                 label=f'Rechercher un livre selon son {characteristic.lower()}',
-                key='value_emprunt'
+                key='value_emprunt',
             )
-            results = user.rechercher(value, characteristic)
-            results = results[results['Available'] == True]
-            if st.button('Rechercher', key='search_emprunt'):
-                if len(results) == 0:
+            
+            
+            if value and characteristic:
+                results = user.rechercher(value, characteristic)
+                results = results[results['Available'] == True]
+                if results.empty:
                     st.warning("Aucun résultat ne correspond à votre recherche.")
                 elif len(results) > 1:
                     st.warning(f"Votre recherche correspond à {len(results)} livres. Veuillez la préciser.")
                     st.write(results)
-                else:
+                elif len(results) == 1:
                     st.success(f"Le livre \"{results['Title'].values[0]}\" est disponible. Empruntez-le !")
                     st.write(results)
                     if st.button('Emprunter ce livre'):
                         user.emprunter(results['ID'].values[0])
+                        st.success(f"Vous avez emprunté le livre \"{results['Title'].values[0]}\" !")     
+
         else:
             st.warning("Vous avez déjà emprunté un livre aujourd'hui ou vous en avez trop emprunté. Revenez demain ou rendez en un !")
     

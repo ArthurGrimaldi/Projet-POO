@@ -6,6 +6,7 @@ import os
 import streamlit_authenticator as stauth
 from classes.livre import Livre
 import numpy as np
+import csv 
 
 
 
@@ -92,23 +93,20 @@ class Utilisateur_Nouveau:
  
         return liste
             
-    def emprunter(self, livre_id: str):
-        # modifie le statut du livre emprunté
+    def emprunter(self, livre_id: int):
+        # modifie le statut du livre emprunté dans le csv books
         books = pd.read_csv('books.csv', sep=',')
-        books.loc[books['ID'] == int(livre_id), 'Available'] = False
-
+        books.loc[books['ID'] == livre_id, 'Available'] = False
         books.to_csv('books.csv', index=False)
 
-        self._liste_livres.append(int(livre_id))
+        # ajoute l'id du livre à la liste des livres empruntés
+        self._liste_livres.append(str(livre_id))
 
+        # modifie la liste des livres empruntés dans le csv users
         users = pd.read_csv('users.csv', sep=',')
-
         row = users.loc[users['id'] == self._id]
-
-        row['liste_livres'].values[0] = self._liste_livres
-
+        row['liste_livres'].values[0] = ','.join(self._liste_livres)
         users.loc[users['id'] == self._id] = row
-
         users.to_csv('users.csv', index=False)
         
         return 
@@ -230,6 +228,3 @@ class Admin(Utilisateur_Nouveau):
         # date - date d'emprunt
         # return le résultat
 
-user = Utilisateur_Existant("65bcca28-73e7-11ed-83f1-3a010ad1daf8","fagzz","2022-12-04","Standard","2022-12-04 16:21:59.986453",False,"10,20".split(','))
-user._liste_livres#.pop(2)
-user.emprunter("30")
