@@ -5,7 +5,7 @@ ID,Title,Author,Genre,Height,Publisher,Available
 3,Superfreakonomics,"Dubner, Stephen",economics,179,HarperCollins,True
 4,Orientalism,"Said, Edward",history,197,Penguin,True
 5,"Nature of Statistical Learning Theory, The","Vapnik, Vladimir",data_science,230,Springer,True
-6,Integration of the Indian States,"Menon, V P",history,217,Orient Blackswan,True
+6,Integration of the Indian States,"Menon, V P",history,217,Orient Blackswan,False
 7,"Drunkard's Walk, The","Mlodinow, Leonard",science,197,Penguin,True
 8,Image Processing & Mathematical Morphology,"Shih, Frank",signal_processing,241,CRC,True
 9,How to Think Like Sherlock Holmes,"Konnikova, Maria",psychology,240,Penguin,True

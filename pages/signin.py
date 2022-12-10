@@ -2,6 +2,7 @@ import streamlit as st
 import streamlit_authenticator as stauth
 import yaml
 import pandas as pd
+from time import sleep
 
 from classes.utilisateur import Utilisateur_Existant
 
@@ -30,7 +31,8 @@ if authentication_status:
         user_info['date_naissance'].values[0], 
         user_info['statut'].values[0], 
         user_info['date_enregistrement'].values[0],
-        user_info['emprunt_jour'].values[0],
+        # user_info['emprunt_jour'].values[0],
+        True,
         user_info['liste_livres'].values[0].split(',')
     )
     
@@ -48,8 +50,6 @@ if authentication_status:
 
     st.title(f'Bienvenue sur votre interface personnelle, *{name}*.')
 
-
-    # create div for blank space
     st.markdown('<div style="height: 70px;"></div>', unsafe_allow_html=True)
 
     # si l'utilisateur possède un livre, il l'affiche
@@ -63,46 +63,55 @@ if authentication_status:
         for livre_index in user._liste_livres:
             livre_info = pd.concat([livres[livres['ID'] == int(livre_index)], livre_info], ignore_index=True)
         livre_info["Date d'emprunt"] = 'à rajouter'
-        st.table(livre_info[['ID', 'Title', 'Author', 'Genre', 'Date d\'emprunt']].reset_index(drop=True))
+        st.table(livre_info[['ID', 'Title', 'Author', 'Genre', 'Date d\'emprunt']].sort_values(by='ID', ascending=True).set_index('ID'))
 
-        st.markdown("---")
-        st.markdown("## Emprunter un livre")
-        # si l'utilisateur actif peut emprunter aujourd'hui 
-        if user._emprunt_jour or len(user._liste_livres) < 5:
-            st.markdown('<div style="height: 30;"></div>', unsafe_allow_html=True)
 
-            characteristic = st.selectbox(
-                label="Rechercher par...",
-                options=['Titre', 'Auteur', 'Genre', 'Éditeur'],
-                key='characteristic_emprunt'
-            )
-            value = st.text_input(
-                label=f'Rechercher un livre selon son {characteristic.lower()}',
-                key='value_emprunt',
-            )
+
+
+        # st.markdown("---")
+        # st.markdown("## Emprunter un livre")
+        # # si l'utilisateur actif peut emprunter aujourd'hui 
+        # if user._emprunt_jour and len(user._liste_livres) < 5:
+        #     st.markdown('<div style="height: 30;"></div>', unsafe_allow_html=True)
+
+        #     characteristic = st.selectbox(
+        #         label="Rechercher par...",
+        #         options=['Titre', 'Auteur', 'Genre', 'Éditeur'],
+        #         key='characteristic_emprunt'
+        #     )
+        #     value = st.text_input(
+        #         label=f'Rechercher un livre selon son {characteristic.lower()}',
+        #         key='value_emprunt',
+        #     )
             
             
-            if value and characteristic:
-                results = user.rechercher(value, characteristic)
-                results = results[results['Available'] == True]
-                if results.empty:
-                    st.warning("Aucun résultat ne correspond à votre recherche.")
-                elif len(results) > 1:
-                    st.warning(f"Votre recherche correspond à {len(results)} livres. Veuillez la préciser.")
-                    st.write(results)
-                elif len(results) == 1:
-                    st.success(f"Le livre \"{results['Title'].values[0]}\" est disponible. Empruntez-le !")
-                    st.write(results)
-                    if st.button('Emprunter ce livre'):
-                        user.emprunter(results['ID'].values[0])
-                        st.success(f"Vous avez emprunté le livre \"{results['Title'].values[0]}\" !")     
+        #     if value and characteristic:
+        #         results = user.rechercher(value, characteristic)
+        #         results = results[results['Available'] == True]
+        #         if results.empty:
+        #             st.warning("Aucun résultat ne correspond à votre recherche.")
+        #         elif len(results) > 1:
+        #             st.warning(f"Votre recherche correspond à {len(results)} livres. Veuillez la préciser.")
+        #             st.write(results)
+        #         elif len(results) == 1:
+        #             st.success(f"Le livre \"{results['Title'].values[0]}\" est disponible. Empruntez-le !")
+        #             st.write(results)
+        #             if st.button('Emprunter ce livre'):
+        #                 user.emprunter(results['ID'].values[0])
+        #                 st.success(f"Vous avez emprunté le livre \"{results['Title'].values[0]}\" !")
+        #                 sleep(2)
+        #                 st.experimental_rerun()  
+                
 
-        else:
-            st.warning("Vous avez déjà emprunté un livre aujourd'hui ou vous en avez trop emprunté. Revenez demain ou rendez en un !")
+        # else:
+        #     if len(user._liste_livres) >= 5:
+        #         st.warning("Vous avez déjà emprunté 5 livres. Vous ne pouvez plus en emprunter avant d'en rendre.")
+        #     else:
+        #         st.warning("Vous avez déjà emprunté un livre aujourd'hui. Revenez demain !")
     
 
-    # st.markdown("## Retourner un livre")
-    # st.markdown('<div style="height: 50px;"></div>', unsafe_allow_html=True)
+    st.markdown("## Retourner un livre")
+    st.markdown('<div style="height: 50px;"></div>', unsafe_allow_html=True)
 
 
     # st.markdown("## Rechercher un livre")

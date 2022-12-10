@@ -112,20 +112,8 @@ class Utilisateur_Nouveau:
         return 
         # Ajouter une variable contenant la date d'emprunt
 
-    def retourner(self, livre):
-        """
-        Args:
-            livre (Livre, optional): Objet Livre.
-        Returns:
-            _type_: _description_
-            
-        ### Final :
-        Si toutes les conditions de retour sont remplies, la méthode va :
-            - Ajouter la note à la liste de notes du livre,
-            - Retirer l'ID du livre de la liste d'emprunts de l'User,
-            - Changer self._statut du Livre à True,
-            - Ajouter à la liste _historique du livre l'ID de l'User, la date d'emprunt et la date de retour du livre.
-        """
+    def retourner(self, livre_id: int):
+        
         if livre._id not in self._liste_livres:
             raise ValueError("Ce livre ne fait pas partie des livres empruntés.")
         while True:
