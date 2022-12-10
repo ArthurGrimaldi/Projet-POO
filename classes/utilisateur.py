@@ -265,8 +265,10 @@ class Admin(Utilisateur_Nouveau):
         
     # def retirer_livres_a_librairie()
         
-    def notifier_utilisateur_temps_emprunt(self, user : Utilisateur_Existant, titre : str):
-        livre = user._liste_livres[user._liste_livres["titre" == titre]]
+    def notifier_utilisateur_temps_emprunt(self, userId, titreId):
+        users = pd.read_json("users.json", orient="columns")
+        user = users[users["_id"] == userId]
+        livre = user._liste_livres[user._liste_livres["_id"] == titreId]
         date_emprunt_livre = livre["date"]
         date = datetime.now()
         temps_emprunt = date - date_emprunt_livre
