@@ -2,12 +2,13 @@ import uuid
 from datetime import datetime
 
 class Livre:
-    def __init__(self, titre: str, auteurs, edition: str, genre):
+    def __init__(self, titre: str, auteurs, edition: str, genre, pages = int):
         self._id = uuid.uuid4()
         self._titre = titre
         self._auteurs = auteurs
         self._edition = edition
         self._genre = genre
+        self._pages = pages
         self._note = []
         # self._note_globale = 0
         self._date_enregistrement = datetime.now().strftime('%d/%m/%Y:%H:%M:%S')
