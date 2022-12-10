@@ -29,8 +29,7 @@ if authentication_status:
         user_info['date_naissance'].values[0], 
         user_info['statut'].values[0], 
         user_info['date_enregistrement'].values[0],
-        # user_info['emprunt_jour'].values[0],
-        True,
+        user_info['emprunt_jour'].values[0],
         user_info['liste_livres'].values[0].split(',')
     )
     
@@ -63,7 +62,7 @@ if authentication_status:
         for livre_index in user._liste_livres:
             livre_info = pd.concat([livres[livres['ID'] == int(livre_index)], livre_info], ignore_index=True)
         livre_info["Date d'emprunt"] = 'à rajouter'
-        st.write(livre_info[['ID', 'Title', 'Author', 'Genre', 'Date d\'emprunt']])
+        st.table(livre_info[['ID', 'Title', 'Author', 'Genre', 'Date d\'emprunt']].reset_index(drop=True))
 
         st.markdown("---")
         st.markdown("## Emprunter un livre")

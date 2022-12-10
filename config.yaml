@@ -8,6 +8,10 @@ credentials:
       email: fagzz
       name: fagzz
       password: $2b$12$Fi.PLplVp.MPqBuvDqBPlutKaf2D7Z6PU9Dc3ajks4V6M8tkAYsai
+    grimzz:
+      email: grimzz
+      name: grimzz
+      password: grimzz
     jsmith:
       email: jsmith@gmail.com
       name: John Smith
@@ -30,3 +34,4 @@ preauthorized:
   - pfagz
   - pfaguz
   - fagzz
+  - grimzz

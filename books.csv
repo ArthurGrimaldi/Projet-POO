@@ -29,7 +29,7 @@ ID,Title,Author,Genre,Height,Publisher,Available
 27,"Outsider, The","Camus, Albert",fiction,198,Penguin,True
 28,"Complete Sherlock Holmes, The - Vol I","Doyle, Arthur Conan",fiction,176,Random House,True
 29,"Complete Sherlock Holmes, The - Vol II","Doyle, Arthur Conan",fiction,176,Random House,True
-30,"Wealth of Nations, The","Smith, Adam",economics,175,Random House,True
+30,"Wealth of Nations, The","Smith, Adam",economics,175,Random House,False
 31,"Pillars of the Earth, The","Follett, Ken",fiction,176,Random House,True
 32,Mein Kampf,"Hitler, Adolf",nonfiction,212,Rupa,True
 33,"Tao of Physics, The","Capra, Fritjof",science,179,Penguin,True

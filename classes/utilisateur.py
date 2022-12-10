@@ -93,23 +93,22 @@ class Utilisateur_Nouveau:
         return liste
             
     def emprunter(self, livre_id: str):
-        print('ok 1')
         # modifie le statut du livre emprunté
         books = pd.read_csv('books.csv', sep=',')
         books.loc[books['ID'] == int(livre_id), 'Available'] = False
-        print("ok 2")
+
         books.to_csv('books.csv', index=False)
-        print("ok 3")
+
         self._liste_livres.append(int(livre_id))
-        print("ok 4")
+
         users = pd.read_csv('users.csv', sep=',')
-        print("ok 5")
+
         row = users.loc[users['id'] == self._id]
-        print("ok 6")
+
         row['liste_livres'].values[0] = self._liste_livres
-        print("ok 7")
+
         users.loc[users['id'] == self._id] = row
-        print("ok 8")
+
         users.to_csv('users.csv', index=False)
         
         return 
