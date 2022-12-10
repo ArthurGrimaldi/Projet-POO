@@ -197,9 +197,17 @@ class Utilisateur_Nouveau:
         self._addUserToCSV()
 
         return 
-
+        
+class Utilisateur_Existant(Utilisateur_Nouveau):
     
-
+    def __init__(self, id : str, nom : str, date_naissance : date, statut : str, date_enregistrement : date, emprunt_jour : bool, liste_livres : list):
+        self._id = id
+        self._nom = nom
+        self._date_naissance = date_naissance
+        self._statut = statut
+        self._date_enregistrement = date_enregistrement
+        self._emprunt_jour = emprunt_jour
+        self._liste_livres = liste_livres
 
 class Admin(Utilisateur_Nouveau):
 
@@ -214,20 +222,13 @@ class Admin(Utilisateur_Nouveau):
         """
         super().__init__(nom, date_naissance)
         self.statut = "Admin"
-
-
-class Utilisateur_Existant(Utilisateur_Nouveau):
-    
-    def __init__(self, id : str, nom : str, date_naissance : date, statut : str, date_enregistrement : date, emprunt_jour : bool, liste_livres : list):
-        self._id = id
-        self._nom = nom
-        self._date_naissance = date_naissance
-        self._statut = statut
-        self._date_enregistrement = date_enregistrement
-        self._emprunt_jour = emprunt_jour
-        self._liste_livres = liste_livres
-
-
+        
+    def notifier_utilisateur_temps_emprunt(self, user : Utilisateur_Existant, titre : str):
+        livre = user._liste_livres[titre]
+        date = datetime.now()
+        # Prendre la date du livre dans la liste
+        # date - date d'emprunt
+        # return le résultat
 
 user = Utilisateur_Existant("65bcca28-73e7-11ed-83f1-3a010ad1daf8","fagzz","2022-12-04","Standard","2022-12-04 16:21:59.986453",False,"10,20".split(','))
 user._liste_livres#.pop(2)

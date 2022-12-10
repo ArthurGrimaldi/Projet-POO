@@ -23,16 +23,36 @@ class Livre:
     def titre(self):
         return self._titre
     
+    @titre.setter
+    def titre(self, new_titre):
+        self._titre = new_titre
+        return self._titre
+    
     @property
     def auteurs(self):
+        return self._auteurs
+    
+    @auteurs.setter
+    def auteurs(self, new_auteurs):
+        self._auteurs = new_auteurs
         return self._auteurs
     
     @property
     def edition(self):
         return self._edition
     
+    @edition.setter
+    def edition(self, new_edition):
+        self._edition = new_edition
+        return self._edition
+    
     @property
     def genre(self):
+        return self._genre
+    
+    @genre.setter
+    def genre(self, new_genre):
+        self._genre = new_genre
         return self._genre
 
     @property
