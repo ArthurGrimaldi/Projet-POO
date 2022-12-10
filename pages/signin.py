@@ -66,75 +66,117 @@ if authentication_status:
         st.table(livre_info[['ID', 'Title', 'Author', 'Genre', 'Date d\'emprunt']].sort_values(by='ID', ascending=True).set_index('ID'))
 
 
+        action = st.selectbox(
+            label="Que souhaitez-vous faire ?",
+            options=['Rendre un livre', 'Emprunter un livre', 'Rechercher un livre'],
+            key='action'
+        )
 
+        if action == 'Emprunter un livre':
+            st.markdown("---")
+            st.markdown("## Emprunter un livre")
+            # si l'utilisateur actif peut emprunter aujourd'hui 
+            if user._emprunt_jour and len(user._liste_livres) < 5:
+                st.markdown('<div style="height: 30;"></div>', unsafe_allow_html=True)
 
-        # st.markdown("---")
-        # st.markdown("## Emprunter un livre")
-        # # si l'utilisateur actif peut emprunter aujourd'hui 
-        # if user._emprunt_jour and len(user._liste_livres) < 5:
-        #     st.markdown('<div style="height: 30;"></div>', unsafe_allow_html=True)
-
-        #     characteristic = st.selectbox(
-        #         label="Rechercher par...",
-        #         options=['Titre', 'Auteur', 'Genre', 'Éditeur'],
-        #         key='characteristic_emprunt'
-        #     )
-        #     value = st.text_input(
-        #         label=f'Rechercher un livre selon son {characteristic.lower()}',
-        #         key='value_emprunt',
-        #     )
-            
-            
-        #     if value and characteristic:
-        #         results = user.rechercher(value, characteristic)
-        #         results = results[results['Available'] == True]
-        #         if results.empty:
-        #             st.warning("Aucun résultat ne correspond à votre recherche.")
-        #         elif len(results) > 1:
-        #             st.warning(f"Votre recherche correspond à {len(results)} livres. Veuillez la préciser.")
-        #             st.write(results)
-        #         elif len(results) == 1:
-        #             st.success(f"Le livre \"{results['Title'].values[0]}\" est disponible. Empruntez-le !")
-        #             st.write(results)
-        #             if st.button('Emprunter ce livre'):
-        #                 user.emprunter(results['ID'].values[0])
-        #                 st.success(f"Vous avez emprunté le livre \"{results['Title'].values[0]}\" !")
-        #                 sleep(2)
-        #                 st.experimental_rerun()  
+                characteristic = st.selectbox(
+                    label="Rechercher par...",
+                    options=['Titre', 'Auteur', 'Genre', 'Éditeur'],
+                    key='characteristic_emprunt'
+                )
+                value = st.text_input(
+                    label=f'Rechercher un livre selon son {characteristic.lower()}',
+                    key='value_emprunt',
+                )
                 
+                
+                if value and characteristic:
+                    results = user.rechercher(value, characteristic)
+                    results = results[results['Available'] == True]
+                    if results.empty:
+                        st.warning("Aucun résultat ne correspond à votre recherche.")
+                    elif len(results) > 1:
+                        st.warning(f"Votre recherche correspond à {len(results)} livres. Veuillez la préciser.")
+                        st.write(results)
+                    elif len(results) == 1:
+                        st.success(f"Le livre \"{results['Title'].values[0]}\" est disponible. Empruntez-le !")
+                        st.write(results)
+                        if st.button('Emprunter ce livre'):
+                            user.emprunter(results['ID'].values[0])
+                            st.success(f"Vous avez emprunté le livre \"{results['Title'].values[0]}\" !")
+                            sleep(2)
+                            st.experimental_rerun()  
+                    
 
-        # else:
-        #     if len(user._liste_livres) >= 5:
-        #         st.warning("Vous avez déjà emprunté 5 livres. Vous ne pouvez plus en emprunter avant d'en rendre.")
-        #     else:
-        #         st.warning("Vous avez déjà emprunté un livre aujourd'hui. Revenez demain !")
-    
+            else:
+                if len(user._liste_livres) >= 5:
+                    st.warning("Vous avez déjà emprunté 5 livres. Vous ne pouvez plus en emprunter avant d'en rendre.")
+                else:
+                    st.warning("Vous avez déjà emprunté un livre aujourd'hui. Revenez demain !")
+        
+        elif action == 'Rendre un livre':
+            st.markdown("---")
+            st.markdown("## Retourner un livre")
+            st.markdown('<div style="height: 30;"></div>', unsafe_allow_html=True)
 
-    st.markdown("## Retourner un livre")
-    st.markdown('<div style="height: 50px;"></div>', unsafe_allow_html=True)
+            if len(user._liste_livres) == 0:
+                st.warning("Vous n'avez aucun livre en votre possession actuellement.")
+            else:
+                characteristic = st.selectbox(
+                    label="Rechercher par...",
+                    options=['Titre', 'Auteur', 'Genre', 'Éditeur'],
+                    key='characteristic_retourner'
+                )
+                value = st.text_input(
+                    label=f'Rechercher un livre selon son {characteristic.lower()}',
+                    key='value_retourner',
+                )
 
+                if value and characteristic:
+                    results = user.rechercherDansListeUtilisateur(value, characteristic)
+                    if results.empty:
+                        st.warning("Aucun résultat ne correspond à votre recherche. Peut-être y a-t-il une faute de frappe ou un espace en trop ?")
+                    elif len(results) > 1:
+                        st.warning(f"Votre recherche correspond à {len(results)} livres. Veuillez la préciser.")
+                        st.table(results)
+                    elif len(results) == 1:
+                        col1, col2 = st.columns([3, 1])
+                        with col1:
+                            st.success(f"Donnez une note à ce livre avant de le retourner !")
+                        with col2:
+                            note_livre = st.number_input('Note', min_value=0, max_value=5, value=0, step=1)
+                        st.table(results)
+                        if st.button('Retourner ce livre'):
+                            user.retourner(results['ID'].values[0], note_livre)
+                            st.success(f"Vous avez retourné le livre \"{results['Title'].values[0]}\" !")
+                            sleep(2)
+                            st.experimental_rerun()
 
-    # st.markdown("## Rechercher un livre")
-    # characteristic = st.selectbox(
-    #     label="Rechercher par...",
-    #     options=['Titre', 'Auteur', 'Genre', 'Éditeur']
-    # )
-    # # if characteristic == 'Disponibilité':
-    # #     dispo = st.selectbox(
-    # #         label="Rechercher un livre selon sa disponibilité",
-    # #         options=['Disponible', 'Non disponible']
-    # #     )
-    # #     if dispo == 'Disponible':
-    # #         value = True
-    # #     else:
-    # #         value = False
-    # # else:
-    # value = st.text_input(
-    #     label=f'Rechercher un livre selon son {characteristic.lower()}'
-    # )
-    
-    # if st.button('Rechercher', key='search_book'):
-    #     st.write(user.rechercher(value, characteristic))
+        elif action == 'Rechercher un livre':
+            st.markdown("---")
+            st.markdown("## Rechercher un livre")
+            st.markdown('<div style="height: 30;"></div>', unsafe_allow_html=True)
+            characteristic_search = st.selectbox(
+                label="Rechercher par...",
+                options=['Titre', 'Auteur', 'Genre', 'Éditeur']
+            )
+            # if characteristic == 'Disponibilité':
+            #     dispo = st.selectbox(
+            #         label="Rechercher un livre selon sa disponibilité",
+            #         options=['Disponible', 'Non disponible']
+            #     )
+            #     if dispo == 'Disponible':
+            #         value = True
+            #     else:
+            #         value = False
+            # else:
+            value_search = st.text_input(
+                label=f'Rechercher un livre selon son {characteristic_search.lower()}'
+            )
+            
+            if characteristic_search and value_search:
+            # if st.button('Rechercher', key='search_book'):
+                st.write(user.rechercher(value_search, characteristic_search))
         
     
 

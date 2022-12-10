@@ -9,6 +9,7 @@ class Livre:
         self._edition = edition
         self._genre = genre
         self._note = []
+        # self._note_globale = 0
         self._date_enregistrement = datetime.now().strftime('%d/%m/%Y:%H:%M:%S')
         
         self._historique = []

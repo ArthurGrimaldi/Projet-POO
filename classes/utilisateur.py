@@ -92,6 +92,31 @@ class Utilisateur_Nouveau:
                 liste = pd.concat([liste, livre[1].to_frame().T], ignore_index=True)
  
         return liste
+    
+    def rechercherDansListeUtilisateur(self, valeur_recherche: str, type_recherche: str):
+        
+        if type_recherche == "Titre":
+            type_recherche = 'Title'
+        elif type_recherche == "Auteur":
+            type_recherche = 'Author'
+        elif type_recherche == "Genre":
+            type_recherche = 'Genre'
+        elif type_recherche == "Éditeur":
+            type_recherche = 'Publisher'
+
+
+        livres_bdd = pd.read_csv("books.csv", sep=",")
+        livre_user_bdd = pd.DataFrame(columns=livres_bdd.columns)
+        livres_utilisateur = self._liste_livres
+        for livre_user in livres_utilisateur:
+            livre_user_bdd = pd.concat([livre_user_bdd, livres_bdd.loc[livres_bdd['ID'] == int(livre_user)]], ignore_index=True)
+        
+        liste = pd.DataFrame(columns=livres_bdd.columns)
+        for livre in livre_user_bdd.iterrows():
+            if valeur_recherche.lower() in livre[1][type_recherche].lower():
+                liste = pd.concat([liste, livre[1].to_frame().T], ignore_index=True)
+ 
+        return liste
             
     def emprunter(self, livre_id: int):
         # modifie le statut du livre emprunté dans le csv books
@@ -112,27 +137,44 @@ class Utilisateur_Nouveau:
         return 
         # Ajouter une variable contenant la date d'emprunt
 
-    def retourner(self, livre_id: int):
+    def _ajoutNoteLivre(self, livre_id: int, note: int):
+        books = pd.read_csv('books.csv', sep=',')
+        book_row = books.loc[books['ID'] == livre_id]
+
+        if str(book_row['Note'].values[0]) == 'nan':
+            books.loc[books['ID'] == livre_id, 'Note'] = str(note)
+            books.to_csv('books.csv', index=False)
+            return
+        else:
+            book_note_previous = str(book_row['Note'].values[0]).split(',')
+            book_note_previous.append(str(note))
+            book_row['Note'] = ','.join(book_note_previous)
+            books.loc[books['ID'] == livre_id] = book_row
+            books.to_csv('books.csv', index=False)
+        return
+
+    def retourner(self, livre_id: int, note: int):
+        books = pd.read_csv('books.csv', sep=',')
+        books.loc[books['ID'] == livre_id, 'Available'] = True
+        books.to_csv('books.csv', index=False)
+
+        self._liste_livres.remove(str(livre_id))
+
+        users = pd.read_csv('users.csv', sep=',')
+        row = users.loc[users['id'] == self._id]
+        row['liste_livres'].values[0] = ','.join(self._liste_livres)
+        users.loc[users['id'] == self._id] = row
+        users.to_csv('users.csv', index=False)
         
-        if livre._id not in self._liste_livres:
-            raise ValueError("Ce livre ne fait pas partie des livres empruntés.")
-        while True:
-            try:
-                note = int(input("Entrer une note pour le livre :"))
-                if note < 0 or note > 5:
-                    raise ValueError
-                break
-            except ValueError:
-                return "La note doit être un chiffre rond."
+        self._ajoutNoteLivre(livre_id, note)
+
+        return 
         
-        livre._note.append(note)
-        self._liste_livres = self._liste_livres.remove(livre._id)
-        livre.statut = True
-        livre._historique = livre._historique.append({
-            "user": self._id,
-            "date emprunt": self._liste_livres("date emprunt"),
-            "date retour": datetime.now()
-        })
+        # livre._historique = livre._historique.append({
+        #     "user": self._id,
+        #     "date emprunt": self._liste_livres("date emprunt"),
+        #     "date retour": datetime.now()
+        # })
 
     def _addUserToCSV(self):
             """
