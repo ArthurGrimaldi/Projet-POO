@@ -1,21 +1,24 @@
 import uuid
 from datetime import datetime
+import typing
+import pandas as pd 
 
 class Livre:
-    def __init__(self, titre: str, auteur: str, edition: str, genre: str):
-        self._id = uuid.uuid4()
+    def __init__(self, titre: str, auteur: str, edition: str, genre: str, pages: int):
+        self._id = len(pd.read_csv('books.csv', sep=','))
         self._titre = titre
         self._auteurs = auteur
         self._edition = edition
         self._genre = genre
-        # self._pages = pages
-        self._note = []
-        # self._note_moyenne = 0
+        self._pages = pages
+        self._note = "2"
         self._date_enregistrement = datetime.now().strftime('%d/%m/%Y::%H:%M:%S')
         
         # self._historique = []
         
         self._statut = True
+
+
 
     @property
     def id(self):
@@ -64,3 +67,4 @@ class Livre:
     @property
     def date_enregistrement(self):
         return self._date_enregistrement
+

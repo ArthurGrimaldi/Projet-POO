@@ -11,8 +11,12 @@ class Bibliotheque:
         self._id = uuid.uuid4()
         self._nom = nom
         self._lieu = lieu
-        self._horaires = {'ouverture_heure': ouverture_heure,
-                          'fermeture_heure': fermeture_heure}
+        self._horaires = {
+            'ouverture_heure': ouverture_heure,
+            'fermeture_heure': fermeture_heure
+        }
+
+        # self.reservations = []
 
     @property
     def id(self):
@@ -44,3 +48,4 @@ class Bibliotheque:
     def horaires(self, new_horaires):
         self._horaires = new_horaires
         return
+    

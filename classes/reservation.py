@@ -13,6 +13,8 @@ class Reservation:
         self._heure = heure
         self._occupe = disponible
 
+        self._utilisateur = None
+
     @property
     def id(self):
         return self._id
@@ -41,3 +43,5 @@ class Reservation:
     @disponible.setter
     def disponible(self, new_dispo):
         self._occupe = new_dispo
+
+    

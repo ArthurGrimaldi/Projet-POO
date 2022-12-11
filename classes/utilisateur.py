@@ -245,7 +245,7 @@ class Admin(Utilisateur_Nouveau):
         """
         ### Purpose
         Hérite de toutes les propriétés d'Utilisateur.\n
-        Change le statut de Standard à Admin.
+        Change le rôle de Standard à Admin.
         Args:
             nom (str): Nom du nouvel administrateur.
             date_naissance (date): Date de naissance du nouvel administrateur.
@@ -254,16 +254,36 @@ class Admin(Utilisateur_Nouveau):
         self._role = "Admin"
         
     # def ajouter_livres_a_librairie()
-    def ajouter_livres_a_librairie(self, titre : str, auteur : str, edition : str, genre : str, pages : int):
+    def ajouterLivre(self, titre: str, auteur: str, edition: str, genre: str, pages: int):
+        info = {
+            "titre": 'Sapiens',
+            "auteur": 'Yuval Noah Harari',
+            "edition": 'Pocket',
+            "genre": 'Histoire',
+            "pages": 464
+        }
         livre_ajout = Livre(
-            titre= titre,
-            auteurs= auteur,
-            edition= edition,
-            genre= genre,
-            pages= pages
+            info['titre'],
+            info['auteur'],
+            info['edition'],
+            info['genre'],
+            info['pages']
         )
-        librairie = pd.read_json('books.json')
-        new_librairie = librairie.concat(livre_ajout)
+        
+        
+        livres = pd.read_csv('books.csv', sep=',')
+        # add the new book to the database
+        pd.concat([livres, pd.DataFrame([{
+            'ID': livre_ajout._id,
+            'Title': livre_ajout._titre,
+            'Author': livre_ajout._auteurs,
+            'Publisher': livre_ajout._edition,
+            'Genre': livre_ajout._genre,
+            'Height': livre_ajout._pages,
+            'Available': livre_ajout._statut,
+            'Rating': livre_ajout._note,
+        }])], ignore_index=True).to_csv('books.csv', index=False)
+
         
     # def retirer_livres_a_librairie()
         
@@ -274,3 +294,5 @@ class Admin(Utilisateur_Nouveau):
         temps_emprunt = date - date_emprunt_livre
         
         return temps_emprunt
+
+# livre_test = Livre("Sapiens", "Yuval Noah Harari", "Pocket", "Histoire", 464)
