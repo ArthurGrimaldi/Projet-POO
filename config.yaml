@@ -24,6 +24,10 @@ credentials:
       email: rbriggs@gmail.com
       name: Rebecca Briggs
       password: $2b$12$so.A1ZCofCALAon.kmxm1eryRCTtIFHy0bViSxhqsENuxnKrAUxgO
+    role:
+      email: role
+      name: role
+      password: $2b$12$zCU68W4ySTD.A0Hmz6on1OvInpkcQ/ehBIDSPOtJPvvyKaOA/BjeO
     tess:
       email: tess
       name: tess
@@ -32,6 +36,10 @@ credentials:
       email: tessa
       name: tessa
       password: $2b$12$X9QkjYersrNf73.9f61mWuMfvU9SFzAdj6mpmp.MUu2.oNgHL9l1S
+    testUnique:
+      email: testUnique
+      name: testUnique
+      password: $2b$12$D5qIwS7sOzw/38XqQ/R0O.l0lMF/3VzbORBBuaCS1JUvWWy0WYGmS
     uzzzer:
       email: uzzzer
       name: uzzzer
@@ -53,3 +61,5 @@ preauthorized:
   - tess
   - tessa
   - uzzzer
+  - testUnique
+  - role

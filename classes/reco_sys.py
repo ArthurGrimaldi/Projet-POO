@@ -16,26 +16,28 @@ class RecommenderSystem():
 
     def favoriteGenres(self, user: Utilisateur_Existant):
         genres_list = []
+
         user_book_index = [int(x) for x in user._liste_livres]
 
-        with open('books.json') as file:
-            books_json = json.load(file)
+        # with open('books.csv') as file:
+        #     books_json = json.load(file)
+        books = pd.read_csv('books.csv', sep=',')
 
-            for book in books_json:
-                if book['ID'] in user_book_index:
-                    genres_list.append(book['Genre'])
+        for book in books.itertuples():
+            if book.ID in user_book_index:
+                genres_list.append(book.Genre)
             
         return genres_list
     
     def getBooksByGenres(self, user: Utilisateur_Existant):
-        books = pd.read_json('books.json')
+        books = pd.read_csv('books.csv', sep=',')
 
         return books[books['Genre'].isin(self.favoriteGenres(user))].reset_index(drop=True)
     
     def meanRating(self, user: Utilisateur_Existant):
         books = self.getBooksByGenres(user)
-        books['Mean_Rating'] = books['Rating'].apply(lambda x: np.mean(x) if len(x) > 0 else 'No rating yet')
-
+        books['Mean_Rating'] = books['Rating'].apply(lambda x: np.mean([float(y) for y in x.split(',')]) if str(x) != 'nan' else np.nan)
+        
         return books
         
     def calculateTopK(self, user: Utilisateur_Existant, k: int):

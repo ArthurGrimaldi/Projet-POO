@@ -30,7 +30,7 @@ class Utilisateur_Nouveau:
         
         self._emprunt_jour = True
 
-        self._liste_livres = ["0"]
+        self._liste_livres = "0"
 
     @property
     def id(self):
@@ -55,21 +55,17 @@ class Utilisateur_Nouveau:
         return self._date_naissance
 
     @property
-    def statut(self):
+    def role(self):
         return self._role
     
-    @statut.setter
-    def statut(self, new_role):
+    @role.setter
+    def role(self, new_role):
         self._role = new_role
         return self._role
 
     @property
     def date_enregistrement(self):
         return self._date_enregistrement
-    
-    @property
-    def liste_livre(self):
-        return list(self._liste_livres)
     
     def _modifyListBooksInUsersCSV(self):
         users = pd.read_csv('users.csv', sep=',')
@@ -142,6 +138,7 @@ class Utilisateur_Nouveau:
         # Ajouter une variable contenant la date d'emprunt
 
     def _ajoutNoteLivre(self, livre_id: int, note: int):
+    
         books = pd.read_csv('books.csv', sep=',')
         book_row = books.loc[books['ID'] == livre_id]
 
@@ -158,6 +155,7 @@ class Utilisateur_Nouveau:
         return
 
     def retourner(self, livre_id: int, note: int):
+        
         books = pd.read_csv('books.csv', sep=',')
         books.loc[books['ID'] == livre_id, 'Available'] = True
         books.to_csv('books.csv', index=False)
@@ -190,7 +188,7 @@ class Utilisateur_Nouveau:
                 'id': self._id, 
                 'nom': self._nom, 
                 'date_naissance': self._date_naissance, 
-                'statut': self._role, 
+                'role': self._role, 
                 'date_enregistrement': self._date_enregistrement, 
                 'emprunt_jour': self._emprunt_jour, 
                 'liste_livres': self._liste_livres

@@ -25,7 +25,7 @@ name, authentication_status, username = authenticator.login('Se connecter', 'mai
 # authenticator.logout('Se déconnecter', 'main')
 
 if authentication_status:
-    
+    # name = 'fagzz'
     users_csv = pd.read_csv('users.csv', sep=',')
     user_info = users_csv[users_csv['nom'] == name]
     user = Utilisateur_Existant(
@@ -192,18 +192,18 @@ if authentication_status:
         st.markdown("## Système de recommandation de livres")
         st.markdown('<div style="height: 30;"></div>', unsafe_allow_html=True)
 
-
         reco_sys = RecommenderSystem()
 
         number_recommended_books = st.slider("Nombre de livres", min_value=1, max_value=100, value=25, step=1)
-
+        
         results_reco_sys = reco_sys.calculateTopK(user, number_recommended_books)
         results_reco_sys = results_reco_sys[results_reco_sys['Genre'] != "Règlement"]
+        results_reco_sys = results_reco_sys[results_reco_sys['Available'] == True]
         if len(results_reco_sys) == 0:
             st.info("Aucun livre disponible ne correspond à vos lectures.")
         else:
             st.info("D'après vos lectures, voici les livres disponibles que nous vous recommandons")
-            st.write(results_reco_sys[['Title', 'Author', 'Genre', 'Available', 'Mean_Rating', 'Rating']])
+            st.write(results_reco_sys[['Title', 'Author', 'Genre', 'Available', 'Mean_Rating', 'ID']])
 
 
 
