@@ -2,18 +2,18 @@ import uuid
 from datetime import datetime
 
 class Livre:
-    def __init__(self, titre: str, auteurs, edition: str, genre, pages = int):
+    def __init__(self, titre: str, auteur: str, edition: str, genre: str):
         self._id = uuid.uuid4()
         self._titre = titre
-        self._auteurs = auteurs
+        self._auteurs = auteur
         self._edition = edition
         self._genre = genre
-        self._pages = pages
+        # self._pages = pages
         self._note = []
-        # self._note_globale = 0
-        self._date_enregistrement = datetime.now().strftime('%d/%m/%Y:%H:%M:%S')
+        # self._note_moyenne = 0
+        self._date_enregistrement = datetime.now().strftime('%d/%m/%Y::%H:%M:%S')
         
-        self._historique = []
+        # self._historique = []
         
         self._statut = True
 
@@ -31,11 +31,11 @@ class Livre:
         return self._titre
     
     @property
-    def auteurs(self):
+    def auteur(self):
         return self._auteurs
     
-    @auteurs.setter
-    def auteurs(self, new_auteurs):
+    @auteur.setter
+    def auteur(self, new_auteurs):
         self._auteurs = new_auteurs
         return self._auteurs
     

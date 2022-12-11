@@ -1,8 +1,8 @@
 ID,Title,Author,Genre,Height,Publisher,Available,Note
-0,Fundamentals of Wavelets,"Goswami, Jaideva",signal_processing,228,Wiley,True,
+0,Fonctionnement de la bibliothèque,"Administration",Mode d'emploi,10,GEMA,True,
 1,Data Smart,"Foreman, John",data_science,235,Wiley,False,
-2,God Created the Integers,"Hawking, Stephen",mathematics,197,Penguin,True,
-3,Superfreakonomics,"Dubner, Stephen",economics,179,HarperCollins,True,
+2,God Created the Integers,"Hawking, Stephen",mathematics,197,Penguin,False,
+3,Superfreakonomics,"Dubner, Stephen",economics,179,HarperCollins,False,
 4,Orientalism,"Said, Edward",history,197,Penguin,True,
 5,"Nature of Statistical Learning Theory, The","Vapnik, Vladimir",data_science,230,Springer,True,
 6,Integration of the Indian States,"Menon, V P",history,217,Orient Blackswan,True,5.0
@@ -25,7 +25,7 @@ ID,Title,Author,Genre,Height,Publisher,Available,Note
 23,"Signal and the Noise, The","Silver, Nate",data_science,233,Penguin,True,
 24,Python for Data Analysis,"McKinney, Wes",data_science,233,O'Reilly,True,
 25,Introduction to Algorithms,"Cormen, Thomas",computer_science,234,MIT Press,True,
-26,"Beautiful and the Damned, The","Deb, Siddhartha",nonfiction,198,Penguin,True,
+26,"Beautiful and the Damned, The","Deb, Siddhartha",nonfiction,198,Penguin,True,2.0
 27,"Outsider, The","Camus, Albert",fiction,198,Penguin,True,
 28,"Complete Sherlock Holmes, The - Vol I","Doyle, Arthur Conan",fiction,176,Random House,True,
 29,"Complete Sherlock Holmes, The - Vol II","Doyle, Arthur Conan",fiction,176,Random House,True,
@@ -107,7 +107,7 @@ ID,Title,Author,Genre,Height,Publisher,Available,Note
 105,"Maugham's Collected Short Stories, Vol 3","Maugham, William S",fiction,171,Vintage,True,
 106,"Phantom of Manhattan, The","Forsyth, Frederick",fiction,180,None,True,
 107,Ashenden of The British Agent,"Maugham, William S",fiction,160,Vintage,True,
-108,Zen & The Art of Motorcycle Maintenance,"Pirsig, Robert",philosophy,172,Vintage,True,4
+108,Zen & The Art of Motorcycle Maintenance,"Pirsig, Robert",philosophy,172,Vintage,True,4.0
 109,"Great War for Civilization, The","Fisk, Robert",history,197,HarperCollins,True,
 110,We the Living,"Rand, Ayn",fiction,178,Penguin,True,
 111,"Artist and the Mathematician, The","Aczel, Amir",science,186,HighStakes,True,

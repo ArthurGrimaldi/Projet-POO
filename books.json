@@ -1,12 +1,15 @@
 [
     {
         "ID":0,
-        "Title":"Fundamentals of Wavelets",
-        "Author":"Jaideva Goswami",
-        "Genre":"Signal Processing",
-        "Height":228,
-        "Publisher":"Wiley",
-        "Available":true
+        "Title":"Fonctionnement de la Bibliothèque",
+        "Author":"Admins",
+        "Genre":"Règlement",
+        "Height":10,
+        "Publisher":"Gema",
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":1,
@@ -15,7 +18,10 @@
         "Genre":"Data Science",
         "Height":235,
         "Publisher":"Wiley",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":2,
@@ -24,7 +30,10 @@
         "Genre":"Mathematics",
         "Height":197,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":3,
@@ -33,7 +42,10 @@
         "Genre":"Economics",
         "Height":179,
         "Publisher":"HarperCollins",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":4,
@@ -42,7 +54,10 @@
         "Genre":"History",
         "Height":197,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":5,
@@ -51,7 +66,10 @@
         "Genre":"Data Science",
         "Height":230,
         "Publisher":"Springer",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":6,
@@ -60,7 +78,10 @@
         "Genre":"History",
         "Height":217,
         "Publisher":"Orient Blackswan",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":7,
@@ -69,7 +90,10 @@
         "Genre":"Science",
         "Height":197,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":8,
@@ -78,7 +102,10 @@
         "Genre":"Signal Processing",
         "Height":241,
         "Publisher":"CRC",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":9,
@@ -87,7 +114,10 @@
         "Genre":"Psychology",
         "Height":240,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":10,
@@ -96,7 +126,10 @@
         "Genre":"Data Science",
         "Height":230,
         "Publisher":"Apress",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":11,
@@ -105,7 +138,10 @@
         "Genre":"Fiction",
         "Height":198,
         "Publisher":"Random House",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":12,
@@ -114,7 +150,10 @@
         "Genre":"Mathematics",
         "Height":234,
         "Publisher":"Bodley Head",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":13,
@@ -123,7 +162,10 @@
         "Genre":"Computer Science",
         "Height":240,
         "Publisher":"MIT Press",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":14,
@@ -132,7 +174,10 @@
         "Genre":"History",
         "Height":238,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":15,
@@ -141,7 +186,10 @@
         "Genre":"Fiction",
         "Height":198,
         "Publisher":"Random House",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":16,
@@ -150,7 +198,10 @@
         "Genre":"Data Science",
         "Height":236,
         "Publisher":"MIT Press",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":17,
@@ -159,7 +210,10 @@
         "Genre":"Data Science",
         "Height":242,
         "Publisher":"Apress",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":18,
@@ -168,7 +222,10 @@
         "Genre":"Fiction",
         "Height":180,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":19,
@@ -177,7 +234,10 @@
         "Genre":"Science",
         "Height":197,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":20,
@@ -186,7 +246,10 @@
         "Genre":"Computer Science",
         "Height":232,
         "Publisher":"O'Reilly",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":21,
@@ -195,7 +258,10 @@
         "Genre":"Mathematics",
         "Height":248,
         "Publisher":"HBA",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":22,
@@ -204,7 +270,10 @@
         "Genre":"Data Science",
         "Height":233,
         "Publisher":"O'Reilly",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":23,
@@ -213,7 +282,10 @@
         "Genre":"Data Science",
         "Height":233,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":24,
@@ -222,7 +294,10 @@
         "Genre":"Data Science",
         "Height":233,
         "Publisher":"O'Reilly",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":25,
@@ -231,7 +306,10 @@
         "Genre":"Computer Science",
         "Height":234,
         "Publisher":"MIT Press",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":26,
@@ -240,7 +318,10 @@
         "Genre":"Nonfiction",
         "Height":198,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":27,
@@ -249,7 +330,10 @@
         "Genre":"Fiction",
         "Height":198,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":28,
@@ -258,7 +342,10 @@
         "Genre":"Fiction",
         "Height":176,
         "Publisher":"Random House",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":29,
@@ -267,7 +354,10 @@
         "Genre":"Fiction",
         "Height":176,
         "Publisher":"Random House",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":30,
@@ -276,7 +366,10 @@
         "Genre":"Economics",
         "Height":175,
         "Publisher":"Random House",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":31,
@@ -285,7 +378,10 @@
         "Genre":"Fiction",
         "Height":176,
         "Publisher":"Random House",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":32,
@@ -294,7 +390,10 @@
         "Genre":"Nonfiction",
         "Height":212,
         "Publisher":"Rupa",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":33,
@@ -303,7 +402,10 @@
         "Genre":"Science",
         "Height":179,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":34,
@@ -312,7 +414,10 @@
         "Genre":"Science",
         "Height":198,
         "Publisher":"Random House",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":35,
@@ -321,7 +426,10 @@
         "Genre":"Fiction",
         "Height":179,
         "Publisher":"Rupa",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":36,
@@ -330,7 +438,10 @@
         "Genre":"Fiction",
         "Height":177,
         "Publisher":"Transworld",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":37,
@@ -339,7 +450,10 @@
         "Genre":"Fiction",
         "Height":177,
         "Publisher":"Pan",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":38,
@@ -348,7 +462,10 @@
         "Genre":"Nonfiction",
         "Height":197,
         "Publisher":"Hyperion",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":39,
@@ -357,7 +474,10 @@
         "Genre":"Philosophy",
         "Height":202,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":40,
@@ -366,7 +486,10 @@
         "Genre":"Fiction",
         "Height":174,
         "Publisher":"Random House",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":41,
@@ -375,7 +498,10 @@
         "Genre":"Nonfiction",
         "Height":196,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":42,
@@ -384,7 +510,10 @@
         "Genre":"Fiction",
         "Height":172,
         "Publisher":"HarperCollins",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":43,
@@ -393,7 +522,10 @@
         "Genre":"Economics",
         "Height":197,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":44,
@@ -402,7 +534,10 @@
         "Genre":"Science",
         "Height":197,
         "Publisher":"HarperCollins",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":45,
@@ -411,7 +546,10 @@
         "Genre":"Philosophy",
         "Height":170,
         "Publisher":"Pocket",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":46,
@@ -420,7 +558,10 @@
         "Genre":"Fiction",
         "Height":205,
         "Publisher":"Mauj",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":47,
@@ -429,7 +570,10 @@
         "Genre":"Fiction",
         "Height":196,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":48,
@@ -438,7 +582,10 @@
         "Genre":"Nonfiction",
         "Height":196,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":49,
@@ -447,7 +594,10 @@
         "Genre":"Fiction",
         "Height":196,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":50,
@@ -456,7 +606,10 @@
         "Genre":"Fiction",
         "Height":174,
         "Publisher":"Random House",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":51,
@@ -465,7 +618,10 @@
         "Genre":"Fiction",
         "Height":196,
         "Publisher":"Rupa",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":52,
@@ -474,7 +630,10 @@
         "Genre":"Fiction",
         "Height":178,
         "Publisher":"Random House",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":53,
@@ -483,7 +642,10 @@
         "Genre":"Nonfiction",
         "Height":178,
         "Publisher":"BBC",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":54,
@@ -492,7 +654,10 @@
         "Genre":"Nonfiction",
         "Height":197,
         "Publisher":"Random House",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":55,
@@ -501,7 +666,10 @@
         "Genre":"Data Science",
         "Height":242,
         "Publisher":"Elsevier",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":56,
@@ -510,7 +678,10 @@
         "Genre":"Economics",
         "Height":242,
         "Publisher":"Pearson",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":57,
@@ -519,7 +690,10 @@
         "Genre":"Economics",
         "Height":242,
         "Publisher":"Pearson",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":58,
@@ -528,7 +702,10 @@
         "Genre":"Data Science",
         "Height":232,
         "Publisher":"O'Reilly",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":59,
@@ -537,7 +714,10 @@
         "Genre":"Computer Science",
         "Height":235,
         "Publisher":"Prentice Hall",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":60,
@@ -546,7 +726,10 @@
         "Genre":"Data Science",
         "Height":255,
         "Publisher":"Pearson",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":61,
@@ -555,7 +738,10 @@
         "Genre":"Computer Science",
         "Height":240,
         "Publisher":"TMH",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":62,
@@ -564,7 +750,10 @@
         "Genre":"Computer Science",
         "Height":213,
         "Publisher":"Prentice Hall",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":63,
@@ -573,7 +762,10 @@
         "Genre":"Fiction",
         "Height":179,
         "Publisher":"Random House",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":64,
@@ -582,7 +774,10 @@
         "Genre":"Fiction",
         "Height":180,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":65,
@@ -591,7 +786,10 @@
         "Genre":"Fiction",
         "Height":178,
         "Publisher":"Random House",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":66,
@@ -600,7 +798,10 @@
         "Genre":"Nonfiction",
         "Height":209,
         "Publisher":"Picador",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":67,
@@ -609,7 +810,10 @@
         "Genre":"Fiction",
         "Height":197,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":68,
@@ -618,7 +822,10 @@
         "Genre":"Nonfiction",
         "Height":212,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":69,
@@ -627,7 +834,10 @@
         "Genre":"Fiction",
         "Height":175,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":70,
@@ -636,7 +846,10 @@
         "Genre":"History",
         "Height":177,
         "Publisher":"Random House",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":71,
@@ -645,7 +858,10 @@
         "Genre":"Fiction",
         "Height":176,
         "Publisher":"Pan",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":72,
@@ -654,7 +870,10 @@
         "Genre":"History",
         "Height":216,
         "Publisher":"HarperCollins",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":73,
@@ -663,7 +882,10 @@
         "Genre":"Nonfiction",
         "Height":213,
         "Publisher":"Mauj",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":74,
@@ -672,7 +894,10 @@
         "Genre":"History",
         "Height":199,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":75,
@@ -681,7 +906,10 @@
         "Genre":"Economics",
         "Height":235,
         "Publisher":"Springer",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":76,
@@ -690,7 +918,10 @@
         "Genre":"Nonfiction",
         "Height":213,
         "Publisher":"Mauj",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":77,
@@ -699,7 +930,10 @@
         "Genre":"Nonfiction",
         "Height":212,
         "Publisher":"Mauj",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":78,
@@ -708,7 +942,10 @@
         "Genre":"Nonfiction",
         "Height":212,
         "Publisher":"Mauj",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":79,
@@ -717,7 +954,10 @@
         "Genre":"Fiction",
         "Height":221,
         "Publisher":"Mauj",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":80,
@@ -726,7 +966,10 @@
         "Genre":"Nonfiction",
         "Height":222,
         "Publisher":"HarperCollins",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":81,
@@ -735,7 +978,10 @@
         "Genre":"Nonfiction",
         "Height":213,
         "Publisher":"Mauj",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":82,
@@ -744,7 +990,10 @@
         "Genre":"History",
         "Height":198,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":83,
@@ -753,7 +1002,10 @@
         "Genre":"History",
         "Height":210,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":84,
@@ -762,7 +1014,10 @@
         "Genre":"Fiction",
         "Height":198,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":85,
@@ -771,7 +1026,10 @@
         "Genre":"History",
         "Height":217,
         "Publisher":"vikas",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":86,
@@ -780,7 +1038,10 @@
         "Genre":"Fiction",
         "Height":177,
         "Publisher":"vikas",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":87,
@@ -789,7 +1050,10 @@
         "Genre":"History",
         "Height":167,
         "Publisher":"vikas",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":88,
@@ -798,7 +1062,10 @@
         "Genre":"Fiction",
         "Height":196,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":89,
@@ -807,7 +1074,10 @@
         "Genre":"Philosophy",
         "Height":203,
         "Publisher":"Routledge",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":90,
@@ -816,7 +1086,10 @@
         "Genre":"Philosophy",
         "Height":203,
         "Publisher":"FreePress",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":91,
@@ -825,7 +1098,10 @@
         "Genre":"Nonfiction",
         "Height":206,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":92,
@@ -834,7 +1110,10 @@
         "Genre":"Fiction",
         "Height":179,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":93,
@@ -843,7 +1122,10 @@
         "Genre":"Science",
         "Height":217,
         "Publisher":"Jaico",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":94,
@@ -852,7 +1134,10 @@
         "Genre":"Economics",
         "Height":176,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":95,
@@ -861,7 +1146,10 @@
         "Genre":"Science",
         "Height":201,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":96,
@@ -870,7 +1158,10 @@
         "Genre":"Fiction",
         "Height":175,
         "Publisher":"Random House",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":97,
@@ -879,7 +1170,10 @@
         "Genre":"Fiction",
         "Height":175,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":98,
@@ -888,7 +1182,10 @@
         "Genre":"Economics",
         "Height":178,
         "Publisher":"Random House",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":99,
@@ -897,7 +1194,10 @@
         "Genre":"Fiction",
         "Height":179,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":100,
@@ -906,7 +1206,10 @@
         "Genre":"Nonfiction",
         "Height":179,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":101,
@@ -915,7 +1218,10 @@
         "Genre":"Philosophy",
         "Height":219,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":102,
@@ -924,7 +1230,10 @@
         "Genre":"History",
         "Height":197,
         "Publisher":"Random House",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":103,
@@ -933,7 +1242,10 @@
         "Genre":"Fiction",
         "Height":217,
         "Publisher":"Jaico",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":104,
@@ -942,7 +1254,10 @@
         "Genre":"Nonfiction",
         "Height":175,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":105,
@@ -951,7 +1266,10 @@
         "Genre":"Fiction",
         "Height":171,
         "Publisher":"Vintage",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":106,
@@ -960,7 +1278,10 @@
         "Genre":"Fiction",
         "Height":180,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":107,
@@ -969,7 +1290,10 @@
         "Genre":"Fiction",
         "Height":160,
         "Publisher":"Vintage",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":108,
@@ -978,7 +1302,10 @@
         "Genre":"Philosophy",
         "Height":172,
         "Publisher":"Vintage",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":109,
@@ -987,7 +1314,10 @@
         "Genre":"History",
         "Height":197,
         "Publisher":"HarperCollins",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":110,
@@ -996,7 +1326,10 @@
         "Genre":"Fiction",
         "Height":178,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":111,
@@ -1005,7 +1338,10 @@
         "Genre":"Science",
         "Height":186,
         "Publisher":"HighStakes",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":112,
@@ -1014,7 +1350,10 @@
         "Genre":"Philosophy",
         "Height":213,
         "Publisher":"Routledge",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":113,
@@ -1023,7 +1362,10 @@
         "Genre":"Fiction",
         "Height":215,
         "Publisher":"Jaico",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":114,
@@ -1032,7 +1374,10 @@
         "Genre":"Economics",
         "Height":213,
         "Publisher":"Springer",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":115,
@@ -1041,7 +1386,10 @@
         "Genre":"History",
         "Height":228,
         "Publisher":"Simon&Schuster",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":116,
@@ -1050,7 +1398,10 @@
         "Genre":"Nonfiction",
         "Height":197,
         "Publisher":"Fontana",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":117,
@@ -1059,7 +1410,10 @@
         "Genre":"Nonfiction",
         "Height":172,
         "Publisher":"Dell",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":118,
@@ -1068,7 +1422,10 @@
         "Genre":"Nonfiction",
         "Height":162,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":119,
@@ -1077,7 +1434,10 @@
         "Genre":"Fiction",
         "Height":197,
         "Publisher":"Penguin",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":120,
@@ -1086,7 +1446,10 @@
         "Genre":"Fiction",
         "Height":196,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":121,
@@ -1095,7 +1458,10 @@
         "Genre":"History",
         "Height":230,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":122,
@@ -1104,7 +1470,10 @@
         "Genre":"Nonfiction",
         "Height":211,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":123,
@@ -1113,7 +1482,10 @@
         "Genre":"Philosophy",
         "Height":198,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":124,
@@ -1122,7 +1494,10 @@
         "Genre":"Fiction",
         "Height":178,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":125,
@@ -1131,7 +1506,10 @@
         "Genre":"History",
         "Height":171,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":126,
@@ -1140,7 +1518,10 @@
         "Genre":"Nonfiction",
         "Height":214,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":127,
@@ -1149,7 +1530,10 @@
         "Genre":"Fiction",
         "Height":176,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":128,
@@ -1158,7 +1542,10 @@
         "Genre":"Fiction",
         "Height":180,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":129,
@@ -1167,7 +1554,10 @@
         "Genre":"Philosophy",
         "Height":162,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":130,
@@ -1176,7 +1566,10 @@
         "Genre":"History",
         "Height":197,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":131,
@@ -1185,7 +1578,10 @@
         "Genre":"Fiction",
         "Height":205,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":132,
@@ -1194,7 +1590,10 @@
         "Genre":"Fiction",
         "Height":204,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":133,
@@ -1203,7 +1602,10 @@
         "Genre":"Science",
         "Height":233,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":134,
@@ -1212,7 +1614,10 @@
         "Genre":"Data Science",
         "Height":241,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":135,
@@ -1221,7 +1626,10 @@
         "Genre":"History",
         "Height":202,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":136,
@@ -1230,7 +1638,10 @@
         "Genre":"Science",
         "Height":197,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":137,
@@ -1239,7 +1650,10 @@
         "Genre":"History",
         "Height":197,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":138,
@@ -1248,7 +1662,10 @@
         "Genre":"Comic",
         "Height":257,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":139,
@@ -1257,7 +1674,10 @@
         "Genre":"Comic",
         "Height":283,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":140,
@@ -1266,7 +1686,10 @@
         "Genre":"Comic",
         "Height":265,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":141,
@@ -1275,7 +1698,10 @@
         "Genre":"Comic",
         "Height":265,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":142,
@@ -1284,7 +1710,10 @@
         "Genre":"Comic",
         "Height":258,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":143,
@@ -1293,7 +1722,10 @@
         "Genre":"Science",
         "Height":202,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":144,
@@ -1302,7 +1734,10 @@
         "Genre":"Comic",
         "Height":259,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":145,
@@ -1311,7 +1746,10 @@
         "Genre":"Comic",
         "Height":258,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":146,
@@ -1320,7 +1758,10 @@
         "Genre":"Comic",
         "Height":258,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":147,
@@ -1329,7 +1770,10 @@
         "Genre":"Comic",
         "Height":258,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":148,
@@ -1338,7 +1782,10 @@
         "Genre":"Comic",
         "Height":258,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":149,
@@ -1347,7 +1794,10 @@
         "Genre":"Comic",
         "Height":258,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":150,
@@ -1356,7 +1806,10 @@
         "Genre":"Comic",
         "Height":258,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":151,
@@ -1365,7 +1818,10 @@
         "Genre":"Nonfiction",
         "Height":196,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":152,
@@ -1374,7 +1830,10 @@
         "Genre":"Science",
         "Height":233,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":153,
@@ -1383,7 +1842,10 @@
         "Genre":"Economics",
         "Height":235,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":154,
@@ -1392,7 +1854,10 @@
         "Genre":"Data Science",
         "Height":229,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":155,
@@ -1401,7 +1866,10 @@
         "Genre":"Computer Science",
         "Height":235,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":156,
@@ -1410,7 +1878,10 @@
         "Genre":"Computer Science",
         "Height":237,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":157,
@@ -1419,7 +1890,10 @@
         "Genre":"Data Science",
         "Height":240,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":158,
@@ -1428,7 +1902,10 @@
         "Genre":"Fiction",
         "Height":196,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":159,
@@ -1437,7 +1914,10 @@
         "Genre":"Nonfiction",
         "Height":211,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":160,
@@ -1446,7 +1926,10 @@
         "Genre":"Data Science",
         "Height":228,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":161,
@@ -1455,7 +1938,10 @@
         "Genre":"History",
         "Height":180,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":162,
@@ -1464,7 +1950,10 @@
         "Genre":"History",
         "Height":180,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":163,
@@ -1473,7 +1962,10 @@
         "Genre":"History",
         "Height":180,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":164,
@@ -1482,7 +1974,10 @@
         "Genre":"History",
         "Height":180,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":165,
@@ -1491,7 +1986,10 @@
         "Genre":"History",
         "Height":180,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":166,
@@ -1500,7 +1998,10 @@
         "Genre":"History",
         "Height":236,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":167,
@@ -1509,7 +2010,10 @@
         "Genre":"Nonfiction",
         "Height":223,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":168,
@@ -1518,7 +2022,10 @@
         "Genre":"Fiction",
         "Height":190,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":169,
@@ -1527,7 +2034,10 @@
         "Genre":"Fiction",
         "Height":200,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":170,
@@ -1536,7 +2046,10 @@
         "Genre":"Fiction",
         "Height":211,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":171,
@@ -1545,7 +2058,10 @@
         "Genre":"Fiction",
         "Height":211,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":172,
@@ -1554,7 +2070,10 @@
         "Genre":"Computer Science",
         "Height":213,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":173,
@@ -1563,7 +2082,10 @@
         "Genre":"Computer Science",
         "Height":217,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":174,
@@ -1572,7 +2094,10 @@
         "Genre":"Computer Science",
         "Height":240,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":175,
@@ -1581,7 +2106,10 @@
         "Genre":"Data Science",
         "Height":230,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":176,
@@ -1590,7 +2118,10 @@
         "Genre":"Fiction",
         "Height":178,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":177,
@@ -1599,7 +2130,10 @@
         "Genre":"Philosophy",
         "Height":203,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":178,
@@ -1608,7 +2142,10 @@
         "Genre":"Philosophy",
         "Height":171,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":179,
@@ -1617,7 +2154,10 @@
         "Genre":"Philosophy",
         "Height":189,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":180,
@@ -1626,7 +2166,10 @@
         "Genre":"Data Science",
         "Height":230,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":181,
@@ -1635,7 +2178,10 @@
         "Genre":"Science",
         "Height":174,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":182,
@@ -1644,7 +2190,10 @@
         "Genre":"Mathematics",
         "Height":217,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":183,
@@ -1653,7 +2202,10 @@
         "Genre":"Science",
         "Height":240,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":184,
@@ -1662,7 +2214,10 @@
         "Genre":"Philosophy",
         "Height":224,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":185,
@@ -1671,7 +2226,10 @@
         "Genre":"Philosophy",
         "Height":214,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":186,
@@ -1680,7 +2238,10 @@
         "Genre":"Philosophy",
         "Height":216,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":187,
@@ -1689,7 +2250,10 @@
         "Genre":"Philosophy",
         "Height":216,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":188,
@@ -1698,7 +2262,10 @@
         "Genre":"Nonfiction",
         "Height":217,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":189,
@@ -1707,7 +2274,10 @@
         "Genre":"Nonfiction",
         "Height":216,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":190,
@@ -1716,7 +2286,10 @@
         "Genre":"History",
         "Height":197,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":191,
@@ -1725,7 +2298,10 @@
         "Genre":"History",
         "Height":198,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":192,
@@ -1734,7 +2310,10 @@
         "Genre":"Nonfiction",
         "Height":177,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":193,
@@ -1743,7 +2322,10 @@
         "Genre":"Fiction",
         "Height":235,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":194,
@@ -1752,7 +2334,10 @@
         "Genre":"Fiction",
         "Height":196,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":195,
@@ -1761,7 +2346,10 @@
         "Genre":"Fiction",
         "Height":170,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":196,
@@ -1770,7 +2358,10 @@
         "Genre":"Fiction",
         "Height":170,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":197,
@@ -1779,7 +2370,10 @@
         "Genre":"Fiction",
         "Height":170,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":198,
@@ -1788,7 +2382,10 @@
         "Genre":"Philosophy",
         "Height":173,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":199,
@@ -1797,7 +2394,10 @@
         "Genre":"Fiction",
         "Height":180,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":200,
@@ -1806,7 +2406,10 @@
         "Genre":"Fiction",
         "Height":184,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":201,
@@ -1815,7 +2418,10 @@
         "Genre":"Fiction",
         "Height":179,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":202,
@@ -1824,7 +2430,10 @@
         "Genre":"Fiction",
         "Height":179,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":203,
@@ -1833,7 +2442,10 @@
         "Genre":"Fiction",
         "Height":179,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":204,
@@ -1842,7 +2454,10 @@
         "Genre":"Comic",
         "Height":270,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":205,
@@ -1851,7 +2466,10 @@
         "Genre":"Nonfiction",
         "Height":178,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":206,
@@ -1860,7 +2478,10 @@
         "Genre":"Mathematics",
         "Height":252,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":207,
@@ -1869,7 +2490,10 @@
         "Genre":"Signal Processing",
         "Height":241,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":208,
@@ -1878,7 +2502,10 @@
         "Genre":"Fiction",
         "Height":180,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":209,
@@ -1887,7 +2514,10 @@
         "Genre":"Fiction",
         "Height":197,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     },
     {
         "ID":210,
@@ -1896,6 +2526,9 @@
         "Genre":"Fiction",
         "Height":196,
         "Publisher":"None",
-        "Available":true
+        "Available":true,
+        "Rating":[
+
+        ]
     }
 ]

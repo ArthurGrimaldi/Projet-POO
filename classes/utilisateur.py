@@ -28,9 +28,9 @@ class Utilisateur_Nouveau:
         self._statut = "Standard"
         self._date_enregistrement = datetime.now()
         
-        self._emprunt_jour = False
+        self._emprunt_jour = True
 
-        self._liste_livres = ""
+        self._liste_livres = "0"
 
     @property
     def id(self):
@@ -67,9 +67,13 @@ class Utilisateur_Nouveau:
     def date_enregistrement(self):
         return self._date_enregistrement
     
+    @property
+    def liste_livre(self):
+        return list(self._liste_livres)
+    
     def _modifyListBooksInUsersCSV(self):
         users = pd.read_csv('users.csv', sep=',')
-        users.loc[users[users['id'] == self._id].index, 'liste_livres'] = self._liste_livres
+        users.loc[users[users['id'] == self._id].index, 'liste_livres'] = self._liste_livre
         users.to_csv('users.csv', index=False)
         return 
 
@@ -123,7 +127,7 @@ class Utilisateur_Nouveau:
         books = pd.read_csv('books.csv', sep=',')
         books.loc[books['ID'] == livre_id, 'Available'] = False
         books.to_csv('books.csv', index=False)
-
+        
         # ajoute l'id du livre à la liste des livres empruntés
         self._liste_livres.append(str(livre_id))
 
@@ -265,10 +269,8 @@ class Admin(Utilisateur_Nouveau):
         
     # def retirer_livres_a_librairie()
         
-    def notifier_utilisateur_temps_emprunt(self, userId, titreId):
-        users = pd.read_json("users.json", orient="columns")
-        user = users[users["_id"] == userId]
-        livre = user._liste_livres[user._liste_livres["_id"] == titreId]
+    def notifier_utilisateur_temps_emprunt(self, user : Utilisateur_Existant, titre : str):
+        livre = user._liste_livres[user._liste_livres["titre" == titre]]
         date_emprunt_livre = livre["date"]
         date = datetime.now()
         temps_emprunt = date - date_emprunt_livre

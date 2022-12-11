@@ -12,14 +12,6 @@ credentials:
       email: fagzz
       name: fagzz
       password: $2b$12$Fi.PLplVp.MPqBuvDqBPlutKaf2D7Z6PU9Dc3ajks4V6M8tkAYsai
-    grimzz:
-      email: grimzz
-      name: grimzz
-      password: grimzz
-    jsmith:
-      email: jsmith@gmail.com
-      name: John Smith
-      password: $2b$12$qn8BCmHDK1wB/YU9sZ3cWOG8uRQaBW44PVEBU.2mxTIrndKlVwxO.
     pfaguz:
       email: pfaguz
       name: pfaguz
@@ -32,6 +24,22 @@ credentials:
       email: rbriggs@gmail.com
       name: Rebecca Briggs
       password: $2b$12$so.A1ZCofCALAon.kmxm1eryRCTtIFHy0bViSxhqsENuxnKrAUxgO
+    tess:
+      email: tess
+      name: tess
+      password: $2b$12$0wzq/BC2QbaqmPA81/fhUumugGzrUgiVPKh/5MPjrQT1t.Le7xtAW
+    tessa:
+      email: tessa
+      name: tessa
+      password: $2b$12$X9QkjYersrNf73.9f61mWuMfvU9SFzAdj6mpmp.MUu2.oNgHL9l1S
+    test:
+      email: test
+      name: test
+      password: $2b$12$8AisJ5JzMjtzuoy2fjU4Eey92695d78TYgDrHEFRXQ4vH30edi1HK
+    user:
+      email: user
+      name: user
+      password: $2b$12$k43P5bxSuQNpev.sIVhON.ThILGWD3dXNA5baO66JiTKQVFYO/FOK
 preauthorized:
   emails:
   - melsby@gmail.com
@@ -41,3 +49,10 @@ preauthorized:
   - grimzz
   - faguzer@gmail.com
   - faguzer
+  - test
+  - test
+  - test
+  - user
+  - test
+  - tess
+  - tessa

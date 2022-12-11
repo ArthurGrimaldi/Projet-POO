@@ -5,6 +5,7 @@ import pandas as pd
 from time import sleep
 
 from classes.utilisateur import Utilisateur_Existant
+from classes.reco_sys import RecommenderSystem
 
   
 
@@ -23,6 +24,7 @@ name, authentication_status, username = authenticator.login('Se connecter', 'mai
 # authenticator.logout('Se déconnecter', 'main')
 
 if authentication_status:
+
     users_csv = pd.read_csv('users.csv', sep=',')
     user_info = users_csv[users_csv['nom'] == name]
     user = Utilisateur_Existant(
@@ -35,6 +37,9 @@ if authentication_status:
         user_info['liste_livres'].values[0].split(',') if str(user_info['liste_livres'].values[0]) != 'nan' else ''
     )
     
+    
+    #if user._statut == 'admin': à ajouter pour les admins
+
     with st.sidebar:
         authenticator.logout('Se déconnecter', 'main')
 
@@ -55,27 +60,32 @@ if authentication_status:
     st.markdown("# MES LIVRES")
 
     if len(user._liste_livres) == 0:
-        st.write("Vous n'avez aucun livre en votre possession actuellement.")
+        st.warning("Vous n'avez aucun livre en votre possession actuellement.")
     else:
         livres = pd.read_csv('books.csv', sep=',')
         livre_info = pd.DataFrame()
         for livre_index in user._liste_livres:
             livre_info = pd.concat([livres[livres['ID'] == int(livre_index)], livre_info], ignore_index=True)
-        livre_info["Date d'emprunt"] = 'à rajouter'
-        st.table(livre_info[['ID', 'Title', 'Author', 'Genre', 'Date d\'emprunt']].sort_values(by='ID', ascending=True).set_index('ID'))
+        # livre_info["Date d'emprunt"] = 'à rajouter'
+        st.table(livre_info[['ID', 'Title', 'Author', 'Genre']].sort_values(by='ID', ascending=True).set_index('ID'))
 
+    st.markdown('<div style="height: 50px;"></div>', unsafe_allow_html=True)
+    st.markdown("---")
 
     action = st.selectbox(
         label="Que souhaitez-vous faire ?",
-        options=['Rendre un livre', 'Emprunter un livre', 'Rechercher un livre'],
+        options=['Rendre un livre', 'Emprunter un livre', 'Rechercher un livre', 'Voir les livres recommandés'],
         key='action'
     )
 
+
+
+    ##### EMPRUNTER UN LIVRE #####
     if action == 'Emprunter un livre':
         st.markdown("---")
         st.markdown("## Emprunter un livre")
         # si l'utilisateur actif peut emprunter aujourd'hui 
-        if user._emprunt_jour and len(user._liste_livres) < 5:
+        if len(user._liste_livres) < 6:
             st.markdown('<div style="height: 30;"></div>', unsafe_allow_html=True)
 
             characteristic = st.selectbox(
@@ -106,13 +116,14 @@ if authentication_status:
                         sleep(2)
                         st.experimental_rerun()  
                 
-
+        # si l'utilisateur possède déjà 5 (+1) livres
         else:
-            if len(user._liste_livres) >= 5:
-                st.warning("Vous avez déjà emprunté 5 livres. Vous ne pouvez plus en emprunter avant d'en rendre.")
-            else:
-                st.warning("Vous avez déjà emprunté un livre aujourd'hui. Revenez demain !")
+            st.warning("Vous avez déjà emprunté 5 livres. Vous ne pouvez plus en emprunter avant d'en rendre.")
+
     
+
+
+    ##### RENDRE UN LIVRE #####
     elif action == 'Rendre un livre':
         st.markdown("---")
         st.markdown("## Retourner un livre")
@@ -121,6 +132,7 @@ if authentication_status:
         if len(user._liste_livres) == 0:
             st.warning("Vous n'avez aucun livre en votre possession actuellement.")
         else:
+            st.info("Pour information, la liste de vos livres est disponible ci-dessus.")
             characteristic = st.selectbox(
                 label="Rechercher par...",
                 options=['Titre', 'Auteur', 'Genre', 'Éditeur'],
@@ -133,6 +145,7 @@ if authentication_status:
 
             if value and characteristic:
                 results = user.rechercherDansListeUtilisateur(value, characteristic)
+                results = results[results['Title'] != "Fonctionnement de la bibliothèque"]
                 if results.empty:
                     st.warning("Aucun résultat ne correspond à votre recherche. Peut-être y a-t-il une faute de frappe ou un espace en trop ?")
                 elif len(results) > 1:
@@ -151,33 +164,45 @@ if authentication_status:
                         sleep(2)
                         st.experimental_rerun()
 
+
+    ##### RECHERCHER UN LIVRE #####
     elif action == 'Rechercher un livre':
         st.markdown("---")
         st.markdown("## Rechercher un livre")
         st.markdown('<div style="height: 30;"></div>', unsafe_allow_html=True)
+        
         characteristic_search = st.selectbox(
             label="Rechercher par...",
             options=['Titre', 'Auteur', 'Genre', 'Éditeur']
         )
-        # if characteristic == 'Disponibilité':
-        #     dispo = st.selectbox(
-        #         label="Rechercher un livre selon sa disponibilité",
-        #         options=['Disponible', 'Non disponible']
-        #     )
-        #     if dispo == 'Disponible':
-        #         value = True
-        #     else:
-        #         value = False
-        # else:
+        
         value_search = st.text_input(
             label=f'Rechercher un livre selon son {characteristic_search.lower()}'
         )
         
         if characteristic_search and value_search:
-        # if st.button('Rechercher', key='search_book'):
-            st.write(user.rechercher(value_search, characteristic_search))
+            resultats = user.rechercher(value_search, characteristic_search)
+            resultats = resultats[resultats['Available'] == True]
+            st.write(resultats)
     
-    
+
+
+    ##### SYSTÈME DE RECOMMANDATION #####
+    elif action == 'Voir les livres recommandés':
+        st.markdown("---")
+        st.markdown("## Système de recommandation de livres")
+        st.markdown('<div style="height: 30;"></div>', unsafe_allow_html=True)
+
+
+        reco_sys = RecommenderSystem()
+
+        number_recommended_books = st.slider("Nombre de livres", min_value=1, max_value=100, value=25, step=1)
+
+        st.info("D'après vos lectures, voici les livres disponibles que nous vous recommandons")
+        results_reco_sys = reco_sys.calculateTopK(user, number_recommended_books)
+        results_reco_sys = results_reco_sys[results_reco_sys['Genre'] != "Règlement"]
+        st.write(results_reco_sys[['Title', 'Author', 'Genre', 'Available', 'Mean_Rating', 'Rating']])
+
 
 
 elif authentication_status == False:

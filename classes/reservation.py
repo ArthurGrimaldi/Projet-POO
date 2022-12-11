@@ -7,11 +7,11 @@ class Reservation:
 
     """
 
-    def __init__(self, jour: str, heure: str, occupe: bool):
+    def __init__(self, jour: str, heure: str, disponible: bool):
         self._id = uuid.uuid4()
         self._jour = jour
         self._heure = heure
-        self._occupe = occupe
+        self._occupe = disponible
 
     @property
     def id(self):
@@ -35,9 +35,9 @@ class Reservation:
         self._heure = new_heure
 
     @property
-    def occupe(self):
+    def disponible(self):
         return self._occupe
 
-    @occupe.setter
-    def occupe(self, new_occupe):
-        self._occupe = new_occupe
+    @disponible.setter
+    def disponible(self, new_dispo):
+        self._occupe = new_dispo
