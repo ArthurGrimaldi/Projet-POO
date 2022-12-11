@@ -3,6 +3,7 @@ import streamlit_authenticator as stauth
 import yaml
 import pandas as pd
 from time import sleep
+import numpy as np 
 
 from classes.utilisateur import Utilisateur_Existant
 from classes.reco_sys import RecommenderSystem
@@ -24,17 +25,16 @@ name, authentication_status, username = authenticator.login('Se connecter', 'mai
 # authenticator.logout('Se déconnecter', 'main')
 
 if authentication_status:
-
+    
     users_csv = pd.read_csv('users.csv', sep=',')
     user_info = users_csv[users_csv['nom'] == name]
     user = Utilisateur_Existant(
         user_info['id'].values[0], 
         user_info['nom'].values[0], 
         user_info['date_naissance'].values[0], 
-        user_info['statut'].values[0], 
+        user_info['role'].values[0], 
         user_info['date_enregistrement'].values[0],
-        user_info['emprunt_jour'].values[0],
-        user_info['liste_livres'].values[0].split(',') if str(user_info['liste_livres'].values[0]) != 'nan' else ''
+        user_info['liste_livres'].values[0].split(',')
     )
     
     
@@ -66,8 +66,7 @@ if authentication_status:
         livre_info = pd.DataFrame()
         for livre_index in user._liste_livres:
             livre_info = pd.concat([livres[livres['ID'] == int(livre_index)], livre_info], ignore_index=True)
-        # livre_info["Date d'emprunt"] = 'à rajouter'
-        st.table(livre_info[['ID', 'Title', 'Author', 'Genre']].sort_values(by='ID', ascending=True).set_index('ID'))
+        st.table(livre_info[['ID', 'Title', 'Author', 'Genre', 'Rating']].sort_values(by='ID', ascending=True).set_index('ID'))
 
     st.markdown('<div style="height: 50px;"></div>', unsafe_allow_html=True)
     st.markdown("---")
@@ -170,7 +169,7 @@ if authentication_status:
         st.markdown("---")
         st.markdown("## Rechercher un livre")
         st.markdown('<div style="height: 30;"></div>', unsafe_allow_html=True)
-        
+
         characteristic_search = st.selectbox(
             label="Rechercher par...",
             options=['Titre', 'Auteur', 'Genre', 'Éditeur']
@@ -198,10 +197,13 @@ if authentication_status:
 
         number_recommended_books = st.slider("Nombre de livres", min_value=1, max_value=100, value=25, step=1)
 
-        st.info("D'après vos lectures, voici les livres disponibles que nous vous recommandons")
         results_reco_sys = reco_sys.calculateTopK(user, number_recommended_books)
         results_reco_sys = results_reco_sys[results_reco_sys['Genre'] != "Règlement"]
-        st.write(results_reco_sys[['Title', 'Author', 'Genre', 'Available', 'Mean_Rating', 'Rating']])
+        if len(results_reco_sys) == 0:
+            st.info("Aucun livre disponible ne correspond à vos lectures.")
+        else:
+            st.info("D'après vos lectures, voici les livres disponibles que nous vous recommandons")
+            st.write(results_reco_sys[['Title', 'Author', 'Genre', 'Available', 'Mean_Rating', 'Rating']])
 
 
 

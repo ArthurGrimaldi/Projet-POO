@@ -25,12 +25,12 @@ class Utilisateur_Nouveau:
         self._id = uuid.uuid1()
         self._nom = nom
         self._date_naissance = date_naissance
-        self._statut = "Standard"
+        self._role = "Utilisateur"
         self._date_enregistrement = datetime.now()
         
         self._emprunt_jour = True
 
-        self._liste_livres = "0"
+        self._liste_livres = ["0"]
 
     @property
     def id(self):
@@ -56,12 +56,12 @@ class Utilisateur_Nouveau:
 
     @property
     def statut(self):
-        return self._statut
+        return self._role
     
     @statut.setter
-    def statut(self, new_statut):
-        self._statut = new_statut
-        return self._statut
+    def statut(self, new_role):
+        self._role = new_role
+        return self._role
 
     @property
     def date_enregistrement(self):
@@ -145,14 +145,14 @@ class Utilisateur_Nouveau:
         books = pd.read_csv('books.csv', sep=',')
         book_row = books.loc[books['ID'] == livre_id]
 
-        if str(book_row['Note'].values[0]) == 'nan':
-            books.loc[books['ID'] == livre_id, 'Note'] = str(note)
+        if str(book_row['Rating'].values[0]) == 'nan':
+            books.loc[books['ID'] == livre_id, 'Rating'] = str(note)
             books.to_csv('books.csv', index=False)
             return
         else:
-            book_note_previous = str(book_row['Note'].values[0]).split(',')
+            book_note_previous = str(book_row['Rating'].values[0]).split(',')
             book_note_previous.append(str(note))
-            book_row['Note'] = ','.join(book_note_previous)
+            book_row['Rating'] = ','.join(book_note_previous)
             books.loc[books['ID'] == livre_id] = book_row
             books.to_csv('books.csv', index=False)
         return
@@ -190,7 +190,7 @@ class Utilisateur_Nouveau:
                 'id': self._id, 
                 'nom': self._nom, 
                 'date_naissance': self._date_naissance, 
-                'statut': self._statut, 
+                'statut': self._role, 
                 'date_enregistrement': self._date_enregistrement, 
                 'emprunt_jour': self._emprunt_jour, 
                 'liste_livres': self._liste_livres
@@ -232,13 +232,13 @@ class Utilisateur_Nouveau:
         
 class Utilisateur_Existant(Utilisateur_Nouveau):
     
-    def __init__(self, id : str, nom : str, date_naissance : date, statut : str, date_enregistrement : date, emprunt_jour : bool, liste_livres : list):
+    def __init__(self, id: str, nom: str, date_naissance: date, role: str, date_enregistrement: date, liste_livres: list):
         self._id = id
         self._nom = nom
         self._date_naissance = date_naissance
-        self._statut = statut
+        self._role = role
         self._date_enregistrement = date_enregistrement
-        self._emprunt_jour = emprunt_jour
+        # self._emprunt_jour = emprunt_jour
         self._liste_livres = liste_livres
 
 class Admin(Utilisateur_Nouveau):
@@ -253,7 +253,7 @@ class Admin(Utilisateur_Nouveau):
             date_naissance (date): Date de naissance du nouvel administrateur.
         """
         super().__init__(nom, date_naissance)
-        self.statut = "Admin"
+        self._role = "Admin"
         
     # def ajouter_livres_a_librairie()
     def ajouter_livres_a_librairie(self, titre : str, auteur : str, edition : str, genre : str, pages : int):
