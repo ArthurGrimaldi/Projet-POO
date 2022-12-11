@@ -1,45 +1,45 @@
 [
     {
-        "id":1,
-        "nom":"John",
-        "date_naissance":"01\/01\/2000",
-        "statut":"admin",
-        "date_enregistrement":"01\/01\/2021",
-        "emprunt_jour":true,
-        "liste_livres":"1,2,3"
-    },
-    {
         "id":"ffb963ba-73d9-11ed-bfd6-367dda0ca6b9",
         "nom":"Pipou",
         "date_naissance":"1999-01-27",
-        "statut":"Standard",
+        "role":"Utilisateur",
         "date_enregistrement":"2022-12-04 14:46:05.379113",
         "emprunt_jour":true,
-        "liste_livres":""
+        "liste_livres":[
+
+        ]
     },
     {
         "id":"65bcca28-73e7-11ed-83f1-3a010ad1daf8",
         "nom":"fagzz",
         "date_naissance":"2022-12-04",
-        "statut":"Standard",
+        "role":"Utilisateur",
         "date_enregistrement":"2022-12-04 16:21:59.986453",
         "emprunt_jour":true,
-        "liste_livres":"30,1,108,6"
+        "liste_livres":[
+            30,
+            1,
+            10,
+            6
+        ]
     },
     {
         "id":"c5cb22bc-7891-11ed-916c-3a010ad1daf8",
         "nom":"grimzz",
         "date_naissance":"2022-12-10",
-        "statut":"Standard",
+        "role":"Utilisateur",
         "date_enregistrement":"2022-12-10 14:51:40.236897",
         "emprunt_jour":true,
-        "liste_livres":""
+        "liste_livres":[
+
+        ]
     },
     {
         "id":"ae6525c8-78a0-11ed-b269-a0cec83de77e",
         "nom":"Pipou",
         "date_naissance":"2032-10-17",
-        "statut":"Standard",
+        "role":"Utilisateur",
         "date_enregistrement":"2022-12-10 16:38:23.431845",
         "emprunt_jour":true,
         "liste_livres":[

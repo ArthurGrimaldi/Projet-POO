@@ -32,14 +32,10 @@ credentials:
       email: tessa
       name: tessa
       password: $2b$12$X9QkjYersrNf73.9f61mWuMfvU9SFzAdj6mpmp.MUu2.oNgHL9l1S
-    test:
-      email: test
-      name: test
-      password: $2b$12$8AisJ5JzMjtzuoy2fjU4Eey92695d78TYgDrHEFRXQ4vH30edi1HK
-    user:
-      email: user
-      name: user
-      password: $2b$12$k43P5bxSuQNpev.sIVhON.ThILGWD3dXNA5baO66JiTKQVFYO/FOK
+    uzzzer:
+      email: uzzzer
+      name: uzzzer
+      password: $2b$12$5djvQ0/iNDzHnD3kvLOt8erenUBM.6ha5LZQ0mA9aEVkk7VFnq..u
 preauthorized:
   emails:
   - melsby@gmail.com
@@ -56,3 +52,4 @@ preauthorized:
   - test
   - tess
   - tessa
+  - uzzzer
