@@ -255,21 +255,8 @@ class Admin(Utilisateur_Nouveau):
         
     # def ajouter_livres_a_librairie()
     def ajouterLivre(self, titre: str, auteur: str, edition: str, genre: str, pages: int):
-        info = {
-            "titre": 'Sapiens',
-            "auteur": 'Yuval Noah Harari',
-            "edition": 'Pocket',
-            "genre": 'Histoire',
-            "pages": 464
-        }
-        livre_ajout = Livre(
-            info['titre'],
-            info['auteur'],
-            info['edition'],
-            info['genre'],
-            info['pages']
-        )
         
+        livre_ajout = Livre(titre, auteur, edition, genre, pages)
         
         livres = pd.read_csv('books.csv', sep=',')
         # add the new book to the database
@@ -284,6 +271,8 @@ class Admin(Utilisateur_Nouveau):
             'Rating': livre_ajout._note,
         }])], ignore_index=True).to_csv('books.csv', index=False)
 
+        return 
+
         
     # def retirer_livres_a_librairie()
         
@@ -296,3 +285,13 @@ class Admin(Utilisateur_Nouveau):
         return temps_emprunt
 
 # livre_test = Livre("Sapiens", "Yuval Noah Harari", "Pocket", "Histoire", 464)
+
+class Admin_Existant(Admin):
+    
+    def __init__(self, id: str, nom: str, date_naissance: date, role: str, date_enregistrement: date):
+        self._id = id
+        self._nom = nom
+        self._date_naissance = date_naissance
+        self._role = role
+        self._date_enregistrement = date_enregistrement
+ 

@@ -1,7 +1,6 @@
 id,nom,date_naissance,role,date_enregistrement,emprunt_jour,liste_livres,Unnamed: 7
-ffb963ba-73d9-11ed-bfd6-367dda0ca6b9,Pipou,1999-01-27,Standard,2022-12-04 14:46:05.379113,False,0,
-65bcca28-73e7-11ed-83f1-3a010ad1daf8,fagzz,2022-12-04,Standard,2022-12-04 16:21:59.986453,False,"0,30",
-c5cb22bc-7891-11ed-916c-3a010ad1daf8,grimzz,2022-12-10,Standard,2022-12-10 14:51:40.236897,False,0,
-f6e16c04-78ae-11ed-9e51-3a010ad1daf9,faguzer,2022-12-10,Standard,2022-12-10 18:20:37.996450,False,"0,4",
-31ecb06c-7943-11ed-ac05-3a010ad1daf9,tessa,2022-12-11,Standard,2022-12-11 12:01:42.571852,True,"0,2",
+ffb963ba-73d9-11ed-bfd6-367dda0ca6b9,Pipou,1999-01-27,Utilisateur,2022-12-04 14:46:05.379113,False,0,
+65bcca28-73e7-11ed-83f1-3a010ad1daf8,fagzz,2022-12-04,Admin,2022-12-04 16:21:59.986453,False,0,
+f6e16c04-78ae-11ed-9e51-3a010ad1daf9,faguzer,2022-12-10,Utilisateur,2022-12-10 18:20:37.996450,False,"0,4",
+31ecb06c-7943-11ed-ac05-3a010ad1daf9,tessa,2022-12-11,Utilisateur,2022-12-11 12:01:42.571852,True,"0,2",
 93b8f09a-7960-11ed-9ef8-3a010ad1daf9,role,2022-12-11,Utilisateur,2022-12-11 15:32:02.054586,True,0,

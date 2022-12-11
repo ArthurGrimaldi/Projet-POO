@@ -46,20 +46,20 @@ credentials:
       password: $2b$12$5djvQ0/iNDzHnD3kvLOt8erenUBM.6ha5LZQ0mA9aEVkk7VFnq..u
 preauthorized:
   emails:
-  - melsby@gmail.com
-  - pfagz
-  - pfaguz
-  - fagzz
-  - grimzz
-  - faguzer@gmail.com
-  - faguzer
-  - test
-  - test
-  - test
-  - user
-  - test
-  - tess
-  - tessa
-  - uzzzer
-  - testUnique
-  - role
+    - melsby@gmail.com
+    - pfagz
+    - pfaguz
+    - fagzz
+    - grimzz
+    - faguzer@gmail.com
+    - faguzer
+    - test
+    - test
+    - test
+    - user
+    - test
+    - tess
+    - tessa
+    - uzzzer
+    - testUnique
+    - role
