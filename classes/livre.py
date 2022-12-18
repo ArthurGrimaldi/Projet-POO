@@ -5,7 +5,7 @@ import pandas as pd
 
 class Livre:
     def __init__(self, titre: str, auteur: str, edition: str, genre: str, pages: int):
-        self._id = len(pd.read_csv('books.csv', sep=','))
+        self._id = len(pd.read_csv('data/books.csv', sep=','))
         self._titre = titre
         self._auteurs = auteur
         self._edition = edition

@@ -19,9 +19,9 @@ class RecommenderSystem():
 
         user_book_index = [int(x) for x in user._liste_livres]
 
-        # with open('books.csv') as file:
+        # with open('data/books.csv') as file:
         #     books_json = json.load(file)
-        books = pd.read_csv('books.csv', sep=',')
+        books = pd.read_csv('data/books.csv', sep=',')
 
         for book in books.itertuples():
             if book.ID in user_book_index:
@@ -30,7 +30,7 @@ class RecommenderSystem():
         return genres_list
     
     def getBooksByGenres(self, user: Utilisateur_Existant):
-        books = pd.read_csv('books.csv', sep=',')
+        books = pd.read_csv('data/books.csv', sep=',')
 
         return books[books['Genre'].isin(self.favoriteGenres(user))].reset_index(drop=True)
     

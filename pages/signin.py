@@ -25,8 +25,7 @@ name, authentication_status, username = authenticator.login('Se connecter', 'mai
 # authenticator.logout('Se déconnecter', 'main')
 
 if authentication_status:
-    # name = 'fagzz'
-    users_csv = pd.read_csv('users.csv', sep=',')
+    users_csv = pd.read_csv('data/users.csv', sep=',')
     user_info = users_csv[users_csv['nom'] == name]
     user = Utilisateur_Existant(
         user_info['id'].values[0], 
@@ -62,7 +61,7 @@ if authentication_status:
         if len(user._liste_livres) == 0:
             st.warning("Vous n'avez aucun livre en votre possession actuellement.")
         else:
-            livres = pd.read_csv('books.csv', sep=',')
+            livres = pd.read_csv('data/books.csv', sep=',')
             livre_info = pd.DataFrame()
             for livre_index in user._liste_livres:
                 livre_info = pd.concat([livres[livres['ID'] == int(livre_index)], livre_info], ignore_index=True)
@@ -197,21 +196,35 @@ if authentication_status:
 
             reco_sys = RecommenderSystem()
 
-            number_recommended_books = st.slider("Nombre de livres", min_value=1, max_value=100, value=25, step=1)
+            sys_reco_col1, sys_reco_col2 = st.columns(2)
+            with sys_reco_col1:
+                number_recommended_books = st.slider("Nombre de livres", min_value=1, max_value=100, value=25, step=1)
             
             results_reco_sys = reco_sys.calculateTopK(user, number_recommended_books)
             results_reco_sys = results_reco_sys[results_reco_sys['Genre'] != "Règlement"]
             results_reco_sys = results_reco_sys[results_reco_sys['Available'] == True]
+
+            with sys_reco_col2:
+                genre_recommended_books = st.multiselect(
+                    label="Genre(s) de livres",
+                    default=results_reco_sys['Genre'].unique()[0],
+                    options=results_reco_sys['Genre'].unique(),
+                )
+
             if len(results_reco_sys) == 0:
                 st.info("Aucun livre disponible ne correspond à vos lectures.")
             else:
                 st.info("D'après vos lectures, voici les livres disponibles que nous vous recommandons")
-                st.write(results_reco_sys[['Title', 'Author', 'Genre', 'Available', 'Mean_Rating', 'ID']])
+                if genre_recommended_books:
+                    results_reco_sys = results_reco_sys[results_reco_sys['Genre'].isin(genre_recommended_books)]
+                    st.write(results_reco_sys[['Title', 'Author', 'Genre', 'Available', 'Mean_Rating', 'ID']])
+                else:
+                    st.write(results_reco_sys[['Title', 'Author', 'Genre', 'Available', 'Mean_Rating', 'ID']])
     
     # si un admin est connecté
     else:
         
-        users_csv = pd.read_csv('users.csv', sep=',')
+        users_csv = pd.read_csv('data/users.csv', sep=',')
         user_info = users_csv[users_csv['nom'] == name]
         admin = Admin_Existant(
             user_info['id'].values[0], 

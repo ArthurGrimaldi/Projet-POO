@@ -68,9 +68,9 @@ class Utilisateur_Nouveau:
         return self._date_enregistrement
     
     def _modifyListBooksInUsersCSV(self):
-        users = pd.read_csv('users.csv', sep=',')
+        users = pd.read_csv('data/users.csv', sep=',')
         users.loc[users[users['id'] == self._id].index, 'liste_livres'] = self._liste_livre
-        users.to_csv('users.csv', index=False)
+        users.to_csv('data/users.csv', index=False)
         return 
 
     def rechercher(self, valeur_recherche: str, type_recherche: str):
@@ -85,7 +85,7 @@ class Utilisateur_Nouveau:
             type_recherche = 'Publisher'
 
 
-        livres = pd.read_csv("books.csv", sep=",")
+        livres = pd.read_csv("data/books.csv", sep=",")
         liste = pd.DataFrame(columns=livres.columns)
         for livre in livres.iterrows():
             if valeur_recherche.lower() in livre[1][type_recherche].lower():
@@ -105,7 +105,7 @@ class Utilisateur_Nouveau:
             type_recherche = 'Publisher'
 
 
-        livres_bdd = pd.read_csv("books.csv", sep=",")
+        livres_bdd = pd.read_csv("data/books.csv", sep=",")
         livre_user_bdd = pd.DataFrame(columns=livres_bdd.columns)
         livres_utilisateur = self._liste_livres
         for livre_user in livres_utilisateur:
@@ -120,53 +120,53 @@ class Utilisateur_Nouveau:
             
     def emprunter(self, livre_id: int):
         # modifie le statut du livre emprunté dans le csv books
-        books = pd.read_csv('books.csv', sep=',')
+        books = pd.read_csv('data/books.csv', sep=',')
         books.loc[books['ID'] == livre_id, 'Available'] = False
-        books.to_csv('books.csv', index=False)
+        books.to_csv('data/books.csv', index=False)
         
         # ajoute l'id du livre à la liste des livres empruntés
         self._liste_livres.append(str(livre_id))
 
         # modifie la liste des livres empruntés dans le csv users
-        users = pd.read_csv('users.csv', sep=',')
+        users = pd.read_csv('data/users.csv', sep=',')
         row = users.loc[users['id'] == self._id]
         row['liste_livres'].values[0] = ','.join(self._liste_livres)
         users.loc[users['id'] == self._id] = row
-        users.to_csv('users.csv', index=False)
+        users.to_csv('data/users.csv', index=False)
         
         return 
         # Ajouter une variable contenant la date d'emprunt
 
     def _ajoutNoteLivre(self, livre_id: int, note: int):
     
-        books = pd.read_csv('books.csv', sep=',')
+        books = pd.read_csv('data/books.csv', sep=',')
         book_row = books.loc[books['ID'] == livre_id]
 
         if str(book_row['Rating'].values[0]) == 'nan':
             books.loc[books['ID'] == livre_id, 'Rating'] = str(note)
-            books.to_csv('books.csv', index=False)
+            books.to_csv('data/books.csv', index=False)
             return
         else:
             book_note_previous = str(book_row['Rating'].values[0]).split(',')
             book_note_previous.append(str(note))
             book_row['Rating'] = ','.join(book_note_previous)
             books.loc[books['ID'] == livre_id] = book_row
-            books.to_csv('books.csv', index=False)
+            books.to_csv('data/books.csv', index=False)
         return
 
     def retourner(self, livre_id: int, note: int):
         
-        books = pd.read_csv('books.csv', sep=',')
+        books = pd.read_csv('data/books.csv', sep=',')
         books.loc[books['ID'] == livre_id, 'Available'] = True
-        books.to_csv('books.csv', index=False)
+        books.to_csv('data/books.csv', index=False)
 
         self._liste_livres.remove(str(livre_id))
 
-        users = pd.read_csv('users.csv', sep=',')
+        users = pd.read_csv('data/users.csv', sep=',')
         row = users.loc[users['id'] == self._id]
         row['liste_livres'].values[0] = ','.join(self._liste_livres)
         users.loc[users['id'] == self._id] = row
-        users.to_csv('users.csv', index=False)
+        users.to_csv('data/users.csv', index=False)
         
         self._ajoutNoteLivre(livre_id, note)
 
@@ -183,7 +183,7 @@ class Utilisateur_Nouveau:
             ### Objectif
             Ajoute le nouvel utilisateur à la base de données des utilisateurs.
             """
-            users = pd.read_csv('users.csv', sep=',')
+            users = pd.read_csv('data/users.csv', sep=',')
             users = users.append({
                 'id': self._id, 
                 'nom': self._nom, 
@@ -193,7 +193,7 @@ class Utilisateur_Nouveau:
                 'emprunt_jour': self._emprunt_jour, 
                 'liste_livres': self._liste_livres
             }, ignore_index=True)
-            users.to_csv('users.csv', index=False)
+            users.to_csv('data/users.csv', index=False)
             return
 
     def inscription(self, username, mail, pwd):
@@ -223,7 +223,7 @@ class Utilisateur_Nouveau:
         with open("config.yaml", 'w') as file:
             yaml.dump(config, file)
 
-        # update the users.csv database with the new user
+        # update the data/users.csv database with the new user
         self._addUserToCSV()
 
         return 
@@ -270,7 +270,7 @@ class Admin(Utilisateur_Nouveau):
         ### Objectif
         Ajoute le nouvel administrateur à la base de données des utilisateurs.
         """
-        users = pd.read_csv('users.csv', sep=',')
+        users = pd.read_csv('data/users.csv', sep=',')
         users = users.append({
             'id': self._id,
             'nom': self._nom,
@@ -278,7 +278,7 @@ class Admin(Utilisateur_Nouveau):
             'role': self._role,
             'date_enregistrement': self._date_enregistrement,
         }, ignore_index=True)
-        users.to_csv('users.csv', index=False)
+        users.to_csv('data/users.csv', index=False)
 
         return                
         
@@ -296,7 +296,7 @@ class Admin(Utilisateur_Nouveau):
         """
         livre_ajout = Livre(titre, auteur, edition, genre, pages)
         
-        livres = pd.read_csv('books.csv', sep=',')
+        livres = pd.read_csv('data/books.csv', sep=',')
         # add the new book to the database
         pd.concat([livres, pd.DataFrame([{
             'ID': livre_ajout._id,
@@ -307,7 +307,7 @@ class Admin(Utilisateur_Nouveau):
             'Height': livre_ajout._pages,
             'Available': livre_ajout._statut,
             'Rating': livre_ajout._note,
-        }])], ignore_index=True).to_csv('books.csv', index=False)
+        }])], ignore_index=True).to_csv('data/books.csv', index=False)
 
         return 
 
@@ -320,9 +320,9 @@ class Admin(Utilisateur_Nouveau):
         Args:
             livre_id (int): l'ID du livre
         """
-        books = pd.read_csv('books.csv', sep=',')
+        books = pd.read_csv('data/books.csv', sep=',')
         books = books[books['ID'] != livre_id]
-        books.to_csv('books.csv', index=False)
+        books.to_csv('data/books.csv', index=False)
 
         return 
 
@@ -348,7 +348,7 @@ class Admin(Utilisateur_Nouveau):
             type_recherche = 'Publisher'
 
 
-        livres = pd.read_csv("books.csv", sep=",")
+        livres = pd.read_csv("data/books.csv", sep=",")
         liste = pd.DataFrame(columns=livres.columns)
         for livre in livres.iterrows():
             if valeur_recherche.lower() in livre[1][type_recherche].lower():
