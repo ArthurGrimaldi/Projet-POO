@@ -246,7 +246,7 @@ if authentication_status:
 
         admin_action = st.selectbox(
             label="Que souhaitez-vous faire ?",
-            options=["Ajouter un livre", "Retirer un livre", "Notifier l'utilisateur son temps d'emprunt"],
+            options=["Ajouter un livre", "Retirer un livre"],
             key='admin_action'
         )
 
