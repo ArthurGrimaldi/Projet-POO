@@ -227,7 +227,7 @@ if authentication_status:
 
         admin_action = st.selectbox(
             label="Que souhaitez-vous faire ?",
-            options=["Ajouter un livre", "Supprimer un livre", "Notifier l'utilisateur son temps d'emprunt"],
+            options=["Ajouter un livre", "Retirer un livre", "Notifier l'utilisateur son temps d'emprunt"],
             key='admin_action'
         )
 
@@ -257,6 +257,36 @@ if authentication_status:
             else:
                 st.warning("Veuillez remplir tous les champs.")
 
+        elif admin_action == "Retirer un livre":
+            st.markdown("---")
+            st.markdown("## Retirer un livre")
+            st.markdown('<div style="height: 30;"></div>', unsafe_allow_html=True)
+            
+            type_recherche = st.selectbox(
+                label="Rechercher par...",
+                options=['Titre', 'Auteur', 'Genre', 'Éditeur'],
+                key='characteristic_retire'
+            )
+            valeur_recherche = st.text_input(
+                label=f'Rechercher un livre selon son {type_recherche.lower()}',
+                key='value_retire',
+            )
+            if valeur_recherche and type_recherche:
+                results = admin.rechercher(valeur_recherche, type_recherche)
+                results = results[results['Available'] == True]
+                if results.empty:
+                    st.warning("Aucun résultat ne correspond à votre recherche.")
+                elif len(results) > 1:
+                    st.warning(f"Votre recherche correspond à {len(results)} livres. Veuillez la préciser.")
+                    st.write(results)
+                elif len(results) == 1:
+                    st.success(f"Souhaitez-vous retirer le livre \"{results['Title'].values[0]}\" ? Cette action est irréversible.")
+                    st.write(results)
+                    if st.button('Supprimer ce livre'):
+                        admin.retirerLivre(results['ID'].values[0])
+                        st.info(f"Vous avez retiré le livre \"{results['Title'].values[0]}\" de la base de données.")
+                        sleep(2)
+                        st.experimental_rerun()
 
 
 elif authentication_status == False:

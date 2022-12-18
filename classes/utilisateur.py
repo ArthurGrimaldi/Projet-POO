@@ -227,7 +227,12 @@ class Utilisateur_Nouveau:
         self._addUserToCSV()
 
         return 
-        
+
+
+
+
+
+
 class Utilisateur_Existant(Utilisateur_Nouveau):
     
     def __init__(self, id: str, nom: str, date_naissance: date, role: str, date_enregistrement: date, liste_livres: list):
@@ -238,6 +243,11 @@ class Utilisateur_Existant(Utilisateur_Nouveau):
         self._date_enregistrement = date_enregistrement
         # self._emprunt_jour = emprunt_jour
         self._liste_livres = liste_livres
+
+
+
+
+
 
 class Admin(Utilisateur_Nouveau):
 
@@ -252,10 +262,38 @@ class Admin(Utilisateur_Nouveau):
         """
         super().__init__(nom, date_naissance)
         self._role = "Admin"
+
+        self._ajouterAdminCSV()
+
+    def _ajouterAdminCSV(self):
+        """
+        ### Objectif
+        Ajoute le nouvel administrateur à la base de données des utilisateurs.
+        """
+        users = pd.read_csv('users.csv', sep=',')
+        users = users.append({
+            'id': self._id,
+            'nom': self._nom,
+            'date_naissance': self._date_naissance,
+            'role': self._role,
+            'date_enregistrement': self._date_enregistrement,
+        }, ignore_index=True)
+        users.to_csv('users.csv', index=False)
+
+        return                
         
-    # def ajouter_livres_a_librairie()
     def ajouterLivre(self, titre: str, auteur: str, edition: str, genre: str, pages: int):
-        
+        """
+        ### Objectif
+        Ajoute un nouveau livre à la base de données des livres.
+
+        Args:
+            titre (str): titre du livre
+            auteur (str): autour du livre
+            edition (str): edition du livre
+            genre (str): genre du livre
+            pages (int): nombre de pages du livre
+        """
         livre_ajout = Livre(titre, auteur, edition, genre, pages)
         
         livres = pd.read_csv('books.csv', sep=',')
@@ -274,8 +312,22 @@ class Admin(Utilisateur_Nouveau):
         return 
 
         
-    # def retirer_livres_a_librairie()
-        
+    def retirerLivre(self, livre_id: int):
+        """
+        ### Objectif
+        Retire un livre de la base de données des livres.
+
+        Args:
+            livre_id (int): l'ID du livre
+        """
+        books = pd.read_csv('books.csv', sep=',')
+        books = books[books['ID'] != livre_id]
+        books.to_csv('books.csv', index=False)
+
+        return 
+
+
+
     def notifier_utilisateur_temps_emprunt(self, user : Utilisateur_Existant, titre : str):
         livre = user._liste_livres[user._liste_livres["titre" == titre]]
         date_emprunt_livre = livre["date"]
@@ -283,8 +335,30 @@ class Admin(Utilisateur_Nouveau):
         temps_emprunt = date - date_emprunt_livre
         
         return temps_emprunt
+    
+    def rechercher(self, valeur_recherche: str, type_recherche: str):
+        
+        if type_recherche == "Titre":
+            type_recherche = 'Title'
+        elif type_recherche == "Auteur":
+            type_recherche = 'Author'
+        elif type_recherche == "Genre":
+            type_recherche = 'Genre'
+        elif type_recherche == "Éditeur":
+            type_recherche = 'Publisher'
 
-# livre_test = Livre("Sapiens", "Yuval Noah Harari", "Pocket", "Histoire", 464)
+
+        livres = pd.read_csv("books.csv", sep=",")
+        liste = pd.DataFrame(columns=livres.columns)
+        for livre in livres.iterrows():
+            if valeur_recherche.lower() in livre[1][type_recherche].lower():
+                liste = pd.concat([liste, livre[1].to_frame().T], ignore_index=True)
+ 
+        return liste
+
+
+
+
 
 class Admin_Existant(Admin):
     
