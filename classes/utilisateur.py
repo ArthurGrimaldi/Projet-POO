@@ -1,80 +1,143 @@
-import uuid
-from datetime import date, datetime
-import yaml
-import pandas as pd
-import os
-import streamlit_authenticator as stauth
 from classes.livre import Livre
-import numpy as np
-import csv 
 
+from datetime import date, datetime
+import uuid
+import yaml
 
+import pandas as pd
 
 class Utilisateur_Nouveau:
 
     def __init__(self, nom: str, date_naissance: date):
         """
-        ### Purpose
-        Créer un Utilisateur commun (différent d'un Admin).\n
-        Nécessite d'input un nom et une date de naissance (format date).\n
-        ID génère automatiquement des ID uniques en fonction de la datetime actuelle (import uuid)
-        ### Args
-            nom (str): Nom de l'utilisateur
-            date_naissance (date): Date de naissance de l'utilisateur au format date
+        ### Objectif
+        Créer un objet nouvel utilisateur.
+        ### Paramètres
+        - nom (str): Le nom de l'utilisateur.
+        - date_naissance (date): La date de naissance de l'utilisateur.
         """
+
         self._id = uuid.uuid1()
         self._nom = nom
         self._date_naissance = date_naissance
         self._role = "Utilisateur"
         self._date_enregistrement = datetime.now()
-        
         self._emprunt_jour = True
-
         self._liste_livres = "0"
 
     @property
     def id(self):
+        """
+        ### Objectif
+        Retourne l'identifiant de l'utilisateur.
+        """
+
         return self._id
 
     @property
     def nom(self):
+        """
+        ### Objectif
+        Retourne le nom de l'utilisateur.
+        """
+
         return self._nom
     
     @nom.setter
     def nom(self, new_nom):
+        """
+        ### Objectif
+        Modifie le nom de l'utilisateur.
+        ### Paramètres
+        - new_nom (str): Le nouveau nom de l'utilisateur.
+        ### Retourne
+        Le nom de l'utilisateur.
+        """
+
         self._nom = new_nom
+
         return self._nom
 
     @property
     def date_naissance(self):
+        """
+        ### Objectif
+        Retourne la date de naissance de l'utilisateur.
+        """
+
         return self._date_naissance
     
     @date_naissance.setter
     def date_naissance(self, new_date_naissance):
+        """
+        ### Objectif
+        Modifie la date de naissance de l'utilisateur.
+        ### Paramètres
+        - new_date_naissance (date): La nouvelle date de naissance de l'utilisateur.
+        ### Retourne
+        La date de naissance de l'utilisateur.
+        """
+
         self._date_naissance = new_date_naissance
+
         return self._date_naissance
 
     @property
     def role(self):
+        """
+        ### Objectif
+        Retourne l'identifiant de l'utilisateur.
+        """
+
         return self._role
     
     @role.setter
     def role(self, new_role):
+        """
+        ### Objectif
+        Modifie le rôle de l'utilisateur.
+        ### Paramètres
+        - new_role (str): Le nouveau rôle de l'utilisateur.
+        ### Retourne
+        Le rôle de l'utilisateur.
+        """
+
         self._role = new_role
+
         return self._role
 
     @property
     def date_enregistrement(self):
+        """
+        ### Objectif
+        Retourne la date d'enregistrement de l'utilisateur.
+        """
+
         return self._date_enregistrement
     
     def _modifyListBooksInUsersCSV(self):
+        """
+        ### Objectif
+        Modifie la liste des livres de l'utilisateur dans le fichier data/users.csv.
+        """
+
         users = pd.read_csv('data/users.csv', sep=',')
         users.loc[users[users['id'] == self._id].index, 'liste_livres'] = self._liste_livre
         users.to_csv('data/users.csv', index=False)
+
         return 
 
     def rechercher(self, valeur_recherche: str, type_recherche: str):
-    
+        """
+        ### Objectif
+        Recherche un livre dans la base de données.
+        ### Paramètres
+        - valeur_recherche (str): La valeur à rechercher.
+        - type_recherche (str): Le type de recherche (Titre, Auteur, Genre, Édition).
+        ### Retourne
+        Un DataFrame contenant les livres trouvés.
+        """
+
         if type_recherche == "Titre":
             type_recherche = 'Title'
         elif type_recherche == "Auteur":
@@ -94,6 +157,15 @@ class Utilisateur_Nouveau:
         return liste
     
     def rechercherDansListeUtilisateur(self, valeur_recherche: str, type_recherche: str):
+        """
+        ### Objectif
+        Recherche un livre dans la liste des livres de l'utilisateur.
+        ### Paramètres
+        - valeur_recherche (str): La valeur à rechercher.
+        - type_recherche (str): Le type de recherche (Titre, Auteur, Genre, Édition).
+        ### Retourne
+        Un DataFrame contenant les livres trouvés.
+        """
         
         if type_recherche == "Titre":
             type_recherche = 'Title'
@@ -119,6 +191,12 @@ class Utilisateur_Nouveau:
         return liste
             
     def emprunter(self, livre_id: int):
+        """
+        ### Objectif
+        Emprunte un livre.
+        ### Paramètres
+        - livre_id (int): L'identifiant du livre à emprunter.
+        """
         # modifie le statut du livre emprunté dans le csv books
         books = pd.read_csv('data/books.csv', sep=',')
         books.loc[books['ID'] == livre_id, 'Available'] = False
@@ -138,24 +216,41 @@ class Utilisateur_Nouveau:
         # Ajouter une variable contenant la date d'emprunt
 
     def _ajoutNoteLivre(self, livre_id: int, note: int):
-    
+        """
+        ### Objectif
+        Ajoute une note à un livre.
+        ### Paramètres
+        - livre_id (int): L'identifiant du livre.
+        - note (int): La note à ajouter.
+        """
+
         books = pd.read_csv('data/books.csv', sep=',')
         book_row = books.loc[books['ID'] == livre_id]
 
         if str(book_row['Rating'].values[0]) == 'nan':
             books.loc[books['ID'] == livre_id, 'Rating'] = str(note)
             books.to_csv('data/books.csv', index=False)
+
             return
+
         else:
             book_note_previous = str(book_row['Rating'].values[0]).split(',')
             book_note_previous.append(str(note))
             book_row['Rating'] = ','.join(book_note_previous)
             books.loc[books['ID'] == livre_id] = book_row
             books.to_csv('data/books.csv', index=False)
+
         return
 
     def retourner(self, livre_id: int, note: int):
-        
+        """
+        ### Objectif
+        Rendre un livre.
+        ### Paramètres
+        - livre_id (int): L'identifiant du livre à rendre.
+        - note (int): La note à ajouter au livre.
+        """
+
         books = pd.read_csv('data/books.csv', sep=',')
         books.loc[books['ID'] == livre_id, 'Available'] = True
         books.to_csv('data/books.csv', index=False)
@@ -171,18 +266,13 @@ class Utilisateur_Nouveau:
         self._ajoutNoteLivre(livre_id, note)
 
         return 
-        
-        # livre._historique = livre._historique.append({
-        #     "user": self._id,
-        #     "date emprunt": self._liste_livres("date emprunt"),
-        #     "date retour": datetime.now()
-        # })
 
     def _addUserToCSV(self):
             """
             ### Objectif
             Ajoute le nouvel utilisateur à la base de données des utilisateurs.
             """
+
             users = pd.read_csv('data/users.csv', sep=',')
             users = users.append({
                 'id': self._id, 
@@ -194,20 +284,19 @@ class Utilisateur_Nouveau:
                 'liste_livres': self._liste_livres
             }, ignore_index=True)
             users.to_csv('data/users.csv', index=False)
+
             return
 
     def inscription(self, username, mail, pwd):
         """
-        Args:
-            username (str): Nom d'utilisateur
-            mail (str): Adresse mail
-            pwd (str): Mot de passe
-        
-        Returns:
-        ### Final :
-        Configuration du fichier yaml pour l'authentification et mise à jour de la base
-        de données des utilisateurs.
+        ### Objectif
+        Inscrire un nouvel utilisateur à la base de données YAML.
+        ### Paramètres
+        - username (str): Le nom d'utilisateur.
+        - mail (str): L'adresse mail.
+        - pwd (str): Le mot de passe.
         """
+
         # update the yaml file with the new user
         with open("config.yaml") as file:
             config = yaml.safe_load(file)
@@ -236,12 +325,23 @@ class Utilisateur_Nouveau:
 class Utilisateur_Existant(Utilisateur_Nouveau):
     
     def __init__(self, id: str, nom: str, date_naissance: date, role: str, date_enregistrement: date, liste_livres: list):
+        """
+        ### Objectif
+        Créer une instance d'un utilisateur déjà enregisré dans la base de données.
+        ### Paramètres
+        - id (str): L'identifiant de l'utilisateur.
+        - nom (str): Le nom de l'utilisateur.
+        - date_naissance (date): La date de naissance de l'utilisateur.
+        - role (str): Le rôle de l'utilisateur.
+        - date_enregistrement (date): La date d'enregistrement de l'utilisateur.
+        - liste_livres (list): La liste des livres empruntés par l'utilisateur.
+        """
+
         self._id = id
         self._nom = nom
         self._date_naissance = date_naissance
         self._role = role
         self._date_enregistrement = date_enregistrement
-        # self._emprunt_jour = emprunt_jour
         self._liste_livres = liste_livres
 
 
@@ -253,13 +353,13 @@ class Admin(Utilisateur_Nouveau):
 
     def __init__(self, nom: str, date_naissance: date):
         """
-        ### Purpose
-        Hérite de toutes les propriétés d'Utilisateur.\n
-        Change le rôle de Standard à Admin.
-        Args:
-            nom (str): Nom du nouvel administrateur.
-            date_naissance (date): Date de naissance du nouvel administrateur.
+        ### Objectif
+        Créer une instance d'un administrateur.
+        ### Paramètres
+        - nom (str): Le nom de l'administrateur.
+        - date_naissance (date): La date de naissance de l'administrateur.
         """
+
         super().__init__(nom, date_naissance)
         self._role = "Admin"
 
@@ -270,6 +370,7 @@ class Admin(Utilisateur_Nouveau):
         ### Objectif
         Ajoute le nouvel administrateur à la base de données des utilisateurs.
         """
+
         users = pd.read_csv('data/users.csv', sep=',')
         users = users.append({
             'id': self._id,
@@ -287,13 +388,14 @@ class Admin(Utilisateur_Nouveau):
         ### Objectif
         Ajoute un nouveau livre à la base de données des livres.
 
-        Args:
+        ### Paramètres
             titre (str): titre du livre
             auteur (str): autour du livre
             edition (str): edition du livre
             genre (str): genre du livre
             pages (int): nombre de pages du livre
         """
+
         livre_ajout = Livre(titre, auteur, edition, genre, pages)
         
         livres = pd.read_csv('data/books.csv', sep=',')
@@ -317,9 +419,10 @@ class Admin(Utilisateur_Nouveau):
         ### Objectif
         Retire un livre de la base de données des livres.
 
-        Args:
+        ### Paramètres
             livre_id (int): l'ID du livre
         """
+
         books = pd.read_csv('data/books.csv', sep=',')
         books = books[books['ID'] != livre_id]
         books.to_csv('data/books.csv', index=False)
@@ -329,6 +432,15 @@ class Admin(Utilisateur_Nouveau):
 
 
     def notifier_utilisateur_temps_emprunt(self, user : Utilisateur_Existant, titre : str):
+        """
+        ### Objectif
+        Notifie l'utilisateur qu'il a dépassé le temps d'emprunt d'un livre.
+        ### Paramètres
+        - user (Utilisateur_Existant): L'utilisateur à notifier.
+        - titre (str): Le titre du livre dont le temps d'emprunt est dépassé.
+        ### Retourne
+        - (str): Le temps d'emprunt.
+        """
         livre = user._liste_livres[user._liste_livres["titre" == titre]]
         date_emprunt_livre = livre["date"]
         date = datetime.now()
@@ -337,7 +449,15 @@ class Admin(Utilisateur_Nouveau):
         return temps_emprunt
     
     def rechercher(self, valeur_recherche: str, type_recherche: str):
-        
+        """
+        ### Objectif
+        Recherche un livre dans la base de données des livres.
+        ### Paramètres
+        - valeur_recherche (str): La valeur à rechercher.
+        - type_recherche (str): Le type de recherche.
+        ### Retourne
+        - (pd.DataFrame): La liste des livres correspondant à la recherche.
+        """
         if type_recherche == "Titre":
             type_recherche = 'Title'
         elif type_recherche == "Auteur":
@@ -363,6 +483,17 @@ class Admin(Utilisateur_Nouveau):
 class Admin_Existant(Admin):
     
     def __init__(self, id: str, nom: str, date_naissance: date, role: str, date_enregistrement: date):
+        """
+        ### Objectif
+        Créer une instance d'un administrateur existant.
+        ### Paramètres
+        - id (str): L'ID de l'administrateur.
+        - nom (str): Le nom de l'administrateur.
+        - date_naissance (date): La date de naissance de l'administrateur.
+        - role (str): Le rôle de l'administrateur.
+        - date_enregistrement (date): La date d'enregistrement de l'administrateur.
+        """
+        
         self._id = id
         self._nom = nom
         self._date_naissance = date_naissance

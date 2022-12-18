@@ -8,7 +8,12 @@ import numpy as np
 from classes.utilisateur import Utilisateur_Existant, Admin_Existant
 from classes.reco_sys import RecommenderSystem
 
-  
+st.set_page_config(
+    page_title="Bibliothèque GEMA",
+    page_icon="📚",
+    layout="wide",
+    initial_sidebar_state="auto",
+)
 
 with open('config.yaml') as file:
     config = yaml.safe_load(file)
@@ -36,19 +41,18 @@ if authentication_status:
         user_info['liste_livres'].values[0].split(',')
     )
     
-    
     if user._role == 'Utilisateur':
 
         with st.sidebar:
             authenticator.logout('Se déconnecter', 'sidebar')
 
-            st.markdown("---")
+            # st.markdown("---")
 
-            st.markdown("## Modifier son profil")
-            st.button('Modifier son mot de passe', key='change_password')
-            st.button('Modifier son adresse mail', key='change_mail')
-            st.button('Modifier son nom d\'utilisateur', key='change_username')
-            st.button('Modifier sa date de naissance', key='change_birthdate')
+            # st.markdown("## Modifier son profil")
+            # st.button('Modifier son mot de passe', key='change_password')
+            # st.button('Modifier son adresse mail', key='change_mail')
+            # st.button('Modifier son nom d\'utilisateur', key='change_username')
+            # st.button('Modifier sa date de naissance', key='change_birthdate')
 
 
         st.title(f'Bienvenue sur votre interface personnelle, *{name}*')
@@ -104,10 +108,10 @@ if authentication_status:
                         st.warning("Aucun résultat ne correspond à votre recherche.")
                     elif len(results) > 1:
                         st.warning(f"Votre recherche correspond à {len(results)} livres. Veuillez la préciser.")
-                        st.write(results)
+                        st.table(results)
                     elif len(results) == 1:
                         st.success(f"Le livre \"{results['Title'].values[0]}\" est disponible. Empruntez-le !")
-                        st.write(results)
+                        st.table(results)
                         if st.button('Emprunter ce livre'):
                             user.emprunter(results['ID'].values[0])
                             st.success(f"Vous avez emprunté le livre \"{results['Title'].values[0]}\" !")
@@ -184,7 +188,7 @@ if authentication_status:
                 if resultats.empty:
                     st.warning("Aucun résultat ne correspond à votre recherche.")
                 else:
-                    st.write(resultats)
+                    st.table(resultats)
         
 
 
@@ -217,9 +221,9 @@ if authentication_status:
                 st.info("D'après vos lectures, voici les livres disponibles que nous vous recommandons")
                 if genre_recommended_books:
                     results_reco_sys = results_reco_sys[results_reco_sys['Genre'].isin(genre_recommended_books)]
-                    st.write(results_reco_sys[['Title', 'Author', 'Genre', 'Available', 'Mean_Rating', 'ID']])
+                    st.table(results_reco_sys[['Title', 'Author', 'Genre', 'Available', 'Mean_Rating', 'ID']])
                 else:
-                    st.write(results_reco_sys[['Title', 'Author', 'Genre', 'Available', 'Mean_Rating', 'ID']])
+                    st.table(results_reco_sys[['Title', 'Author', 'Genre', 'Available', 'Mean_Rating', 'ID']])
     
     # si un admin est connecté
     else:
@@ -291,10 +295,10 @@ if authentication_status:
                     st.warning("Aucun résultat ne correspond à votre recherche.")
                 elif len(results) > 1:
                     st.warning(f"Votre recherche correspond à {len(results)} livres. Veuillez la préciser.")
-                    st.write(results)
+                    st.table(results)
                 elif len(results) == 1:
                     st.success(f"Souhaitez-vous retirer le livre \"{results['Title'].values[0]}\" ? Cette action est irréversible.")
-                    st.write(results)
+                    st.table(results)
                     if st.button('Supprimer ce livre'):
                         admin.retirerLivre(results['ID'].values[0])
                         st.info(f"Vous avez retiré le livre \"{results['Title'].values[0]}\" de la base de données.")

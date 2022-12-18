@@ -4,6 +4,14 @@ cookie:
   name: some_cookie_name
 credentials:
   usernames:
+    ObiWan:
+      email: obiwan@deathstar.fr
+      name: ObiWan
+      password: $2b$12$a7/RM5ZqrE1T0MxZE.cNo.dQgjow8.IwARQgsKYgapAFVxhy9FG4S
+    Vador:
+      email: vador@order66.com
+      name: Vador
+      password: $2b$12$7wdwpYuB6ceb40t2itto3eCTOc0DZtNLNldcvOG5bonWZsrmB6c0i
     faguzer:
       email: faguzer
       name: faguzer
@@ -46,20 +54,22 @@ credentials:
       password: $2b$12$5djvQ0/iNDzHnD3kvLOt8erenUBM.6ha5LZQ0mA9aEVkk7VFnq..u
 preauthorized:
   emails:
-    - melsby@gmail.com
-    - pfagz
-    - pfaguz
-    - fagzz
-    - grimzz
-    - faguzer@gmail.com
-    - faguzer
-    - test
-    - test
-    - test
-    - user
-    - test
-    - tess
-    - tessa
-    - uzzzer
-    - testUnique
-    - role
+  - melsby@gmail.com
+  - pfagz
+  - pfaguz
+  - fagzz
+  - grimzz
+  - faguzer@gmail.com
+  - faguzer
+  - test
+  - test
+  - test
+  - user
+  - test
+  - tess
+  - tessa
+  - uzzzer
+  - testUnique
+  - role
+  - obiwan@deathstar.fr
+  - vador@order66.com
