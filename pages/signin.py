@@ -1,13 +1,16 @@
-import streamlit as st 
-import streamlit_authenticator as stauth
-import yaml
-import pandas as pd
-from time import sleep
-import numpy as np 
-
 from classes.utilisateur import Utilisateur_Existant, Admin_Existant
 from classes.reco_sys import RecommenderSystem
 
+from time import sleep
+import yaml
+
+import numpy as np 
+import pandas as pd
+import streamlit as st 
+import streamlit_authenticator as stauth
+
+
+# configuration de la page
 st.set_page_config(
     page_title="Bibliothèque GEMA",
     page_icon="📚",
@@ -15,9 +18,11 @@ st.set_page_config(
     initial_sidebar_state="auto",
 )
 
+# chargement du fichier de configuration
 with open('config.yaml') as file:
     config = yaml.safe_load(file)
 
+# chargement de l'authentificateur streamlit
 authenticator = stauth.Authenticate(
     config['credentials'],
     config['cookie']['name'],
@@ -26,10 +31,13 @@ authenticator = stauth.Authenticate(
     config['preauthorized']
 )
 
+# génération du formulaire d'authentification
 name, authentication_status, username = authenticator.login('Se connecter', 'main')
-# authenticator.logout('Se déconnecter', 'main')
 
+# si l'utilisateur est authentifié
 if authentication_status:
+
+    # récupération des informations de l'utilisateur
     users_csv = pd.read_csv('data/users.csv', sep=',')
     user_info = users_csv[users_csv['nom'] == name]
     user = Utilisateur_Existant(
@@ -41,35 +49,29 @@ if authentication_status:
         user_info['liste_livres'].values[0].split(',')
     )
     
+    # si l'utilisateur est un Utilisateur (pas un Admin)
     if user._role == 'Utilisateur':
 
         with st.sidebar:
+            ### bouton de déconnexion
             authenticator.logout('Se déconnecter', 'sidebar')
-
-            # st.markdown("---")
-
-            # st.markdown("## Modifier son profil")
-            # st.button('Modifier son mot de passe', key='change_password')
-            # st.button('Modifier son adresse mail', key='change_mail')
-            # st.button('Modifier son nom d\'utilisateur', key='change_username')
-            # st.button('Modifier sa date de naissance', key='change_birthdate')
-
 
         st.title(f'Bienvenue sur votre interface personnelle, *{name}*')
 
         st.markdown('<div style="height: 70px;"></div>', unsafe_allow_html=True)
 
-        # si l'utilisateur possède un livre, il l'affiche
+        # si l'utilisateur possède des livres, on les affiche
         st.markdown("# MES LIVRES")
 
         if len(user._liste_livres) == 0:
             st.warning("Vous n'avez aucun livre en votre possession actuellement.")
+
         else:
             livres = pd.read_csv('data/books.csv', sep=',')
             livre_info = pd.DataFrame()
             for livre_index in user._liste_livres:
                 livre_info = pd.concat([livres[livres['ID'] == int(livre_index)], livre_info], ignore_index=True)
-            st.table(livre_info[['ID', 'Title', 'Author', 'Genre', 'Rating']].sort_values(by='ID', ascending=True).set_index('ID'))
+            st.table(livre_info[['ID', 'Title', 'Author', 'Genre', 'Rating', 'Loan_Date']].sort_values(by='ID', ascending=True).set_index('ID'))
 
         st.markdown('<div style="height: 50px;"></div>', unsafe_allow_html=True)
         st.markdown("---")
@@ -79,7 +81,6 @@ if authentication_status:
             options=['Rendre un livre', 'Emprunter un livre', 'Rechercher un livre', 'Voir les livres recommandés'],
             key='action'
         )
-
 
 
         ##### EMPRUNTER UN LIVRE #####
@@ -209,11 +210,12 @@ if authentication_status:
             results_reco_sys = results_reco_sys[results_reco_sys['Available'] == True]
 
             with sys_reco_col2:
-                genre_recommended_books = st.multiselect(
-                    label="Genre(s) de livres",
-                    default=results_reco_sys['Genre'].unique()[0],
-                    options=results_reco_sys['Genre'].unique(),
-                )
+                if len(results_reco_sys) > 0:
+                    genre_recommended_books = st.multiselect(
+                        label="Genre(s) de vos livres empruntés",
+                        default=results_reco_sys['Genre'].unique()[0],
+                        options=results_reco_sys['Genre'].unique(),
+                    )
 
             if len(results_reco_sys) == 0:
                 st.info("Aucun livre disponible ne correspond à vos lectures.")
@@ -310,4 +312,3 @@ elif authentication_status == False:
     st.error("Le nom d'utilisateur ou le mot de passe est incorrect. Veuillez réessayer.")
 elif authentication_status == None:
     st.info("Veuillez entrer vos identifiants pour accéder à l'interface de la bibliothèque.")
-

@@ -200,6 +200,8 @@ class Utilisateur_Nouveau:
         # modifie le statut du livre emprunté dans le csv books
         books = pd.read_csv('data/books.csv', sep=',')
         books.loc[books['ID'] == livre_id, 'Available'] = False
+        books.loc[books['ID'] == livre_id, 'Loan_Date'] = datetime.now().strftime('%Y-%m-%d')
+        books.loc[books['ID'] == livre_id, 'Loan_User_ID'] = self._id
         books.to_csv('data/books.csv', index=False)
         
         # ajoute l'id du livre à la liste des livres empruntés
@@ -412,8 +414,7 @@ class Admin(Utilisateur_Nouveau):
         }])], ignore_index=True).to_csv('data/books.csv', index=False)
 
         return 
-
-        
+     
     def retirerLivre(self, livre_id: int):
         """
         ### Objectif
@@ -429,9 +430,7 @@ class Admin(Utilisateur_Nouveau):
 
         return 
 
-
-
-    def notifier_utilisateur_temps_emprunt(self, user : Utilisateur_Existant, titre : str):
+    def notifierUtilisateurTempsEmprunt(self, user: Utilisateur_Existant, livre_id: int):
         """
         ### Objectif
         Notifie l'utilisateur qu'il a dépassé le temps d'emprunt d'un livre.
@@ -441,12 +440,18 @@ class Admin(Utilisateur_Nouveau):
         ### Retourne
         - (str): Le temps d'emprunt.
         """
-        livre = user._liste_livres[user._liste_livres["titre" == titre]]
-        date_emprunt_livre = livre["date"]
-        date = datetime.now()
-        temps_emprunt = date - date_emprunt_livre
-        
-        return temps_emprunt
+        livre_id = 5
+        books = pd.read_csv('data/books.csv', sep=',')
+        book = books[books['ID'] == livre_id]
+        loan_date = book['Loan_Date'].values[0]
+
+        now = datetime.now().strftime('%Y-%m-%d')
+        timedelta = datetime.strptime(now, '%Y-%m-%d') - datetime.strptime(loan_date, '%Y-%m-%d')
+
+        # if the difference is greater than 30 days, notify the user
+        if timedelta.days > 30:
+            return "Vous avez dépassé le temps d'emprunt du livre " + book['Title'].values[0] + "."
+            
     
     def rechercher(self, valeur_recherche: str, type_recherche: str):
         """
